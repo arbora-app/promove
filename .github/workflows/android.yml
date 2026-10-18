@@ -1,0 +1,68 @@
+name: Build Android app
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - uses: android-actions/setup-android@v3
+
+      - name: Install Capacitor
+        run: npm install
+
+      - name: Create the Android project
+        run: npx cap add android
+
+      - name: App icon and splash screen
+        run: >
+          npx @capacitor/assets generate --android
+          --iconBackgroundColor '#E8ECEC' --iconBackgroundColorDark '#0F1416'
+          --splashBackgroundColor '#E8ECEC' --splashBackgroundColorDark '#0F1416'
+
+      - name: Version, permissions, notification icon
+        run: node ci/patch-android.js
+
+      - name: Copy the app into the Android project
+        run: npx cap sync android
+
+      - name: Use the project's fixed signing key, so updates install over older versions
+        run: mkdir -p ~/.android && cp ci/debug.keystore ~/.android/debug.keystore
+
+      - name: Build the APK
+        working-directory: android
+        run: ./gradlew assembleDebug --no-daemon
+
+      - name: Name the file
+        run: cp android/app/build/outputs/apk/debug/app-debug.apk Promove-1.0.${{ github.run_number }}.apk
+
+      - name: Keep it with this build
+        uses: actions/upload-artifact@v4
+        with:
+          name: Promove-1.0.${{ github.run_number }}
+          path: Promove-1.0.${{ github.run_number }}.apk
+
+      - name: Publish it on the Releases page (easy to download on the phone)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          name: Promove 1.0.${{ github.run_number }}
+          files: Promove-1.0.${{ github.run_number }}.apk
+          body: Install on Android by opening the APK. Updates install over the previous version and keep your data.

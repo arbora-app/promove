@@ -1,0 +1,14 @@
+{
+  "appId": "app.arbora.promove",
+  "appName": "Promove",
+  "webDir": "www",
+  "android": {
+    "adjustMarginsForEdgeToEdge": "auto"
+  },
+  "plugins": {
+    "LocalNotifications": {
+      "smallIcon": "ic_stat_promove",
+      "iconColor": "#2C8A55"
+    }
+  }
+}
