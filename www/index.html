@@ -3326,18 +3326,8 @@ function rankOf(m){
   var a = S().annotations[m.id], g = a && a.magnitude;
   return g === "major" ? 3 : g === "moderate" ? 2 : g === "minor" ? 1 : 0;
 }
-/* a rung earns its place only by taking something off the page */
-function zoomStops(D){
-  var items = D.ms.filter(mvShown).map(rankOf), att = 0;
-  Object.keys(D.eng).forEach(function(d){ D.eng[d].list.forEach(function(e){ if (typeOn(engType(e))) items.push(sigRank(e)); }); });
-  Object.keys(D.sch || {}).forEach(function(d){ D.sch[d].forEach(function(x){ if (typeOn(schType(x))) items.push(sigRank(x)); }); });
-  var out = [0], prev = items.length + att;
-  for (var z = 1; z <= 3; z++){
-    var n = items.filter(function(r){ return r >= z; }).length;
-    if (n > 0 && n < prev){ out.push(z); prev = n; }
-  }
-  return out;
-}
+/* a fixed ladder: everything · moderate and larger · major only (minor is the lowest level, so it has no rung of its own) */
+function zoomStops(D){ return D.ms.length ? [0, 2, 3] : [0]; }
 function snapZoom(D){
   var st = zoomStops(D), z = ui.mv.zoom || 0, best = 0;
   st.forEach(function(s){ if (s <= z) best = s; });
