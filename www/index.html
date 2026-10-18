@@ -5415,20 +5415,20 @@ function nResched(){
   nTimer = setTimeout(function(){
     var list = nPlan(), sig = JSON.stringify(list.map(function(x){ return [x.id, +x.schedule.at, x.title, x.body]; })) + "|" + JSON.stringify(prefs.timer || null) + "|" + nCfg().timer + "|" + lang + "|" + todayISO() + "|" + calSys();
     if (sig === nLastSig) return; nLastSig = sig;
+    /* the ongoing notification alternates between two ids by day: today's is only ever shown
+       (never scheduled, which on Android takes it off the bar), and tomorrow's waits on the other id */
+    var dayN = Math.floor((Date.now() - new Date().getTimezoneOffset() * 60000) / 864e5), idT = 7 + (dayN % 2), idM = 15 - idT, ong = nCfg().timer;
     LN.getPending().then(function(r){
-      var old = (r && r.notifications || []).filter(function(n){ return n.id !== 7; }).map(function(n){ return { id:n.id }; });   /* never cancel the ongoing one: that would take it off the bar */
-      return old.length ? LN.cancel({ notifications:old }) : null;
+      var old = (r && r.notifications || []).filter(function(n){ return n.id !== 7 && n.id !== 8; }).map(function(n){ return { id:n.id }; });
+      if (ong) old.push({ id:idM }); else old.push({ id:7 }, { id:8 });   /* yesterday's ongoing one (or both, if switched off) */
+      return LN.cancel({ notifications:old });
     }).catch(function(){}).then(function(){
       var all = list.slice();
-      /* the ongoing notification: today in both calendars, and the timer when one is running.
-         It's refreshed now and again just after midnight; opening the app refreshes it too. */
-      var ong = nCfg().timer;
       if (ong){
-        /* shown straight away (no alarm, so Android can't delay it) */
-        var now7 = nOngoing(new Date(), 7, null); delete now7.schedule; all.push(now7);
-        /* once that one is showing, the same notification is set to refresh itself just after midnight */
-        setTimeout(function(){ var mid = new Date(); mid.setHours(24, 0, 30, 0); LN.schedule({ notifications:[nOngoing(mid, 7, mid)] }).catch(function(){}); }, 5000);
-      } else LN.cancel({ notifications:[{ id:7 }] }).catch(function(){});
+        var mid = new Date(); mid.setHours(24, 0, 30, 0);
+        var nowO = nOngoing(new Date(), idT, null); delete nowO.schedule; all.push(nowO);
+        all.push(nOngoing(mid, idM, mid));
+      }
       if (all.length) return LN.schedule({ notifications:all });
     }).catch(function(e){ console.log("[promove] notifications", e && e.message); });
   }, 400);
