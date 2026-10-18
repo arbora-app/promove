@@ -1497,7 +1497,8 @@ function settleScheduled(S, cmd, now){
   N.commands[cmd.id] = { kind:"settled", outcome:out, project:sc.project };
   return { S:N, result:N.commands[cmd.id] };
 }
-function dueScheduled(S, todayIso){ return (S.scheduled || []).filter(function(x){ return !x.done && x.date <= todayIso && S.projects[x.project]; }); }
+/* due: any earlier day, or today once its time has come (no time set: all day) */
+function dueScheduled(S, todayIso, nowHM){ return (S.scheduled || []).filter(function(x){ return !x.done && S.projects[x.project] && (x.date < todayIso || (x.date === todayIso && (!x.time || !nowHM || x.time <= nowHM))); }); }
 /* annotate_movement: enriches the movement, keeps its own edit history, never creates a movement. */
 var ANN = ["explanation","reflection","evidence","occurred","magnitude","direction"];
 var MAG = ["","minor","moderate","major"], DIR = ["","forward","setback","neutral"];
@@ -3093,6 +3094,8 @@ function saveNotifSettings(){
   prefs.notif = c; savePrefs(); closeSheet(); render(); toast(t("nSaved"));
 }
 /* ---------- the timer: start when you begin, stop when you're done, and the session is filled in ---------- */
+function schDue(x){ var td = todayISO(); return !x.done && (x.date < td || (x.date === td && (!x.time || x.time <= nowHM()))); }
+function nowHM(){ var d = new Date(); return (d.getHours() < 10 ? "0" : "") + d.getHours() + ":" + (d.getMinutes() < 10 ? "0" : "") + d.getMinutes(); }
 function tickText(){
   var tm = prefs.timer; if (!tm) return "";
   var m = Math.max(0, Math.floor((Date.now() - tm.start) / 60000)), h = Math.floor(m / 60), mm = m % 60;
@@ -3417,7 +3420,7 @@ function sesRow(e, D){
     ' <span class="muted">· ' + esc(t("noMov")) + "</span>" + (e.note ? '<span class="ex">' + esc(e.note) + "</span>" : "") + "</span>" + entTail(e) + "</button>";
 }
 function schRow(x, D, today){
-  var pn = D.all && S().projects[x.project] ? S().projects[x.project].data.name : "", due = !x.done && x.date <= today;
+  var pn = D.all && S().projects[x.project] ? S().projects[x.project].data.name : "", due = schDue(x);
   var what = x.event ? "<b>" + esc(t("evShort")) + "</b>" : "<b>" + esc(t("kindSched")) + "</b> · " + esc(t(x.sessions === 1 ? "attempt1" : "attemptN", { n:x.sessions }));
   var caps = x.event ? '<i class="sch ev' + (x.done ? " dn" : "") + '"></i>' : new Array(Math.min(Math.max(1, Math.ceil(x.sessions)), 6) + 1).join('<i class="sch"></i>');
   return '<button type="button" class="att-row schrow2 ent' + (x.event ? " evrow" : "") + (x.done ? " dn" : "") + '" data-act="entry" data-kind="scheduled" data-id="' + esc(x.id) + '">' + (pn ? '<span class="pname">' + esc(pn) + "</span>" : "") +
@@ -3910,7 +3913,7 @@ function logOne(pid){
 function openLog(pid, day, kind){
   var w = ui.att.week || perStart(new Date()), cur = perStart(new Date()), def = day || (w === cur ? todayISO() : w > cur ? w : perEnd(w));
   if (!kind) kind = def > todayISO() ? "sched" : "done";
-  if (kind === "sched" && def <= todayISO() && !day) def = addDays(todayISO(), 1);
+  if (kind === "sched" && def < todayISO()) def = todayISO();
   ui.logCmd = PMM.uid();
   var pre = ui.logPreset;
   var opts = activeProjects().map(function(p){ return [p.id, p.data.name]; });
@@ -3941,7 +3944,7 @@ function openLog(pid, day, kind){
       setSw(doneSw, k === "done");
       if (k === "done"){ setSw(wkSw, false); setSw(evSw, false); } else setSw(sh.querySelector('[data-sw="fin"]'), false);
       var d = sh.querySelector('input[name="date"]');
-      if (k === "sched" && d.value <= todayISO()) d.value = addDays(todayISO(), 1);
+      if (k === "sched" && d.value < todayISO()) d.value = todayISO();   /* later today is fine */
       if (k === "done" && d.value > todayISO()) d.value = todayISO();
       [].forEach.call(sh.querySelectorAll("[data-only]"), function(g){ g.hidden = g.dataset.only !== k; });
       document.getElementById("kindHint").textContent = t(k === "sched" ? "kindSchedHint" : "kindDoneHint");
@@ -3989,12 +3992,12 @@ function saveLog(){
 function schedOf(pid, from, to, sessionsOnly){ return (S().scheduled || []).filter(function(x){ return !x.done && (!sessionsOnly || !x.event) && x.project === pid && x.date >= from && x.date <= to; }).sort(function(a, b){ return a.date < b.date ? -1 : 1; }); }
 function schedLabel(x){ return (x.event ? t("evShort") + " · " : "") + fmtD(x.date, true) + (x.time ? " " + x.time : "") + (x.weekly ? " · " + t("wkShort") : "") + (!x.event && x.sessions ? " · " + t("attemptN", { n:x.sessions }) : "") + (x.event && x.note ? " · " + x.note : ""); }
 function schedChip(x){
-  var due = x.date <= todayISO();
+  var due = schDue(x);
   return '<button class="chip sm schchip' + (due ? " due" : "") + (x.event ? " ev" : "") + '" type="button" data-act="schask" data-id="' + esc(x.id) + '"><i class="schdot"></i><span>' + esc(schedLabel(x)) + (due ? " · " + esc(t("schDidIt")) : "") + "</span></button>";
 }
 function openSched(id){
   var x = (S().scheduled || []).filter(function(y){ return y.id === id; })[0]; if (!x) return;
-  var p = S().projects[x.project], due = x.date <= todayISO();
+  var p = S().projects[x.project], due = schDue(x);
   var body = '<p style="margin:0 0 4px"><b>' + esc(t(x.event ? (due ? "evAskQ" : "evFuture") : due ? "schAskQ" : "schFuture")) + '</b></p><p class="muted" style="margin:0 0 10px">' + esc(schedLabel(x)) + (x.note ? " · " + esc(x.note) : "") + "</p>" +
     '<form data-form="schmove"><div class="row2">' + field("date", t("schMoveTo"), inp("date", due ? todayISO() : x.date, "date")) + field("time", t("timeOpt"), inp("time", x.time || "", "time")) + "</div></form>";
   openSheet(p ? p.data.name : t("kindSched"), body,
@@ -4028,7 +4031,7 @@ function openEntry(k, id, project, day){
     title = t("f_checkpoint"); sub = fmtD(day, true);
     var g = p && (p.data.goal || p.data.expChange); if (g) sub += " · " + g;
   } else {
-    var due = !x.done && x.date <= todayISO();
+    var due = schDue(x);
     title = x.event ? t("evShort") : t("kindSched"); sub = schedLabel(x);
     if (!x.done){
       extra = '<div class="entacts"><span class="lab">' + esc(t(x.event ? (due ? "evAskQ" : "evFuture") : due ? "schAskQ" : "schFuture")) + "</span>" +
@@ -4063,13 +4066,13 @@ function settleSched(id, outcome, keepSheet){
   if (outcome === "move"){ var f = scrim.querySelector('form[data-form="schmove"]'), v = readForm(f); date = v.date; time = v.time; if (!date) return showErrors(f, [{ field:"date", code:"date" }]); }
   var r = attempt(function(s){ return PMM.settleScheduled(s, { id:PMM.uid(), scheduled:id, outcome:outcome, date:date, time:time }); });
   if (!r.ok) return toast(t("errSave"));
-  if (keepSheet){ var left = PMM.dueScheduled(S(), todayISO()); if (scrim.hidden){} else if (ui.bellOpen) openBell(); else if (left.length) openSchedDue(); else closeSheet(); }
+  if (keepSheet){ var left = PMM.dueScheduled(S(), todayISO(), nowHM()); if (scrim.hidden){} else if (ui.bellOpen) openBell(); else if (left.length) openSchedDue(); else closeSheet(); }
   else closeSheet();
   var wasEv = r.result && (S().scheduled || []).some(function(y){ return y.id === id && y.event; });
   render(); toast(t(outcome === "done" && wasEv ? "evDoneToast" : outcome === "done" ? "schDoneToast" : outcome === "move" ? "schMovedToast" : outcome === "stop" ? "schStopToast" : "schDropToast"));
 }
 function openSchedDue(){
-  var list = PMM.dueScheduled(S(), todayISO()).sort(function(a, b){ return a.date < b.date ? -1 : 1; }); if (!list.length) return closeSheet();
+  var list = PMM.dueScheduled(S(), todayISO(), nowHM()).sort(function(a, b){ return a.date < b.date ? -1 : 1; }); if (!list.length) return closeSheet();
   ui.schedSheet = true;
   var body = '<p class="note" style="margin:0 0 8px">' + esc(t("schDueIntro")) + '</p><ul class="schlist">' + list.map(function(x){
     var p = S().projects[x.project];
@@ -5273,7 +5276,7 @@ function cpDue(){   /* check dates reached and not yet assessed: the dot stays u
 function bellCount(){
   if (!S().order.length) return 0;
   var other = dueReminders().filter(function(r){ return r.key.indexOf("checkpoint_due:") !== 0; }).length;
-  return PMM.dueScheduled(S(), todayISO()).length + cpDue() + other;
+  return PMM.dueScheduled(S(), todayISO(), nowHM()).length + cpDue() + other;
 }
 function bellBtn(){
   var n = bellCount();
@@ -5300,7 +5303,7 @@ function upcoming(){
   return out;
 }
 function openBell(){
-  var due = PMM.dueScheduled(S(), todayISO()).sort(function(a, b){ return a.date < b.date ? -1 : 1; }), rem = S().order.length ? dueReminders(true) : [];
+  var due = PMM.dueScheduled(S(), todayISO(), nowHM()).sort(function(a, b){ return a.date < b.date ? -1 : 1; }), rem = S().order.length ? dueReminders(true) : [];
   var ses = due.filter(function(x){ return !x.event; }), evs = due.filter(function(x){ return x.event; }), up = upcoming();
   ui.bellOpen = true; ui.schedSheet = true;
   var body = "";
@@ -5328,7 +5331,7 @@ function viewToday(){
   var h = '<p class="tddate">' + esc(fmtD(td, true)) + "</p>";
   if (!s.order.length) return h + '<div class="glass emptybox section"><h2>' + esc(t("emptyTitle")) + "</h2><p>" + esc(t("emptyBody")) +
     '</p><div class="btns"><button class="btn tk" type="button" data-act="new">' + esc(t("newProject")) + '</button><button class="btn ti" type="button" data-act="samples">' + esc(t("loadSamples")) + "</button></div></div>";
-  var due = PMM.dueScheduled(s, td).sort(function(a, b){ return a.date < b.date ? -1 : 1; }), rem = dueReminders(true);
+  var due = PMM.dueScheduled(s, td, nowHM()).sort(function(a, b){ return a.date < b.date ? -1 : 1; }), rem = dueReminders(true);
   var ses = due.filter(function(x){ return !x.event; }), evs = due.filter(function(x){ return x.event; });
   /* 1 · needs you now */
   h += '<div class="section"><div class="sec-hd"><h2>' + esc(t("tdNow")) + "</h2>" + (due.length + rem.length ? "<span>" + nf(due.length + rem.length) + "</span>" : "") + '</div><div class="card glass pad tdcard">';
@@ -5413,7 +5416,7 @@ function nResched(){
     var list = nPlan(), sig = JSON.stringify(list.map(function(x){ return [x.id, +x.schedule.at, x.title, x.body]; })) + "|" + JSON.stringify(prefs.timer || null) + "|" + nCfg().timer + "|" + lang + "|" + todayISO() + "|" + calSys();
     if (sig === nLastSig) return; nLastSig = sig;
     LN.getPending().then(function(r){
-      var old = (r && r.notifications || []).map(function(n){ return { id:n.id }; });
+      var old = (r && r.notifications || []).filter(function(n){ return n.id !== 7; }).map(function(n){ return { id:n.id }; });   /* never cancel the ongoing one: that would take it off the bar */
       return old.length ? LN.cancel({ notifications:old }) : null;
     }).catch(function(){}).then(function(){
       var all = list.slice();
@@ -5421,7 +5424,8 @@ function nResched(){
          It's refreshed now and again just after midnight; opening the app refreshes it too. */
       var ong = nCfg().timer;
       if (ong){
-        all.push(nOngoing(new Date(), 7, new Date(Date.now() + 1500)));
+        /* shown straight away (no alarm, so Android can't delay it) */
+        var now7 = nOngoing(new Date(), 7, null); delete now7.schedule; all.push(now7);
         /* once that one is showing, the same notification is set to refresh itself just after midnight */
         setTimeout(function(){ var mid = new Date(); mid.setHours(24, 0, 30, 0); LN.schedule({ notifications:[nOngoing(mid, 7, mid)] }).catch(function(){}); }, 5000);
       } else LN.cancel({ notifications:[{ id:7 }] }).catch(function(){});
