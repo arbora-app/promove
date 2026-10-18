@@ -3159,7 +3159,7 @@ function viewSoon(k){
 /* ---------- movements: calendar of attention above, timeline of change below ---------- */
 /* the week starts on the day set in Settings: Saturday by default, as in Iran */
 function wkStart(){ var s0 = S().settings; return s0 && s0.weekStart != null ? s0.weekStart : 6; }
-ui.mv = { sel:null, active:null, open:{}, split: prefs.split || 50, calTop:null, tlTop:0, all: !!prefs.mvAll,
+ui.mv = { sel:null, active:null, open:{}, split: prefs.split || 50, calTop:null, tlTop:0, all: prefs.mvAll !== false,
   types: prefs.mvTypes2 || { event:true, scheduled:true, movement:true, checkpoint:true }, showCorr: !!prefs.mvCorr };
 if (ui.mv.types.scheduled == null) ui.mv.types.scheduled = true;
 if (ui.mv.types.event == null) ui.mv.types.event = true;
@@ -3171,7 +3171,7 @@ function engType(e){ return "session"; }
 /* what the Movements tab is looking at: one project, or all of them together */
 function mvScope(){
   if (ui.mv.all) return { all:true, ids:S().order.slice() };
-  var p = proj(); return p ? { all:false, ids:[p.id], p:p } : null;
+  var p = proj(); return p ? { all:false, ids:[p.id], p:p } : S().order.length ? { all:true, ids:S().order.slice() } : null;
 }
 function localDay(ts){ return PMM.iso(new Date(ts)); }
 function monthKey(d){ return d.getFullYear() + "-" + (d.getMonth() + 1 < 10 ? "0" : "") + (d.getMonth() + 1); }
@@ -4589,7 +4589,7 @@ function rvCommit(){
 /* open Movements on this project only; the review waits where it was */
 function rvMoves(pid){
   var p = S().projects[pid]; if (!p) return;
-  ui.pid = pid; ui.mv.all = false; prefs.mvAll = false; savePrefs();
+  ui.pid = pid; ui.mv.all = false;
   ui.mv.types.movement = true; ui.mv.sel = null; ui.mv.active = null; ui.mv.calTop = null; ui.mv.tlTop = 0;
   ui.tab = "movements"; remember(); render(); scrollTo(0, 0);
   toast(t("rvMovesFor", { p:p.data.name }), t("backToReview"), function(){ ui.tab = "review"; remember(); render(); scrollTo(0, 0); });
@@ -6096,7 +6096,7 @@ document.addEventListener("click", function(e){
     case "pickall": ui.mv.all = true; prefs.mvAll = true; ui.mv.active = null; ui.mv.sel = null; ui.mv.calTop = null; ui.mv.tlTop = 0; ui.mv.open = {}; savePrefs(); closeSheet(); render(); break;
     case "ttype":
       var k = b.dataset.type; ui.mv.types[k] = !ui.mv.types[k]; prefs.mvTypes2 = ui.mv.types; savePrefs(); render(); break;
-    case "pick": ui.pedit = false; ui.mv.all = false; prefs.mvAll = false; ui.pid = b.dataset.id; ui.mv.active = null; ui.mv.sel = null; ui.mv.calTop = null; ui.mv.tlTop = 0; ui.mv.open = {}; remember(); closeSheet(); render(); scrollTo(0, 0); break;
+    case "pick": ui.pedit = false; if (ui.tab === "movements"){ ui.mv.all = false; prefs.mvAll = false; } ui.pid = b.dataset.id; ui.mv.active = null; ui.mv.sel = null; ui.mv.calTop = null; ui.mv.tlTop = 0; ui.mv.open = {}; remember(); closeSheet(); render(); scrollTo(0, 0); break;
     case "basis": openBasis(b.dataset.id); break;
     case "pfarea": ui.pf.area = b.dataset.id === ui.pf.area ? "" : b.dataset.id; prefs.pfArea = ui.pf.area; savePrefs(); render(); break;
     case "areapick": openAreaPick(); break;
@@ -6107,7 +6107,7 @@ document.addEventListener("click", function(e){
     case "open": if (b.dataset.pv){ ui.pview = b.dataset.pv; prefs.pview = ui.pview; savePrefs(); } if (!scrim.hidden) closeSheet(); ui.mv.active = null; ui.mv.sel = null; ui.mv.calTop = null; ui.mv.tlTop = 0; ui.mv.open = {}; ui.pid = b.dataset.id; ui.tab = "project"; ui.more = false; remember(); render(); scrollTo(0, 0); break;
     case "gotab": ui.tab = b.dataset.tab; remember(); render(); break;
     case "pview": ui.pview = b.dataset.v === "since" ? "since" : "ov"; prefs.pview = ui.pview; savePrefs(); render(); break;
-    case "openprog": var spp = proj() && sincePeriod(proj()); ui.tab = "movements"; ui.mv.all = false; prefs.mvAll = false; ui.mv.active = spp ? spp.from : null; ui.mv.sel = null; ui.mv.calTop = null; ui.mv.tlTop = 0; remember(); render(); scrollTo(0, 0); break;
+    case "openprog": var spp = proj() && sincePeriod(proj()); ui.tab = "movements"; ui.mv.all = false; ui.mv.active = spp ? spp.from : null; ui.mv.sel = null; ui.mv.calTop = null; ui.mv.tlTop = 0; remember(); render(); scrollTo(0, 0); break;
     case "new": openNew(); break;
     case "create": createFromForm(); break;
     case "samples": loadSamples(); break;
@@ -6153,7 +6153,7 @@ document.addEventListener("click", function(e){
     case "mov":
       var mc = S().movements.filter(function(x){ return x.id === b.dataset.id; })[0];
       if (ui.tab === "project" && !(mc && mc.correction)){
-        ui.tab = "movements"; ui.mv.all = false; prefs.mvAll = false; savePrefs(); ui.mv.open[b.dataset.id] = true; var mm = S().movements.filter(function(x){ return x.id === b.dataset.id; })[0]; if (mm){ ui.mv.types.movement = true; ui.mv.zoom = 0; } ui.mv.sel = null; ui.mv.active = null; ui.mv.calTop = null; ui.mv.tlTop = 0; remember(); render();
+        ui.tab = "movements"; ui.mv.all = false; ui.mv.open[b.dataset.id] = true; var mm = S().movements.filter(function(x){ return x.id === b.dataset.id; })[0]; if (mm){ ui.mv.types.movement = true; ui.mv.zoom = 0; } ui.mv.sel = null; ui.mv.active = null; ui.mv.calTop = null; ui.mv.tlTop = 0; remember(); render();
         var el = document.getElementById("m-" + b.dataset.id), tsc = document.getElementById("tlScroll");
         if (el && tsc){ tsc.scrollTop += el.getBoundingClientRect().top - tsc.getBoundingClientRect().top - 40; trackActive(); }
       } else openMovement(b.dataset.id);
@@ -6174,7 +6174,7 @@ document.addEventListener("click", function(e){
     case "rvview": prefs.rvView = b.dataset.v; savePrefs(); render(); break;
     case "trn": prefs.trN = +b.dataset.v; savePrefs(); render(); break;
     case "srmov": var sm = S().movements.filter(function(x){ return x.id === b.dataset.id; })[0]; if (!sm) break;
-      closeSheet(); ui.pid = sm.project; ui.tab = "movements"; ui.mv.all = false; prefs.mvAll = false; ui.mv.open = {}; ui.mv.open[sm.id] = true; ui.mv.types.movement = true; ui.mv.zoom = 0; ui.mv.sel = null; ui.mv.active = localDay(sm.at); ui.mv.calTop = null; remember(); render();
+      closeSheet(); ui.pid = sm.project; ui.tab = "movements"; ui.mv.all = false; ui.mv.open = {}; ui.mv.open[sm.id] = true; ui.mv.types.movement = true; ui.mv.zoom = 0; ui.mv.sel = null; ui.mv.active = localDay(sm.at); ui.mv.calTop = null; remember(); render();
       setTimeout(function(){ var el = document.getElementById("m-" + sm.id), tsc = document.getElementById("tlScroll"); if (el && tsc){ tsc.scrollTop += el.getBoundingClientRect().top - tsc.getBoundingClientRect().top - 40; } }, 60); break;
     case "srentry": closeSheet(); openEntry(b.dataset.kind, b.dataset.id); break;
     case "srarea": closeSheet(); ui.pf.area = b.dataset.id; prefs.pfArea = ui.pf.area; ui.tab = "portfolio"; remember(); render(); break;
@@ -6300,7 +6300,8 @@ document.addEventListener("submit", function(e){
 });
 document.getElementById("tabs").addEventListener("click", function(e){
   var b = e.target.closest(".tab"); if (!b) return;
-  ui.tab = b.dataset.go; remember(); render(); scrollTo(0, 0);
+  ui.tab = b.dataset.go; if (ui.tab === "movements") ui.mv.all = prefs.mvAll !== false;   /* the Timeline opens on what you chose there: all projects unless you picked one */
+  remember(); render(); scrollTo(0, 0);
 });
 /* another window saved: adopt its state; open editors keep their base revision and will meet the stale check */
 window.addEventListener("storage", function(e){
