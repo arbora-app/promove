@@ -6,6 +6,18 @@ const run = parseInt(process.env.GITHUB_RUN_NUMBER || "1", 10);
 const gradle = "android/app/build.gradle";
 let g = fs.readFileSync(gradle, "utf8");
 g = g.replace(/versionCode\s+\d+/, "versionCode " + run).replace(/versionName\s+"[^"]*"/, 'versionName "1.0.' + run + '"');
+// every build is signed with the same key from this repository, so each new APK installs over the last one
+if (!g.includes("ci/debug.keystore")) {
+  g = g.replace(/android\s*\{/, `android {
+    signingConfigs {
+        debug {
+            storeFile file("../../ci/debug.keystore")
+            storePassword "android"
+            keyAlias "androiddebugkey"
+            keyPassword "android"
+        }
+    }`);
+}
 fs.writeFileSync(gradle, g);
 
 // 2. Android 13+ asks before an app may show notifications

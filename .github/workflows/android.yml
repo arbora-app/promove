@@ -44,12 +44,15 @@ jobs:
       - name: Copy the app into the Android project
         run: npx cap sync android && cp /tmp/local.properties android/local.properties
 
-      - name: Use the project's fixed signing key, so updates install over older versions
-        run: mkdir -p ~/.android && cp ci/debug.keystore ~/.android/debug.keystore
-
       - name: Build the APK
         working-directory: android
         run: ./gradlew assembleDebug --no-daemon
+
+      - name: Check it carries the project's signing key
+        run: |
+          APKSIGNER=$(ls -d $ANDROID_HOME/build-tools/*/apksigner | sort -V | tail -1)
+          $APKSIGNER verify --print-certs android/app/build/outputs/apk/debug/app-debug.apk | tee /tmp/cert.txt
+          grep -qi "9cf5fdec3d258b07a72cfc85f398d54dcd5f31997e7536912de2a257005dfcdd" /tmp/cert.txt
 
       - name: Name the file
         run: cp android/app/build/outputs/apk/debug/app-debug.apk Promove-1.0.${{ github.run_number }}.apk
