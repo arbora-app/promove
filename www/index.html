@@ -1246,6 +1246,50 @@ body.obopen .tabs{visibility:hidden}
 .switch.sm[aria-checked="true"] i::after{inset-inline-start:19px}
 /* if even the grown calendar can't hold the Filter options, they scroll instead of being cut off */
 #calPane .legend{flex:none;max-height:calc(100% - 60px);overflow-y:auto}
+/* ---------- weeks: the Portfolio chart and the Project card ---------- */
+.pfview{display:flex;width:max-content;margin:14px 0 0 auto}
+.pfview button{min-height:34px}
+.pftabs{margin-top:8px}
+.wkchart{margin-top:10px;padding:10px 0 8px;overflow:hidden}
+.wkscroll{overflow-x:auto;overflow-y:hidden;direction:ltr;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.wkin{position:relative;padding:0 0 4px}
+.wknow{position:absolute;top:0;bottom:0;background:rgba(44,138,85,.12);box-shadow:inset 1px 0 0 rgba(44,138,85,.45),inset -1px 0 0 rgba(44,138,85,.45);pointer-events:none}
+.wkaxis{position:relative;height:22px;border-bottom:1px solid var(--hair)}
+.wkaxis span{position:absolute;top:2px;text-align:center;font-size:10.5px;font-weight:600;color:var(--soft);opacity:.75}
+.wkaxis span.wq{opacity:1}
+.wkaxis span.now{color:var(--leaf);font-weight:800;opacity:1}
+.wkrow{position:relative;padding:6px 0 2px;border-bottom:1px solid var(--hair)}
+.wkrow:last-child{border-bottom:0}
+.wkname{position:sticky;left:0;z-index:2;display:flex;align-items:baseline;gap:8px;max-width:min(320px,86vw);border:0;background:none;color:var(--ink);font:inherit;padding:0 12px;min-height:24px;cursor:pointer;text-align:start}
+.wkname span{font-size:13.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;unicode-bidi:plaintext}
+.wkname small{font-size:11px;color:var(--soft);white-space:nowrap;unicode-bidi:plaintext}
+.wktrack{position:relative;height:30px}
+.wktrack.empty{cursor:copy;background:repeating-linear-gradient(90deg,transparent 0 29px,var(--hair) 29px 30px)}
+.wkbar{position:absolute;top:4px;height:22px;border-radius:11px;background:var(--lit);box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 4px 10px -6px rgba(0,0,0,.5);touch-action:none;cursor:grab}
+.wkbar.drag{cursor:grabbing;outline:2px solid var(--cop);outline-offset:1px}
+.wkbar.st-paused,.wkbar.st-inactive{background:var(--ti);opacity:.85}
+.wkbar.st-waiting{background:linear-gradient(180deg,#9FD9B5,#5FA77D)}
+.wkbar.late{background:var(--cu)}
+.wkbar.open{-webkit-mask-image:linear-gradient(90deg,#000 60%,transparent);mask-image:linear-gradient(90deg,#000 60%,transparent)}
+.wkh{position:absolute;top:-6px;bottom:-6px;width:22px;border:0;background:none;padding:0;cursor:ew-resize;touch-action:none}
+.wkh::after{content:"";position:absolute;top:9px;bottom:9px;left:9px;width:4px;border-radius:2px;background:rgba(255,255,255,.85);box-shadow:0 0 0 .5px rgba(0,0,0,.35)}
+.wkh.s{left:-4px}.wkh.e{right:-4px}
+.wkh:focus-visible{outline:2px solid var(--cop);border-radius:6px}
+.wkcap{margin:8px 12px 0;font-size:12px;line-height:1.45;color:var(--soft)}
+.wkchd{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.wkgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:8px}
+.wkgrid div{display:flex;flex-direction:column;gap:1px}
+.wkgrid span{font-size:12px;color:var(--soft);font-weight:650}
+.wkgrid b{font-size:15px}
+.wkgrid small{font-size:12px;color:var(--soft)}
+.wkmini{position:relative;height:12px;margin-top:10px;border-radius:6px;background:var(--cap-empty);box-shadow:inset 0 0 0 1px var(--cap-ring);direction:ltr;overflow:hidden}
+.wkmini .bar{position:absolute;top:2px;bottom:2px;border-radius:4px;background:var(--lit)}
+.wkmini .now{position:absolute;top:0;bottom:0;box-shadow:inset 2px 0 0 var(--cop),inset -2px 0 0 var(--cop)}
+.wkstep{display:flex;align-items:center;gap:12px}
+.wkstep button{flex:none;width:46px;height:46px;border-radius:23px;border:0;font:500 22px/1 var(--ui);cursor:pointer}
+.wkstep output{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center}
+.wkstep output b{font-size:16px}
+.wkstep output small{font-size:12px;color:var(--soft)}
 
 /* Promove logo: the mark in the header, the full logo on the welcome screen and in "How Promove works" */
 .lmark{display:block;flex:none;width:60px;height:28px;background:url(data:image/webp;base64,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) center/contain no-repeat}
@@ -1277,7 +1321,7 @@ var PMM = (function(){
 
 var FIELDS = ["name","outcome","goal","status","state","next","blockers","waitingOn","followUp",
   "pauseUntil","reconsiderOn","closeOutcome","prescription","commitment","commitM",
-  "expChange","expEvidence","checkpoint","assess","assessWhy"];
+  "expChange","expEvidence","checkpoint","assess","assessWhy","startWk","endWk"];
 var STATUSES = ["active","waiting","paused","inactive","closed"];
 var ASSESS = ["","achieved","partly","not","unclear"];
 var TREAT = ["","concentrated","limited","protected","maintenance","none"];
@@ -1345,9 +1389,11 @@ function validate(d){
   if (d.status === "paused" && !d.pauseUntil) errs.push({field:"pauseUntil", code:"required"});
   if (d.status === "inactive" && !d.reconsiderOn) errs.push({field:"reconsiderOn", code:"required"});
   if (d.status === "closed" && !d.closeOutcome) errs.push({field:"closeOutcome", code:"required"});
-  ["followUp","pauseUntil","reconsiderOn","checkpoint"].forEach(function(f){
+  ["followUp","pauseUntil","reconsiderOn","checkpoint","startWk","endWk"].forEach(function(f){
     if (d[f] && !DATE_RE.test(d[f])) errs.push({field:f, code:"date"});
   });
+  /* the suggested end can't come before the start */
+  if (d.startWk && d.endWk && d.endWk < d.startWk) errs.push({field:"endWk", code:"order"});
   if (ASSESS.indexOf(d.assess) < 0) errs.push({field:"assess", code:"invalid"});
   if (TREAT.indexOf(d.prescription) < 0) errs.push({field:"prescription", code:"invalid"});
   if (d.commitment > 112) errs.push({field:"commitment", code:"range"});
@@ -2389,7 +2435,7 @@ en:{
  pfSub2:"Which projects need you, and why.", prescribed:"Treatment", dueL:"Needs inspection", allClear:"Nothing is due. Every project is on plan.",
  fl_review_due:"Review due", fl_capacity:"Plan exceeds available hours by {n} h", fl_checkpoint_due:"Goal check due", fl_followup_due:"Follow-up due",
  fl_reconsider_due:"Time to reconsider", fl_pause_ended:"Pause has ended", fl_engagement_shortfall:"Last week {a} of {b} h engaged", fl_engagement_unassessed:"Hours not judged yet",
- pgNeed:"Needs you", pgOk:"On plan", pgIdle:"Paused or set aside", pgIdleS:"Paused", pfTabsL:"Projects by state", pfNone:"No projects here right now.", pgClosed:"Closed", basisL:"Why {p} is labelled this way",
+ pgNeed:"Needs you", pgOk:"On plan", pgIdle:"Paused or set aside", pgIdleS:"Paused", f_startWk:"Start week", f_endWk:"Suggested end week", wkOf:"week of {d}", pfViewL:"Show projects as", pfList:"List", pfWeeks:"Weeks", wkNow:"now", wkThis:"this week", wkIn1:"next week", wkIn:"in {n} weeks", wkAgo1:"last week", wkAgoN:"{n} weeks ago", wkLen1:"1 week", wkLen:"{n} weeks", wkPlace:"No weeks yet · tap its row to place it", wkOver:"past its suggested end", wkHint:"Weeks from this week. Drag a bar's ends to change its start or suggested end, or drag the bar to move both. Tap an empty row to place a project.", wkDragCap:"{s} → {e} · {n}", wkStartOf:"Start of {p}: {w}. Arrow keys move it by a week.", wkEndOf:"Suggested end of {p}: {w}. Arrow keys move it by a week.", wkSaved:"Weeks saved · recorded on the timeline", wkCard:"Weeks", wkSet:"Set weeks", wkChange:"Change", wkNone:"No start or suggested end yet.", wkStartL:"Start", wkEndL:"Suggested end", wkClear:"Clear", wkEarlier:"{x}: a week earlier", wkLater:"{x}: a week later", wkSheetHint:"Each change is recorded on the timeline.", pfTabsL:"Projects by state", pfNone:"No projects here right now.", pgClosed:"Closed", basisL:"Why {p} is labelled this way",
  basisHint:"Labels compare the hours engaged in a named week with the hours committed. They are prompts to look, not verdicts.", openProject:"Open project",
  rvSub:"Judge what happened, then decide what each project gets next week.", rvNext:"Next review", rvDueToday:"due today", rvLast:"Last review {d}", rvNever:"No review yet",
  rvEvery:"every {d}", rvStart:"Start review", rvPast:"Past reviews", rvNmov:"{n} progress entries", rvNass:"{n} judged", rvOn:"Review of {d}",
@@ -2525,7 +2571,7 @@ fa:{
  pfSub2:"کدام پروژه‌ها به شما نیاز دارند و چرا.", prescribed:"درمان", dueL:"نیاز به بررسی", allClear:"موعدی نیست. همهٔ پروژه‌ها طبق برنامه‌اند.",
  fl_review_due:"موعد بازبینی", fl_capacity:"برنامه {n} ساعت بیش از ساعت‌های در دسترس است", fl_checkpoint_due:"موعد بررسی هدف", fl_followup_due:"موعد پیگیری",
  fl_reconsider_due:"زمان بازنگری", fl_pause_ended:"توقف تمام شده", fl_engagement_shortfall:"هفتهٔ گذشته {a} از {b} انجام شد", fl_engagement_unassessed:"ساعت‌ها هنوز داوری نشده",
- pgNeed:"نیاز به شما", pgOk:"طبق برنامه", pgIdle:"متوقف یا کنار گذاشته", pgIdleS:"متوقف", pfTabsL:"پروژه‌ها بر اساس وضعیت", pfNone:"فعلاً پروژه‌ای اینجا نیست.", pgClosed:"بسته", basisL:"چرا {p} این برچسب را دارد",
+ pgNeed:"نیاز به شما", pgOk:"طبق برنامه", pgIdle:"متوقف یا کنار گذاشته", pgIdleS:"متوقف", f_startWk:"هفتهٔ شروع", f_endWk:"هفتهٔ پایان پیشنهادی", wkOf:"هفتهٔ {d}", pfViewL:"نمایش پروژه‌ها به‌صورت", pfList:"فهرست", pfWeeks:"هفته‌ها", wkNow:"اکنون", wkThis:"این هفته", wkIn1:"هفتهٔ بعد", wkIn:"{n} هفته بعد", wkAgo1:"هفتهٔ پیش", wkAgoN:"{n} هفته پیش", wkLen1:"۱ هفته", wkLen:"{n} هفته", wkPlace:"هنوز هفته‌ای ندارد · ردیفش را بزنید تا جایش بدهید", wkOver:"از پایان پیشنهادی گذشته", wkHint:"هفته‌ها نسبت به این هفته. دو سر هر نوار را بکشید تا شروع یا پایان پیشنهادی عوض شود، یا خود نوار را بکشید تا هر دو جابه‌جا شوند. ردیف خالی را بزنید تا پروژه را جای دهید.", wkDragCap:"{s} ← {e} · {n}", wkStartOf:"شروع {p}: {w}. با کلیدهای جهت یک هفته جابه‌جا می‌شود.", wkEndOf:"پایان پیشنهادی {p}: {w}. با کلیدهای جهت یک هفته جابه‌جا می‌شود.", wkSaved:"هفته‌ها ذخیره شد · در خط زمانی ثبت شد", wkCard:"هفته‌ها", wkSet:"تعیین هفته‌ها", wkChange:"تغییر", wkNone:"هنوز شروع یا پایان پیشنهادی ندارد.", wkStartL:"شروع", wkEndL:"پایان پیشنهادی", wkClear:"پاک کردن", wkEarlier:"{x}: یک هفته زودتر", wkLater:"{x}: یک هفته دیرتر", wkSheetHint:"هر تغییر در خط زمانی ثبت می‌شود.", pfTabsL:"پروژه‌ها بر اساس وضعیت", pfNone:"فعلاً پروژه‌ای اینجا نیست.", pgClosed:"بسته", basisL:"چرا {p} این برچسب را دارد",
  basisHint:"برچسب‌ها ساعت‌های انجام‌شده در یک هفتهٔ مشخص را با ساعت‌های تعهد‌شده‌ریزی‌شده مقایسه می‌کنند. دعوت به نگاه‌اند، نه حکم.", openProject:"باز کردن پروژه",
  rvSub:"قضاوت کنید چه رخ داد، سپس تصمیم بگیرید هر پروژه هفتهٔ بعد چه بگیرد.", rvNext:"بازبینی بعدی", rvDueToday:"امروز موعد است", rvLast:"آخرین بازبینی {d}", rvNever:"هنوز بازبینی نشده",
  rvEvery:"هر {d}", rvStart:"شروع بازبینی", rvPast:"بازبینی‌های گذشته", rvNmov:"{n} پیشرفت", rvNass:"{n} قضاوت", rvOn:"بازبینی {d}",
@@ -2824,6 +2870,7 @@ function valText(f, v){
   if (f === "prescription") return v ? t("tr_" + v) : "";
   if (f === "commitment" || f === "commitM") return v === "" ? "" : v ? nf(v) : nf(0);
   if (["followUp","pauseUntil","reconsiderOn","checkpoint"].indexOf(f) >= 0) return v ? fmtD(v, true) : "";
+  if (f === "startWk" || f === "endWk") return v ? t("wkOf", { d:fmtD(v) }) : "";
   return v || "";
 }
 function summary(m){
@@ -3099,6 +3146,7 @@ function viewProjectEdit(p){
     '<div class="irow2"><div><span class="lab">' + esc(t("f_checkpoint")) + "</span>" + iIn("checkpoint", d.checkpoint, "date", "", t("f_checkpoint")) + "</div>" +
     '<div><span class="lab">' + esc(t("f_assess")) + "</span>" + iSel("assess", d.assess || "", as, "", t("f_assess")) + "</div></div>" +
     '<span class="lab">' + esc(t("f_assessWhy")) + "</span>" + iIn("assessWhy", d.assessWhy, "text", "", t("f_assessWhy")) + "</div></div>";
+  h += wkCard(p);
   h += '<div class="card glass pad statecard" style="margin-top:10px"><span class="lab">' + esc(t("f_state")) + "</span>" + iTa("state", d.state, "", t("f_state")) + "</div>";
   h += '<div class="commitbar glass"><span class="lab">' + esc(t("committedShort")) + "</span>" + tinfo("planned") + stepper(PK(), PMM.plannedOf(d, pmode())).replace('class="stepper ti"', 'class="stepper ti sm"') + '<span class="muted">' + esc(perWord("per")) + "</span></div>";
   h += '<div class="card glass pad section" style="margin-top:16px"><span class="lab">' + esc(t("f_next")) + "</span>" + iIn("next", d.next, "text", "ip-next", t("f_next")) + "</div>";
@@ -3280,6 +3328,7 @@ function viewProject(){
   h += '<div class="card glass pad goalcard" style="margin-top:12px"><span class="lab">' + esc(t("f_goal")) + "</span>" + tinfo("goal") +
     (goal ? '<p class="goal">' + esc(goal) + "</p>" : '<p class="goalnone">' + esc(t("goalNone")) + ' <button class="btn sm ti" type="button" data-act="setgoal">' + esc(t("goalSet")) + "</button></p>") +
     goalCheck(p) + "</div>";
+  h += wkCard(p);
   h += '<div class="card glass pad statecard" style="margin-top:10px"><span class="lab">' + esc(t("f_state")) + "</span><p>" + (d.state ? esc(d.state) : '<span class="muted">' + esc(t("stateNone")) + "</span>") + "</p></div>";
   return h;
 }
@@ -4984,7 +5033,7 @@ document.addEventListener("click", function(e){
 });
 
 /* ---------- portfolio: which projects need me, and why ---------- */
-ui.pf = { closed:false, area:prefs.pfArea || "", st:"", flt:false };
+ui.pf = { closed:false, area:prefs.pfArea || "", st:"", flt:false, view:prefs.pfView === "weeks" ? "weeks" : "list", wkx:null };
 function flagChip(f, pid, withName){
   var nm = withName && S().projects[pid] ? " · " + S().projects[pid].data.name : "";
   var cls = f.code === "engagement_unassessed" ? "dashed" : f.code === "engagement_shortfall" ? "ti" : "cu";
@@ -5047,6 +5096,7 @@ function viewPortfolio(){
   var anyFlag = s.order.some(function(pid){ return F.projects[pid].some(function(x){ return x.code !== "engagement_unassessed"; }); });
   if (F.portfolio.capacityConflict && (st === "" || st === "need")) h += '<button class="banner cu draftbar" type="button" data-act="planedit"><span>' + esc(t("fl_capacity", { n:F.portfolio.capacityConflict.total - F.portfolio.capacityConflict.capacity })) + "</span><b>" + esc(t("changePlan")) + "</b></button>";
   else if (!anyFlag && st === "") h += '<p class="allclear">' + esc(t("allClear")) + "</p>";
+  if (ui.pf.view === "weeks") return h + wkChart(st === "" ? groups.need.concat(groups.ok, groups.idle) : groups[st]);
   if (st === "") h += group("need", "pgNeed") + group("ok", "pgOk") + group("idle", "pgIdle");
   else if (groups[st].length) h += '<div class="section"><div class="rows glass">' + groups[st].map(row).join("") + "</div></div>";
   else h += '<p class="note pfnone">' + esc(t("pfNone")) + "</p>";
@@ -5061,7 +5111,8 @@ function pfTabs(groups){
     if (k && !n && st !== k) return "";
     return '<button class="achip' + (st === k ? " on" : "") + '" type="button" role="tab" aria-selected="' + (st === k) + '" data-act="pftab" data-v="' + k + '">' + esc(label) + " <small>" + nf(n) + "</small></button>";
   }
-  var h = '<div class="pftabs"><div class="areabar" role="tablist" aria-label="' + esc(t("pfTabsL")) + '">' + tab("", t("arAll"), all) + tab("need", t("pgNeed"), groups.need.length) +
+  var h = '<div class="pfview seg ti" role="group" aria-label="' + esc(t("pfViewL")) + '">' + ["list","weeks"].map(function(v){ return '<button type="button" data-act="pfview" data-v="' + v + '" aria-pressed="' + (ui.pf.view === v) + '">' + esc(t(v === "list" ? "pfList" : "pfWeeks")) + "</button>"; }).join("") + "</div>" +
+    '<div class="pftabs"><div class="areabar" role="tablist" aria-label="' + esc(t("pfTabsL")) + '">' + tab("", t("arAll"), all) + tab("need", t("pgNeed"), groups.need.length) +
     tab("ok", t("pgOk"), groups.ok.length) + tab("idle", t("pgIdleS"), groups.idle.length) + tab("closed", t("pgClosed"), groups.closed.length) + "</div>" +
     '<button class="achip pfflt' + (area ? " on" : "") + '" type="button" data-act="pfflt" aria-expanded="' + !!ui.pf.flt + '" aria-label="' + esc(t("filterL") + (an ? " · " + an : "")) + '">' + IC.filter + (an ? "<span>" + esc(an) + "</span>" : "") + "</button></div>";
   if (ui.pf.flt) h += '<div class="pffltbox glass"><span class="lab">' + esc(t("arFilter")) + "</span>" + areaFilter() + "</div>";
@@ -5849,6 +5900,144 @@ function obClick(e){
 /* Android back walks the welcome backwards; on its first screen it leaves the app */
 function obBack(){ if (!obEl || obEl.hidden) return null; if (OB.step > 0){ obGo(OB.step - 1); return true; } return false; }
 
+/* ---------- weeks: each project's start week and suggested end, laid out side by side ---------- */
+var WK_CW = 30;   /* one week's width on the chart, in px */
+function wkThis(){ return wkISO(new Date()); }
+/* weeks from this week to a date (negative = past) */
+function wkOff(isoD){ return Math.round(PMM.daysBetween(PMM.parse(wkThis()), PMM.parse(isoD)) / 7); }
+function wkAt(k){ var d = PMM.parse(wkThis()); d.setDate(d.getDate() + k * 7); return PMM.iso(d); }
+function wkRel(k){ return k === 0 ? t("wkThis") : k === 1 ? t("wkIn1") : k === -1 ? t("wkAgo1") : k > 0 ? t("wkIn", { n:nf(k) }) : t("wkAgoN", { n:nf(-k) }); }
+function wkLen(n){ return n === 1 ? t("wkLen1") : t("wkLen", { n:nf(n) }); }
+function wkSpan(d){
+  if (!d.startWk && !d.endWk) return null;
+  var a = wkOff(d.startWk || d.endWk), b = wkOff(d.endWk || d.startWk);
+  return { a:a, b:Math.max(a, b), open:!d.endWk, noStart:!d.startWk };
+}
+function wkSave(pid, a, b){
+  var p = S().projects[pid]; if (!p) return;
+  var edits = { startWk:wkAt(a), endWk:wkAt(Math.max(a, b)) };
+  var r = attempt(function(s){ return PMM.saveProjectChange(s, { id:PMM.uid(), project:pid, expectedRev:s.projects[pid].rev, edits:edits }); });
+  if (!r.ok) return toast(t("errSave"));
+  if (r.result.kind === "saved") toast(t("wkSaved"));
+}
+/* ---- the Portfolio chart ---- */
+function wkChart(list){
+  var spans = list.map(function(p){ return wkSpan(p.data); }).filter(Boolean);
+  var lo = Math.min.apply(null, [-4].concat(spans.map(function(s){ return s.a - 2; })));
+  var hi = Math.max.apply(null, [16].concat(spans.map(function(s){ return s.b + 3; })));
+  var n = hi - lo + 1, W = n * WK_CW, x0 = -lo * WK_CW;
+  var h = '<div class="wkchart glass section" data-lo="' + lo + '" data-hi="' + hi + '"><div class="wkscroll" id="wkScroll"><div class="wkin" style="width:' + W + 'px">';
+  h += '<div class="wknow" style="left:' + x0 + "px;width:" + WK_CW + 'px" aria-hidden="true"></div>';
+  h += '<div class="wkaxis" aria-hidden="true">';
+  for (var k = lo; k <= hi; k++) h += '<span class="' + (k === 0 ? "now" : k % 4 === 0 ? "wq" : "") + '" style="left:' + ((k - lo) * WK_CW) + "px;width:" + WK_CW + 'px">' + (k === 0 ? esc(t("wkNow")) : (k > 0 ? "+" : "−") + nf(Math.abs(k))) + "</span>";
+  h += "</div>";
+  list.forEach(function(p){
+    var d = p.data, sp = wkSpan(d), late = sp && sp.b < 0 && (d.status === "active" || d.status === "waiting");
+    h += '<div class="wkrow" data-pid="' + esc(p.id) + '"><button class="wkname" type="button" data-act="open" data-id="' + esc(p.id) + '" style="left:0"><span>' + esc(d.name) + "</span>" +
+      (sp ? "<small>" + esc(wkLen(sp.b - sp.a + 1)) + (late ? " · " + esc(t("wkOver")) : "") + "</small>" : "<small>" + esc(t("wkPlace")) + "</small>") + "</button>";
+    h += '<div class="wktrack" data-pid="' + esc(p.id) + '">';
+    if (sp){
+      var L = (sp.a - lo) * WK_CW, Wd = (sp.b - sp.a + 1) * WK_CW;
+      h += '<div class="wkbar st-' + esc(d.status) + (late ? " late" : "") + (sp.open ? " open" : "") + '" data-pid="' + esc(p.id) + '" data-a="' + sp.a + '" data-b="' + sp.b + '" style="left:' + L + "px;width:" + Wd + 'px">' +
+        '<button class="wkh s" type="button" data-wkh="s" aria-label="' + esc(t("wkStartOf", { p:d.name, w:wkRel(sp.a) })) + '"></button>' +
+        '<button class="wkh e" type="button" data-wkh="e" aria-label="' + esc(t("wkEndOf", { p:d.name, w:wkRel(sp.b) })) + '"></button></div>';
+    }
+    h += "</div></div>";
+  });
+  h += '</div></div><p class="wkcap" id="wkCap" aria-live="polite">' + esc(t(list.length ? "wkHint" : "pfNone")) + "</p></div>";
+  return h;
+}
+var wkDrag = null;
+function wireWeeks(){
+  var sc = document.getElementById("wkScroll"); if (!sc) return;
+  var ch = sc.closest(".wkchart"), lo = +ch.dataset.lo;
+  /* open on this week, with a few weeks of the past to its left */
+  if (ui.pf.wkx != null) sc.scrollLeft = ui.pf.wkx; else sc.scrollLeft = Math.max(0, (-lo - 2) * WK_CW);
+  sc.addEventListener("scroll", function(){ ui.pf.wkx = sc.scrollLeft; }, { passive:true });
+  var cap = document.getElementById("wkCap");
+  function show(bar, a, b){
+    bar.style.left = ((a - lo) * WK_CW) + "px"; bar.style.width = ((b - a + 1) * WK_CW) + "px";
+    cap.textContent = t("wkDragCap", { s:wkRel(a), e:wkRel(b), n:wkLen(b - a + 1) });
+  }
+  [].forEach.call(sc.querySelectorAll(".wkbar"), function(bar){
+    bar.addEventListener("pointerdown", function(e){
+      var hd = e.target.closest("[data-wkh]");
+      wkDrag = { bar:bar, mode:hd ? hd.dataset.wkh : "m", x:e.clientX, a:+bar.dataset.a, b:+bar.dataset.b, na:+bar.dataset.a, nb:+bar.dataset.b, moved:false };
+      try { bar.setPointerCapture(e.pointerId); } catch (er){}
+      bar.classList.add("drag"); e.preventDefault();
+    });
+    bar.addEventListener("pointermove", function(e){
+      if (!wkDrag || wkDrag.bar !== bar) return;
+      var dw = Math.round((e.clientX - wkDrag.x) / WK_CW), a = wkDrag.a, b = wkDrag.b;
+      if (wkDrag.mode === "s") a = Math.min(b, wkDrag.a + dw); else if (wkDrag.mode === "e") b = Math.max(a, wkDrag.b + dw); else { a += dw; b += dw; }
+      if (a !== wkDrag.na || b !== wkDrag.nb){ wkDrag.na = a; wkDrag.nb = b; wkDrag.moved = true; show(bar, a, b); }
+    });
+    function end(){
+      if (!wkDrag || wkDrag.bar !== bar) return;
+      var g = wkDrag; wkDrag = null; bar.classList.remove("drag");
+      if (g.moved && (g.na !== g.a || g.nb !== g.b)){ ui.pf.wkx = sc.scrollLeft; wkSave(bar.dataset.pid, g.na, g.nb); render(); }
+    }
+    bar.addEventListener("pointerup", end); bar.addEventListener("pointercancel", end);
+    /* keyboard: arrows move the focused end by a week */
+    bar.addEventListener("keydown", function(e){
+      var hd = e.target.closest("[data-wkh]"); if (!hd || (e.key !== "ArrowLeft" && e.key !== "ArrowRight")) return;
+      e.preventDefault(); var dlt = e.key === "ArrowRight" ? 1 : -1, a = +bar.dataset.a, b = +bar.dataset.b;
+      if (hd.dataset.wkh === "s") a = Math.min(b, a + dlt); else b = Math.max(a, b + dlt);
+      ui.pf.wkx = sc.scrollLeft; ui.pf.wkFocus = bar.dataset.pid + ":" + hd.dataset.wkh; wkSave(bar.dataset.pid, a, b); render();
+    });
+  });
+  /* a row with no weeks yet: tap a week to place it there, four weeks long */
+  [].forEach.call(sc.querySelectorAll(".wktrack"), function(tr){
+    if (tr.querySelector(".wkbar")) return;
+    tr.classList.add("empty");
+    tr.addEventListener("click", function(e){
+      var r = tr.getBoundingClientRect(), k = Math.floor((e.clientX - r.left) / WK_CW) + lo;
+      ui.pf.wkx = sc.scrollLeft; wkSave(tr.dataset.pid, k, k + 3); render();
+    });
+  });
+  if (ui.pf.wkFocus){ var f = ui.pf.wkFocus.split(":"), fb = sc.querySelector('.wkbar[data-pid="' + f[0] + '"] [data-wkh="' + f[1] + '"]'); ui.pf.wkFocus = null; if (fb) fb.focus({ preventScroll:true }); }
+}
+/* ---- the Project tab's card and sheet ---- */
+function wkCard(p){
+  var d = p.data, sp = wkSpan(d);
+  var h = '<div class="card glass pad wkcard" style="margin-top:10px"><div class="wkchd"><span class="lab">' + esc(t("wkCard")) + "</span>" +
+    '<button class="btn sm ti" type="button" data-act="wkedit">' + esc(t(sp ? "wkChange" : "wkSet")) + "</button></div>";
+  if (!sp) return h + '<p class="muted" style="margin:6px 0 0">' + esc(t("wkNone")) + "</p></div>";
+  h += '<div class="wkgrid"><div><span>' + esc(t("wkStartL")) + "</span><b>" + esc(d.startWk ? t("wkOf", { d:fmtD(d.startWk) }) : "—") + "</b><small>" + esc(d.startWk ? wkRel(sp.a) : "") + "</small></div>" +
+    "<div><span>" + esc(t("wkEndL")) + "</span><b>" + esc(d.endWk ? t("wkOf", { d:fmtD(d.endWk) }) : "—") + "</b><small>" + esc(d.endWk ? wkRel(sp.b) : "") + "</small></div></div>";
+  /* a small strip: where the project sits relative to this week */
+  var lo = Math.min(sp.a, 0) - 1, hi = Math.max(sp.b, 0) + 1, n = hi - lo + 1;
+  h += '<div class="wkmini" aria-hidden="true"><i class="bar" style="left:' + ((sp.a - lo) / n * 100).toFixed(2) + "%;width:" + ((sp.b - sp.a + 1) / n * 100).toFixed(2) + '%"></i><i class="now" style="left:' + ((0 - lo) / n * 100).toFixed(2) + "%;width:" + (100 / n).toFixed(2) + '%"></i></div>' +
+    '<p class="note" style="margin:6px 0 0">' + esc(wkLen(sp.b - sp.a + 1)) + (sp.b < 0 && (d.status === "active" || d.status === "waiting") ? " · " + esc(t("wkOver")) : "") + "</p>";
+  return h + "</div>";
+}
+var wkEd = null;
+function openWeeks(){
+  var p = proj(); if (!p) return;
+  var sp = wkSpan(p.data) || { a:0, b:3 };
+  wkEd = { pid:p.id, a:sp.a, b:sp.b };
+  openSheet(t("wkCard") + " · " + p.data.name, wkSheetBody(), '<button class="btn ti" type="button" data-act="wkclear"' + (wkSpan(p.data) ? "" : " hidden") + ">" + esc(t("wkClear")) + '</button><button class="btn tk" type="button" data-act="wksave">' + esc(t("save")) + "</button>");
+}
+function wkSheetBody(){
+  function row(k, lab, v){
+    return '<div class="field"><span class="lab">' + esc(lab) + '</span><div class="wkstep"><button class="ti" type="button" data-act="wkstep" data-k="' + k + '" data-v="-1" aria-label="' + esc(t("wkEarlier", { x:lab })) + '">−</button>' +
+      '<output id="wk-' + k + '"><b>' + esc(t("wkOf", { d:fmtD(wkAt(v)) })) + "</b><small>" + esc(wkRel(v)) + "</small></output>" +
+      '<button class="ti" type="button" data-act="wkstep" data-k="' + k + '" data-v="1" aria-label="' + esc(t("wkLater", { x:lab })) + '">+</button></div></div>';
+  }
+  return '<div id="wkBody">' + row("a", t("wkStartL"), wkEd.a) + row("b", t("wkEndL"), wkEd.b) + '<p class="note">' + esc(wkLen(wkEd.b - wkEd.a + 1)) + " · " + esc(t("wkSheetHint")) + "</p></div>";
+}
+function wkStep(k, v){
+  if (!wkEd) return;
+  if (k === "a"){ wkEd.a += v; if (wkEd.b < wkEd.a) wkEd.b = wkEd.a; } else { wkEd.b = Math.max(wkEd.a, wkEd.b + v); }
+  var b = document.getElementById("wkBody"); if (b) b.outerHTML = wkSheetBody();
+}
+function wkSaveSheet(){ if (!wkEd) return; var e = wkEd; wkEd = null; closeSheet(); wkSave(e.pid, e.a, e.b); render(); }
+function wkClear(){
+  if (!wkEd) return; var pid = wkEd.pid; wkEd = null; closeSheet();
+  var r = attempt(function(s){ return PMM.saveProjectChange(s, { id:PMM.uid(), project:pid, expectedRev:s.projects[pid].rev, edits:{ startWk:"", endWk:"" } }); });
+  if (!r.ok) toast(t("errSave")); render();
+}
+
 /* ---------- floating buttons: the main way to start something on each tab ---------- */
 function fabHTML(){
   var tab = ui.tab, has = S().order.length > 0;
@@ -5903,7 +6092,7 @@ function render(){
   var fab = fabHTML();
   main.innerHTML = topbar() + timerPill() + (storageOK ? "" : '<div class="banner cu" role="status">' + esc(t("noStore")) + "</div>") + body + fab;
   document.body.classList.toggle("has-fab", !!fab);
-  paintTabs(); wireMovements(); wireAttention(); wireProgress(); wireReview(); wireInlineEdit();
+  paintTabs(); wireWeeks(); wireMovements(); wireAttention(); wireProgress(); wireReview(); wireInlineEdit();
 }
 
 /* ---------- sheets ---------- */
@@ -6472,6 +6661,11 @@ document.addEventListener("click", function(e){
     case "areadel": delArea(b.dataset.id); break;
     case "pfclosed": ui.pf.closed = !ui.pf.closed; render(); break;
     case "pftab": ui.pf.st = b.dataset.v; render(); break;
+    case "pfview": ui.pf.view = b.dataset.v === "weeks" ? "weeks" : "list"; prefs.pfView = ui.pf.view; savePrefs(); render(); break;
+    case "wkedit": openWeeks(); break;
+    case "wkstep": wkStep(b.dataset.k, +b.dataset.v); break;
+    case "wksave": wkSaveSheet(); break;
+    case "wkclear": wkClear(); break;
     case "pfflt": ui.pf.flt = !ui.pf.flt; render(); break;
     case "open": if (b.dataset.pv){ ui.pview = b.dataset.pv; prefs.pview = ui.pview; savePrefs(); } if (!scrim.hidden) closeSheet(); ui.mv.active = null; ui.mv.sel = null; ui.mv.calTop = null; ui.mv.tlTop = 0; ui.mv.open = {}; ui.pid = b.dataset.id; ui.tab = "project"; ui.more = false; remember(); render(); scrollTo(0, 0); break;
     case "gotab": ui.tab = b.dataset.tab; remember(); render(); break;
