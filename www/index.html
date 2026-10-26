@@ -1330,6 +1330,54 @@ body.obopen .tabs{visibility:hidden}
 .lglife[aria-pressed="true"]{background:linear-gradient(180deg,#3E9E67,#1F6A40);color:#fff;box-shadow:0 4px 12px -6px rgba(31,106,64,.8)}
 .lglife[aria-pressed="true"] svg{color:#fff}
 .lgproj.off{opacity:.45;pointer-events:none}
+.hmenu{position:fixed;top:auto;inset-inline-start:auto;z-index:45;width:max-content}
+/* ---------- Portfolio: planning period, status and treatment chips ---------- */
+.planby{display:flex;align-items:center;gap:8px;margin:-2px 0 10px}
+.planby .seg button{min-height:32px;padding:0 12px}
+.prow.top{padding-bottom:4px}
+.prow.rest{display:grid;grid-template-columns:minmax(0,1fr);gap:5px;padding-top:6px;cursor:pointer}
+.prow.rest:empty{display:none}
+.pfst{display:flex;flex-wrap:wrap;gap:6px;padding-inline-end:40px}
+.pfchip{display:inline-flex;align-items:center;gap:5px;min-height:32px;padding:0 10px 0 12px;border-radius:16px;border:0;background:var(--day-fill);box-shadow:inset 0 0 0 .5px var(--day-ring);color:var(--ink);font:inherit;font-size:13px;font-weight:650;cursor:pointer}
+.pfchip svg{width:13px;height:13px;opacity:.6}
+.pfchip:hover{background:var(--field)}
+.trpick{display:flex;flex-direction:column;gap:6px}
+.trpick button{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:start;padding:10px 14px;border-radius:14px;border:0;background:var(--day-fill);box-shadow:inset 0 0 0 .5px var(--day-ring);color:var(--ink);font:inherit;cursor:pointer;min-height:48px}
+.trpick button b{font-size:15px}
+.trpick button small{font-size:12.5px;color:var(--soft)}
+.trpick button[aria-checked="true"]{box-shadow:inset 0 0 0 2px #2C8A55;background:rgba(44,138,85,.1)}
+/* + Attention */
+.addmenu{position:fixed;z-index:35;display:flex;flex-direction:column;gap:2px;padding:6px;border-radius:22px;background:var(--solid-fill);min-width:250px;max-width:calc(100vw - 20px);animation:hmIn .14s ease-out}
+.addmenu button{display:flex;align-items:center;gap:12px;padding:8px 10px;border:0;border-radius:16px;background:none;color:var(--ink);font:inherit;text-align:start;cursor:pointer;min-height:52px}
+.addmenu button:hover,.addmenu button:focus-visible{background:var(--day-fill)}
+.addmenu .adi{flex:none;width:36px;height:36px;border-radius:18px;display:grid;place-items:center;font-style:normal;color:#fff;background:linear-gradient(180deg,#3E9E67,#1F6A40)}
+.addmenu .adi.addev{background:var(--cu);color:var(--cu-ink)}
+.addmenu .adi.addtk{background:var(--tk);color:var(--tk-ink)}
+.addmenu .adi svg{width:17px;height:17px}
+.addmenu span{display:flex;flex-direction:column}
+.addmenu b{font-size:15px}
+.addmenu small{font-size:12px;color:var(--soft)}
+/* trial mode */
+html.trial [data-f="commitment"],html.trial [data-f="commitM"],html.trial .commitbar,html.trial .commitrow{display:none!important}
+.trialbtn{margin-inline-start:auto;color:var(--cop)!important;font-weight:700}
+.trwk{margin-top:8px}
+.trwkhd{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.trwkhd b{font-size:20px;font-weight:800}
+.trsplit{display:flex;height:14px;border-radius:7px;overflow:hidden;margin-top:6px;background:var(--cap-empty);box-shadow:inset 0 0 0 1px var(--cap-ring);direction:ltr}
+.trsplit i{display:block;height:100%}
+.trsplit i+i{box-shadow:inset 1px 0 0 rgba(255,255,255,.6)}
+.trsplitl{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:4px;font-size:13.5px}
+.trsplitl li{display:flex;align-items:center;gap:8px}
+.trsplitl i{flex:none;width:10px;height:10px;border-radius:3px}
+.trsplitl span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.trsplitl small{min-width:38px;text-align:end;color:var(--soft)}
+.trpast{margin-top:12px;border-top:1px solid var(--hair);padding-top:8px}
+.trpast summary{cursor:pointer;font-size:13px;font-weight:700;color:var(--soft);min-height:32px;display:flex;align-items:center}
+.trpast .trwk{padding:8px 0;border-bottom:1px solid var(--hair)}
+.trsug{margin:10px 0 0}
+.trdot{display:inline-block;width:10px;height:10px;border-radius:3px;flex:none}
+.planby .lab{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.planby .seg{flex-wrap:nowrap;flex:none}
 
 /* Promove logo: the mark in the header, the full logo on the welcome screen and in "How Promove works" */
 .lmark{display:block;flex:none;width:60px;height:28px;background:url(data:image/webp;base64,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) center/contain no-repeat}
@@ -1999,8 +2047,8 @@ function commitReview(S, cmd, now){
   var over = {}; (cmd.changes || []).forEach(function(c){ over[c.project] = c.edits; });
   var mode = cmd.mode === "month" ? "month" : "week";
   var cap = cmd.capacity != null ? q4(cmd.capacity) : capacityForPeriod(S, cmd.week, mode);
-  var total = plannedTotal(S, over, mode);
-  if (total > cap) throw PMMError("over_capacity", { total:total, capacity:cap });
+  var total = plannedTotal(S, over, mode), trial = !!(S.settings && S.settings.trial);
+  if (total > cap && !trial) throw PMMError("over_capacity", { total:total, capacity:cap });
   var N = upgrade(clone(S)), at = now || new Date().toISOString(), mids = [], judgements = [];
   (cmd.judgements || []).forEach(function(j){
     if (!N.projects[j.project]) throw PMMError("missing");
@@ -2013,8 +2061,8 @@ function commitReview(S, cmd, now){
     N = r.S;
     if (r.result.kind === "saved") r.result.movements.forEach(function(id){ mids.push(id); N.movements.forEach(function(m){ if (m.id === id) m.review = cmd.id; }); });
   });
-  if (cmd.week){ if (mode === "month"){ if (!N.capacity.months) N.capacity.months = {}; N.capacity.months[cmd.week] = cap; } else N.capacity.weeks[cmd.week] = cap; }
-  N.reviews.push({ id:cmd.id, from:cmd.from, to:cmd.to, at:at, week:cmd.week || null, mode:mode, capacity:cap, total:total,
+  if (cmd.week && !trial){ if (mode === "month"){ if (!N.capacity.months) N.capacity.months = {}; N.capacity.months[cmd.week] = cap; } else N.capacity.weeks[cmd.week] = cap; }
+  N.reviews.push({ trial:trial || undefined, id:cmd.id, from:cmd.from, to:cmd.to, at:at, week:cmd.week || null, mode:mode, capacity:cap, total:total,
     movements:mids, judgements:judgements, assessments:judgements.filter(function(j){ return j.assessment; }).map(function(j){ return j.assessment; }),
     note:canonField("x", cmd.note) });
   N.commands[cmd.id] = { kind:"review", movements:mids };
@@ -2032,6 +2080,8 @@ function nextReviewDate(S, today){
   var d = new Date(start); while (d.getDay() !== day) d.setDate(d.getDate() + 1);
   return iso(d);
 }
+/* trial mode: everything works, but no available or committed hours are set; Promove only watches where attention goes */
+function setTrial(S, on){ var N = upgrade(clone(S)); if (on) N.settings.trial = true; else delete N.settings.trial; return { S:N, result:{ kind:"settings" } }; }
 function setWeekStart(S, day){
   day = parseInt(day, 10); if ([0,1,6].indexOf(day) < 0) throw PMMError("invalid", [{ field:"weekStart", code:"range" }]);
   var N = upgrade(clone(S)); N.settings.weekStart = day; return { S:N, result:{ kind:"settings" } };
@@ -2049,9 +2099,10 @@ function flags(S, today, startDay){
   var lastEnd = new Date(wk); lastEnd.setDate(lastEnd.getDate() - 1);
   var out = { portfolio:{}, projects:{} };
   var nr = nextReviewDate(S, today); if (S.order.length && t >= nr) out.portfolio.reviewDue = { since:nr };
-  var mode = planMode(S), m0 = mode === "month" ? monthStart(S, today) : null;
+  var mode = planMode(S), m0 = mode === "month" ? monthStart(S, today) : null, trial = !!(S.settings && S.settings.trial);
   var cap = mode === "month" ? capacityForPeriod(S, m0, mode) : capacityFor(S, iso(wk)), total = plannedTotal(S, null, mode);
-  if (total > cap) out.portfolio.capacityConflict = { total:total, capacity:cap };
+  /* trial mode: no hours are set yet, so nothing is measured against them */
+  if (total > cap && !trial) out.portfolio.capacityConflict = { total:total, capacity:cap };
   S.order.forEach(function(pid){
     var p = S.projects[pid], d = p.data, f = [];
     var owes = d.status === "active" || d.status === "waiting";
@@ -2059,7 +2110,7 @@ function flags(S, today, startDay){
     if (d.status === "waiting" && d.followUp && t >= d.followUp) f.push({ code:"followup_due", date:d.followUp });
     if (d.status === "inactive" && d.reconsiderOn && t >= d.reconsiderOn) f.push({ code:"reconsider_due", date:d.reconsiderOn });
     if (d.status === "paused" && d.pauseUntil && t >= d.pauseUntil) f.push({ code:"pause_ended", date:d.pauseUntil });
-    if (d.status === "active" && mode === "month"){
+    if (d.status === "active" && mode === "month" && !trial){
       /* month mode: completed weeks of this 4-week block against the plan pro rata; in its first week, the block that just ended */
       var el = daysBetween(parse(m0), today), wks = Math.floor(el / 7), logged2 = S.engagements.some(function(e){ return e.project === pid; });
       if (wks >= 1){
@@ -2075,7 +2126,7 @@ function flags(S, today, startDay){
         }
       }
     }
-    if (d.status === "active" && mode !== "month"){
+    if (d.status === "active" && mode !== "month" && !trial){
       var agreed = committedAt(S, pid, iso(lastEnd));
       if (agreed){
         var logged = S.engagements.some(function(e){ return e.project === pid; });
@@ -2145,7 +2196,7 @@ function makeStore(initial, write){
   return store;
 }
 
-return { LIFE:LIFE, addTask:addTask, editTask:editTask, tickTask:tickTask, taskDue:taskDue, taskHits:taskHits, repNext:repNext, canonRep:canonRep, deleteProject:deleteProject, setPinned:setPinned, moveProject:moveProject, duplicateProject:duplicateProject, removeEntry:removeEntry, q4:q4, floorQ:floorQ, planMode:planMode, planKey:planKey, plannedOf:plannedOf, monthStart:monthStart, setPlanBy:setPlanBy, capacityForPeriod:capacityForPeriod, engagedIn:engagedIn, committedAtM:committedAtM, setWeekStart:setWeekStart, flags:flags, PROGRESS:PROGRESS, assessProgress:assessProgress, latestAssessment:latestAssessment, commitReview:commitReview, nextReviewDate:nextReviewDate, setReviewDay:setReviewDay, upgrade:upgrade, capacityFor:capacityFor, setCapacity:setCapacity, plannedTotal:plannedTotal, commitPlan:commitPlan, capacityUsed:capacityUsed, committedAt:committedAt, makeStore:makeStore, MAG:MAG, DIR:DIR, FIELDS:FIELDS, STATUSES:STATUSES, ASSESS:ASSESS, TREAT:TREAT, empty:empty, uid:uid, canon:canon,
+return { setTrial:setTrial, LIFE:LIFE, addTask:addTask, editTask:editTask, tickTask:tickTask, taskDue:taskDue, taskHits:taskHits, repNext:repNext, canonRep:canonRep, deleteProject:deleteProject, setPinned:setPinned, moveProject:moveProject, duplicateProject:duplicateProject, removeEntry:removeEntry, q4:q4, floorQ:floorQ, planMode:planMode, planKey:planKey, plannedOf:plannedOf, monthStart:monthStart, setPlanBy:setPlanBy, capacityForPeriod:capacityForPeriod, engagedIn:engagedIn, committedAtM:committedAtM, setWeekStart:setWeekStart, flags:flags, PROGRESS:PROGRESS, assessProgress:assessProgress, latestAssessment:latestAssessment, commitReview:commitReview, nextReviewDate:nextReviewDate, setReviewDay:setReviewDay, upgrade:upgrade, capacityFor:capacityFor, setCapacity:setCapacity, plannedTotal:plannedTotal, commitPlan:commitPlan, capacityUsed:capacityUsed, committedAt:committedAt, makeStore:makeStore, MAG:MAG, DIR:DIR, FIELDS:FIELDS, STATUSES:STATUSES, ASSESS:ASSESS, TREAT:TREAT, empty:empty, uid:uid, canon:canon,
   validate:validate, createProject:createProject, saveProjectChange:saveProjectChange, setUpNext:setUpNext,
   recordAttempt:recordAttempt, removeSession:removeSession, scheduleSession:scheduleSession, settleScheduled:settleScheduled, dueScheduled:dueScheduled, annotate:annotate, noteEntry:noteEntry, addArea:addArea, renameArea:renameArea, removeArea:removeArea, setProjectAreas:setProjectAreas, areasOf:areasOf, cpNote:cpNote, noteMovement:noteMovement, renameMvNote:renameMvNote, mvNote:mvNote, engagedInWeek:engagedInWeek, movementsOf:movementsOf,
   checkpointMoves:checkpointMoves, iso:iso, parse:parse, weekStart:weekStart, daysBetween:daysBetween };
@@ -2576,7 +2627,7 @@ en:{
  pfSub2:"Which projects need you, and why.", prescribed:"Treatment", dueL:"Needs inspection", allClear:"Nothing is due. Every project is on plan.",
  fl_review_due:"Review due", fl_capacity:"Plan exceeds available hours by {n} h", fl_checkpoint_due:"Goal check due", fl_followup_due:"Follow-up due",
  fl_reconsider_due:"Time to reconsider", fl_pause_ended:"Pause has ended", fl_engagement_shortfall:"Last week {a} of {b} h engaged", fl_engagement_unassessed:"Hours not judged yet",
- pgNeed:"Needs you", pgOk:"On plan", pgIdle:"Paused or set aside", pgIdleS:"Paused", lifeL:"Life", lifeHint:"Show only Life: everyday tasks, chores and habits, without anything that belongs to a project.", lifeEmpty:"Nothing in Life yet", lifeEmptyBody:"Add a task, a chore or a habit with + Task. Ticked ones are kept here as a history.", tkTitle:"Tasks", tkNew:"Task", tkNone:"Nothing to do today. Add a task, a chore or a habit.", tkShort:"Task", tkTickL:"Mark “{x}” done", tkDoneOn:"done {d}", tkSkippedOn:"skipped {d}", tkLate:"{n} d overdue", tkHits:"{a}/{b} this week", tkHitsL:"Days kept in the last 7", tkHitsLong:"Kept on {a} of its {b} days in the last week.", tkTitleL:"Task", tkBelongs:"Belongs to", tkDueL:"Due", tkNextDue:"Next due", tkHistory:"Recently", tkSkip:"Skip this one", tkDone:"Done", tkAdd:"Add task", tkNewTitle:"New task", tkRepeat:"Repeat", rpNone:"Never", rpDay:"Daily", rpN:"Every few days", rpW:"Weekdays", rpM:"Monthly", rpEveryL:"Every", rpDaysL:"days", rpMHint:"On the same day of the month as its due date.", tkMissL:"If it's missed", tkMiss_carry:"Carry over", tkMiss_let:"Let it go", tkMissH_carry:"A chore: it stays due until it's done.", tkMissH_let:"A habit: a missed day passes and it waits for its next day. Its record shows how often you kept it.", tkSaved:"Task saved", tkAdded:"Task added", tkSkipped:"Skipped · the next one is set", tkDoneNext:"Done · next on {d}", tkDoneT:"Done", rpDaily:"every day", rpEveryN:"every {n} days", rpMonthly:"monthly on the {d}", tkToggle:"Task (no hours)", srTodo:"Tasks", f_startWk:"Start week", f_endWk:"Suggested end week", wkOf:"week of {d}", pfViewL:"Show projects as", pfList:"List", pfWeeks:"Weeks", wkNow:"now", wkThis:"this week", wkIn1:"next week", wkIn:"in {n} weeks", wkAgo1:"last week", wkAgoN:"{n} weeks ago", wkLen1:"1 week", wkLen:"{n} weeks", wkPlace:"No weeks yet · tap its row to place it", wkOver:"past its suggested end", wkHint:"Weeks from this week. Drag a bar's ends to change its start or suggested end, or drag the bar to move both. Tap an empty row to place a project.", wkDragCap:"{s} → {e} · {n}", wkStartOf:"Start of {p}: {w}. Arrow keys move it by a week.", wkEndOf:"Suggested end of {p}: {w}. Arrow keys move it by a week.", wkSaved:"Weeks saved · recorded on the timeline", wkCard:"Weeks", wkSet:"Set weeks", wkChange:"Change", wkNone:"No start or suggested end yet.", wkStartL:"Start", wkEndL:"Suggested end", wkClear:"Clear", wkEarlier:"{x}: a week earlier", wkLater:"{x}: a week later", wkSheetHint:"Each change is recorded on the timeline.", pfTabsL:"Projects by state", pfNone:"No projects here right now.", pgClosed:"Closed", basisL:"Why {p} is labelled this way",
+ pgNeed:"Needs you", pgOk:"On plan", pgIdle:"Paused or set aside", pgIdleS:"Paused", pfStatOf:"Status of {p}: {v}. Change it", pfTrOf:"Treatment of {p}: {v}. Change it", trNone2:"No treatment", planByW:"Planning by week", planByM:"Planning by month", addAttn:"Attention", addSesSub:"Time you worked or will work, with hours", addEvSub:"A meeting, call or deadline, no hours", addTkSub:"Something to get done by a day, no hours", newEvent:"New event", trialL:"Trial mode", trialOn:"On", trialTry:"Trial mode", trialLead:"No hours are set. Log your time as usual and Promove shows where your attention actually goes, week by week.", trialNone:"Nothing logged this week yet.", trialReport:"Weekly report · the last 4 weeks", trialSug:"Over {n} weeks you gave about {h} a week. End the trial to use it as your plan.", trialEnd:"End trial", trialWhat:"Everything keeps working, but available and committed hours are switched off: nothing is measured against them and nothing is flagged for hours. Promove reports each week how much attention you gave and how it was divided among projects.", trialKeep:"Your current hours are kept and come back when the trial ends.", trialStart:"Start trial", trialStarted:"Trial mode on", trialOffLead:"From your last {n} weeks, Promove suggests this plan:", trialOffNote:"You can change any of it later with Change plan.", trialOffNone:"There aren't any logged hours yet to suggest a plan from. Set your hours yourself.", trialSelf:"Set them myself", trialUse:"Use these hours", trialEndedUse:"Trial ended · plan set from your weeks", trialEndedSelf:"Trial ended · set your plan", trialShareChip:"{n}% of this week", trialNoHours:"No hours this week", trialRowLine:"{h} this week", trialRvLead:"Where your attention went in the week you're reviewing. There are no hours to plan in trial mode.", rvRecLineT:"{a} judged · {b} changed", rvPart2T:"The week's report", rvGuide2T:"Last step: see where your attention went, then save the review.", rvHow2T:"See the week's report of where your attention went, then save.", lifeL:"Life", lifeHint:"Show only Life: everyday tasks, chores and habits, without anything that belongs to a project.", lifeEmpty:"Nothing in Life yet", lifeEmptyBody:"Add a task, a chore or a habit with + Task. Ticked ones are kept here as a history.", tkTitle:"Tasks", tkNew:"Task", tkNone:"Nothing to do today. Add a task, a chore or a habit.", tkShort:"Task", tkTickL:"Mark “{x}” done", tkDoneOn:"done {d}", tkSkippedOn:"skipped {d}", tkLate:"{n} d overdue", tkHits:"{a}/{b} this week", tkHitsL:"Days kept in the last 7", tkHitsLong:"Kept on {a} of its {b} days in the last week.", tkTitleL:"Task", tkBelongs:"Belongs to", tkDueL:"Due", tkNextDue:"Next due", tkHistory:"Recently", tkSkip:"Skip this one", tkDone:"Done", tkAdd:"Add task", tkNewTitle:"New task", tkRepeat:"Repeat", rpNone:"Never", rpDay:"Daily", rpN:"Every few days", rpW:"Weekdays", rpM:"Monthly", rpEveryL:"Every", rpDaysL:"days", rpMHint:"On the same day of the month as its due date.", tkMissL:"If it's missed", tkMiss_carry:"Carry over", tkMiss_let:"Let it go", tkMissH_carry:"A chore: it stays due until it's done.", tkMissH_let:"A habit: a missed day passes and it waits for its next day. Its record shows how often you kept it.", tkSaved:"Task saved", tkAdded:"Task added", tkSkipped:"Skipped · the next one is set", tkDoneNext:"Done · next on {d}", tkDoneT:"Done", rpDaily:"every day", rpEveryN:"every {n} days", rpMonthly:"monthly on the {d}", tkToggle:"Task (no hours)", srTodo:"Tasks", f_startWk:"Start week", f_endWk:"Suggested end week", wkOf:"week of {d}", pfViewL:"Show projects as", pfList:"List", pfWeeks:"Weeks", wkNow:"now", wkThis:"this week", wkIn1:"next week", wkIn:"in {n} weeks", wkAgo1:"last week", wkAgoN:"{n} weeks ago", wkLen1:"1 week", wkLen:"{n} weeks", wkPlace:"No weeks yet · tap its row to place it", wkOver:"past its suggested end", wkHint:"Weeks from this week. Drag a bar's ends to change its start or suggested end, or drag the bar to move both. Tap an empty row to place a project.", wkDragCap:"{s} → {e} · {n}", wkStartOf:"Start of {p}: {w}. Arrow keys move it by a week.", wkEndOf:"Suggested end of {p}: {w}. Arrow keys move it by a week.", wkSaved:"Weeks saved · recorded on the timeline", wkCard:"Weeks", wkSet:"Set weeks", wkChange:"Change", wkNone:"No start or suggested end yet.", wkStartL:"Start", wkEndL:"Suggested end", wkClear:"Clear", wkEarlier:"{x}: a week earlier", wkLater:"{x}: a week later", wkSheetHint:"Each change is recorded on the timeline.", pfTabsL:"Projects by state", pfNone:"No projects here right now.", pgClosed:"Closed", basisL:"Why {p} is labelled this way",
  basisHint:"Labels compare the hours engaged in a named week with the hours committed. They are prompts to look, not verdicts.", openProject:"Open project",
  rvSub:"Judge what happened, then decide what each project gets next week.", rvNext:"Next review", rvDueToday:"due today", rvLast:"Last review {d}", rvNever:"No review yet",
  rvEvery:"every {d}", rvStart:"Start review", rvPast:"Past reviews", rvNmov:"{n} progress entries", rvNass:"{n} judged", rvOn:"Review of {d}",
@@ -2712,7 +2763,7 @@ fa:{
  pfSub2:"کدام پروژه‌ها به شما نیاز دارند و چرا.", prescribed:"درمان", dueL:"نیاز به بررسی", allClear:"موعدی نیست. همهٔ پروژه‌ها طبق برنامه‌اند.",
  fl_review_due:"موعد بازبینی", fl_capacity:"برنامه {n} ساعت بیش از ساعت‌های در دسترس است", fl_checkpoint_due:"موعد بررسی هدف", fl_followup_due:"موعد پیگیری",
  fl_reconsider_due:"زمان بازنگری", fl_pause_ended:"توقف تمام شده", fl_engagement_shortfall:"هفتهٔ گذشته {a} از {b} انجام شد", fl_engagement_unassessed:"ساعت‌ها هنوز داوری نشده",
- pgNeed:"نیاز به شما", pgOk:"طبق برنامه", pgIdle:"متوقف یا کنار گذاشته", pgIdleS:"متوقف", lifeL:"زندگی", lifeHint:"فقط زندگی: تسک‌ها، کارهای خانه و عادت‌های روزمره، بدون هر چیزی که به پروژه‌ای تعلق دارد.", lifeEmpty:"هنوز چیزی در زندگی نیست", lifeEmptyBody:"با + تسک، تسک، کار تکراری یا عادتی اضافه کنید. انجام‌شده‌ها اینجا به‌عنوان تاریخچه می‌مانند.", tkTitle:"تسک‌ها", tkNew:"تسک", tkNone:"امروز کاری نمانده. تسک، کار تکراری یا عادتی اضافه کنید.", tkShort:"تسک", tkTickL:"علامت انجام «{x}»", tkDoneOn:"انجام شد {d}", tkSkippedOn:"رد شد {d}", tkLate:"{n} روز عقب", tkHits:"{a}/{b} این هفته", tkHitsL:"روزهای انجام‌شده در ۷ روز گذشته", tkHitsLong:"در هفتهٔ گذشته {a} روز از {b} روزش انجام شد.", tkTitleL:"تسک", tkBelongs:"متعلق به", tkDueL:"سررسید", tkNextDue:"سررسید بعدی", tkHistory:"اخیراً", tkSkip:"این یکی را رد کن", tkDone:"انجام شد", tkAdd:"افزودن تسک", tkNewTitle:"تسک تازه", tkRepeat:"تکرار", rpNone:"هرگز", rpDay:"روزانه", rpN:"هر چند روز", rpW:"روزهای هفته", rpM:"ماهانه", rpEveryL:"هر", rpDaysL:"روز", rpMHint:"در همان روزِ ماه که سررسیدش است.", tkMissL:"اگر جا ماند", tkMiss_carry:"بماند تا انجام شود", tkMiss_let:"بگذر", tkMissH_carry:"کار تکراری: تا انجام نشود سررسیدش باقی می‌ماند.", tkMissH_let:"عادت: روزِ جامانده می‌گذرد و منتظر روز بعدی‌اش می‌ماند. سابقه‌اش نشان می‌دهد چند بار انجامش داده‌اید.", tkSaved:"تسک ذخیره شد", tkAdded:"تسک اضافه شد", tkSkipped:"رد شد · نوبت بعدی تنظیم شد", tkDoneNext:"انجام شد · نوبت بعد {d}", tkDoneT:"انجام شد", rpDaily:"هر روز", rpEveryN:"هر {n} روز", rpMonthly:"ماهانه، روز {d}", tkToggle:"تسک (بدون ساعت)", srTodo:"تسک‌ها", f_startWk:"هفتهٔ شروع", f_endWk:"هفتهٔ پایان پیشنهادی", wkOf:"هفتهٔ {d}", pfViewL:"نمایش پروژه‌ها به‌صورت", pfList:"فهرست", pfWeeks:"هفته‌ها", wkNow:"اکنون", wkThis:"این هفته", wkIn1:"هفتهٔ بعد", wkIn:"{n} هفته بعد", wkAgo1:"هفتهٔ پیش", wkAgoN:"{n} هفته پیش", wkLen1:"۱ هفته", wkLen:"{n} هفته", wkPlace:"هنوز هفته‌ای ندارد · ردیفش را بزنید تا جایش بدهید", wkOver:"از پایان پیشنهادی گذشته", wkHint:"هفته‌ها نسبت به این هفته. دو سر هر نوار را بکشید تا شروع یا پایان پیشنهادی عوض شود، یا خود نوار را بکشید تا هر دو جابه‌جا شوند. ردیف خالی را بزنید تا پروژه را جای دهید.", wkDragCap:"{s} ← {e} · {n}", wkStartOf:"شروع {p}: {w}. با کلیدهای جهت یک هفته جابه‌جا می‌شود.", wkEndOf:"پایان پیشنهادی {p}: {w}. با کلیدهای جهت یک هفته جابه‌جا می‌شود.", wkSaved:"هفته‌ها ذخیره شد · در خط زمانی ثبت شد", wkCard:"هفته‌ها", wkSet:"تعیین هفته‌ها", wkChange:"تغییر", wkNone:"هنوز شروع یا پایان پیشنهادی ندارد.", wkStartL:"شروع", wkEndL:"پایان پیشنهادی", wkClear:"پاک کردن", wkEarlier:"{x}: یک هفته زودتر", wkLater:"{x}: یک هفته دیرتر", wkSheetHint:"هر تغییر در خط زمانی ثبت می‌شود.", pfTabsL:"پروژه‌ها بر اساس وضعیت", pfNone:"فعلاً پروژه‌ای اینجا نیست.", pgClosed:"بسته", basisL:"چرا {p} این برچسب را دارد",
+ pgNeed:"نیاز به شما", pgOk:"طبق برنامه", pgIdle:"متوقف یا کنار گذاشته", pgIdleS:"متوقف", pfStatOf:"وضعیت {p}: {v}. تغییر", pfTrOf:"رویکرد {p}: {v}. تغییر", trNone2:"بدون رویکرد", planByW:"برنامه‌ریزی هفتگی", planByM:"برنامه‌ریزی ماهانه", addAttn:"توجه", addSesSub:"زمانی که کار کردید یا خواهید کرد، با ساعت", addEvSub:"جلسه، تماس یا مهلت، بدون ساعت", addTkSub:"کاری برای انجام تا یک روز، بدون ساعت", newEvent:"رویداد تازه", trialL:"حالت آزمایشی", trialOn:"روشن", trialTry:"حالت آزمایشی", trialLead:"هیچ ساعتی تعیین نشده. زمان‌تان را مثل همیشه ثبت کنید و Promove هفته به هفته نشان می‌دهد توجه‌تان واقعاً کجا می‌رود.", trialNone:"این هفته هنوز چیزی ثبت نشده.", trialReport:"گزارش هفتگی · ۴ هفتهٔ گذشته", trialSug:"در {n} هفته حدود {h} در هفته توجه دادید. با پایان آزمایش می‌توانید همین را برنامه‌تان کنید.", trialEnd:"پایان آزمایش", trialWhat:"همه چیز کار می‌کند، اما ساعت‌های در دسترس و متعهد خاموش‌اند: چیزی با آن‌ها سنجیده نمی‌شود و هشداری برای ساعت داده نمی‌شود. Promove هر هفته گزارش می‌دهد چقدر توجه دادید و میان پروژه‌ها چطور تقسیم شد.", trialKeep:"ساعت‌های فعلی‌تان نگه داشته می‌شوند و با پایان آزمایش برمی‌گردند.", trialStart:"شروع آزمایش", trialStarted:"حالت آزمایشی روشن شد", trialOffLead:"بر اساس {n} هفتهٔ اخیر، Promove این برنامه را پیشنهاد می‌کند:", trialOffNote:"هر بخشش را بعداً با «تغییر برنامه» می‌توانید عوض کنید.", trialOffNone:"هنوز ساعتی ثبت نشده که از آن برنامه پیشنهاد شود. ساعت‌ها را خودتان تعیین کنید.", trialSelf:"خودم تعیین می‌کنم", trialUse:"همین ساعت‌ها", trialEndedUse:"آزمایش تمام شد · برنامه از هفته‌هایتان تنظیم شد", trialEndedSelf:"آزمایش تمام شد · برنامه‌تان را تنظیم کنید", trialShareChip:"{n}٪ از این هفته", trialNoHours:"این هفته بدون ساعت", trialRowLine:"{h} این هفته", trialRvLead:"توجه‌تان در هفته‌ای که بازبینی می‌کنید کجا رفت. در حالت آزمایشی ساعتی برای برنامه‌ریزی نیست.", rvRecLineT:"{a} داوری‌شده · {b} تغییر", rvPart2T:"گزارش هفته", rvGuide2T:"گام آخر: ببینید توجه‌تان کجا رفت، سپس بازبینی را ذخیره کنید.", rvHow2T:"گزارش هفته را ببینید که توجه‌تان کجا رفت، سپس ذخیره کنید.", lifeL:"زندگی", lifeHint:"فقط زندگی: تسک‌ها، کارهای خانه و عادت‌های روزمره، بدون هر چیزی که به پروژه‌ای تعلق دارد.", lifeEmpty:"هنوز چیزی در زندگی نیست", lifeEmptyBody:"با + تسک، تسک، کار تکراری یا عادتی اضافه کنید. انجام‌شده‌ها اینجا به‌عنوان تاریخچه می‌مانند.", tkTitle:"تسک‌ها", tkNew:"تسک", tkNone:"امروز کاری نمانده. تسک، کار تکراری یا عادتی اضافه کنید.", tkShort:"تسک", tkTickL:"علامت انجام «{x}»", tkDoneOn:"انجام شد {d}", tkSkippedOn:"رد شد {d}", tkLate:"{n} روز عقب", tkHits:"{a}/{b} این هفته", tkHitsL:"روزهای انجام‌شده در ۷ روز گذشته", tkHitsLong:"در هفتهٔ گذشته {a} روز از {b} روزش انجام شد.", tkTitleL:"تسک", tkBelongs:"متعلق به", tkDueL:"سررسید", tkNextDue:"سررسید بعدی", tkHistory:"اخیراً", tkSkip:"این یکی را رد کن", tkDone:"انجام شد", tkAdd:"افزودن تسک", tkNewTitle:"تسک تازه", tkRepeat:"تکرار", rpNone:"هرگز", rpDay:"روزانه", rpN:"هر چند روز", rpW:"روزهای هفته", rpM:"ماهانه", rpEveryL:"هر", rpDaysL:"روز", rpMHint:"در همان روزِ ماه که سررسیدش است.", tkMissL:"اگر جا ماند", tkMiss_carry:"بماند تا انجام شود", tkMiss_let:"بگذر", tkMissH_carry:"کار تکراری: تا انجام نشود سررسیدش باقی می‌ماند.", tkMissH_let:"عادت: روزِ جامانده می‌گذرد و منتظر روز بعدی‌اش می‌ماند. سابقه‌اش نشان می‌دهد چند بار انجامش داده‌اید.", tkSaved:"تسک ذخیره شد", tkAdded:"تسک اضافه شد", tkSkipped:"رد شد · نوبت بعدی تنظیم شد", tkDoneNext:"انجام شد · نوبت بعد {d}", tkDoneT:"انجام شد", rpDaily:"هر روز", rpEveryN:"هر {n} روز", rpMonthly:"ماهانه، روز {d}", tkToggle:"تسک (بدون ساعت)", srTodo:"تسک‌ها", f_startWk:"هفتهٔ شروع", f_endWk:"هفتهٔ پایان پیشنهادی", wkOf:"هفتهٔ {d}", pfViewL:"نمایش پروژه‌ها به‌صورت", pfList:"فهرست", pfWeeks:"هفته‌ها", wkNow:"اکنون", wkThis:"این هفته", wkIn1:"هفتهٔ بعد", wkIn:"{n} هفته بعد", wkAgo1:"هفتهٔ پیش", wkAgoN:"{n} هفته پیش", wkLen1:"۱ هفته", wkLen:"{n} هفته", wkPlace:"هنوز هفته‌ای ندارد · ردیفش را بزنید تا جایش بدهید", wkOver:"از پایان پیشنهادی گذشته", wkHint:"هفته‌ها نسبت به این هفته. دو سر هر نوار را بکشید تا شروع یا پایان پیشنهادی عوض شود، یا خود نوار را بکشید تا هر دو جابه‌جا شوند. ردیف خالی را بزنید تا پروژه را جای دهید.", wkDragCap:"{s} ← {e} · {n}", wkStartOf:"شروع {p}: {w}. با کلیدهای جهت یک هفته جابه‌جا می‌شود.", wkEndOf:"پایان پیشنهادی {p}: {w}. با کلیدهای جهت یک هفته جابه‌جا می‌شود.", wkSaved:"هفته‌ها ذخیره شد · در خط زمانی ثبت شد", wkCard:"هفته‌ها", wkSet:"تعیین هفته‌ها", wkChange:"تغییر", wkNone:"هنوز شروع یا پایان پیشنهادی ندارد.", wkStartL:"شروع", wkEndL:"پایان پیشنهادی", wkClear:"پاک کردن", wkEarlier:"{x}: یک هفته زودتر", wkLater:"{x}: یک هفته دیرتر", wkSheetHint:"هر تغییر در خط زمانی ثبت می‌شود.", pfTabsL:"پروژه‌ها بر اساس وضعیت", pfNone:"فعلاً پروژه‌ای اینجا نیست.", pgClosed:"بسته", basisL:"چرا {p} این برچسب را دارد",
  basisHint:"برچسب‌ها ساعت‌های انجام‌شده در یک هفتهٔ مشخص را با ساعت‌های تعهد‌شده‌ریزی‌شده مقایسه می‌کنند. دعوت به نگاه‌اند، نه حکم.", openProject:"باز کردن پروژه",
  rvSub:"قضاوت کنید چه رخ داد، سپس تصمیم بگیرید هر پروژه هفتهٔ بعد چه بگیرد.", rvNext:"بازبینی بعدی", rvDueToday:"امروز موعد است", rvLast:"آخرین بازبینی {d}", rvNever:"هنوز بازبینی نشده",
  rvEvery:"هر {d}", rvStart:"شروع بازبینی", rvPast:"بازبینی‌های گذشته", rvNmov:"{n} پیشرفت", rvNass:"{n} قضاوت", rvOn:"بازبینی {d}",
@@ -2891,29 +2942,47 @@ function hoursPicker(v0){
   return '<div class="hpick"><div class="stepper ti" data-stepper="sessions" data-min="0.25"><button type="button" data-step="-1" aria-label="−">−</button><output>' + nf(v) +
     '</output><button type="button" data-step="1" aria-label="+">+</button><input type="hidden" name="sessions" value="' + v + '"></div></div>';
 }
-/* preset lengths: a drop-down that appears once the length is being changed */
+/* preset numbers: a drop-down that appears once a stepper is being changed, for every hours stepper in the app */
 var HQ = [0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4];
-function hqClose(){ [].forEach.call(document.querySelectorAll(".hmenu"), function(m){ m.remove(); }); }
-function hqOpen(wrap){
-  var st = wrap.querySelector('[data-stepper="sessions"]'), cur = parseFloat(st.querySelector("input").value) || 0;
-  var m = wrap.querySelector(".hmenu");
-  if (!m){ m = document.createElement("div"); m.className = "hmenu"; wrap.appendChild(m); }
-  m.innerHTML = '<ul class="sd-list" role="listbox" aria-label="' + esc(t("hoursL")) + '">' + HQ.map(function(q){
+function hqList(st){
+  var k = st.dataset.stepper || "", mo = pmode() === "month";
+  if (k === "sessions") return HQ;
+  if (/capacity/.test(k)) return mo ? [8, 16, 24, 32, 40, 48, 60, 80, 100, 120, 160] : [2, 4, 6, 8, 10, 12, 15, 20, 25, 30, 40];
+  return mo ? [0, 2, 4, 6, 8, 12, 16, 20, 24, 32, 40] : [0, 0.5, 1, 1.5, 2, 3, 4, 5, 6, 8, 10, 12];
+}
+var hqFor = null;
+function hqClose(){ [].forEach.call(document.querySelectorAll(".hmenu"), function(m){ m.remove(); }); hqFor = null; }
+/* placed under the stepper (or above it, near the bottom of the screen), above any sheet; it follows the stepper when the page moves */
+function hqPlace(){
+  var m = document.querySelector(".hmenu"), st = hqFor; if (!m || !st) return;
+  if (!document.contains(st)) return hqClose();
+  var r = st.getBoundingClientRect(), mh = Math.min(232, m.scrollHeight || 232), below = innerHeight - r.bottom > mh + 16;
+  m.style.left = Math.max(8, Math.min(innerWidth - 160, r.left)) + "px"; m.style.minWidth = Math.max(140, r.width) + "px";
+  m.style.top = (below ? r.bottom + 6 : Math.max(8, r.top - mh - 6)) + "px";
+}
+function hqOpen(st){
+  var cur = parseFloat(st.querySelector("input").value) || 0, list = hqList(st);
+  var m = document.querySelector(".hmenu");
+  if (!m){ m = document.createElement("div"); m.className = "hmenu"; document.body.appendChild(m); }
+  hqFor = st;
+  m.innerHTML = '<ul class="sd-list" role="listbox" aria-label="' + esc(t("hoursL")) + '">' + list.map(function(q){
     return '<li><button type="button" role="option" data-hq="' + q + '" aria-selected="' + (q === cur) + '"><span>' + esc(hrs(q)) + "</span>" + (q === cur ? IC.check : "") + "</button></li>"; }).join("") + "</ul>";
+  hqPlace();
   var sel = m.querySelector('[aria-selected="true"]'); if (sel) m.scrollTop = sel.offsetTop - m.clientHeight / 2 + sel.offsetHeight / 2;
 }
 document.addEventListener("click", function(e){
   var q = e.target.closest("[data-hq]");
-  if (q){
-    var st = q.closest(".hpick").querySelector('[data-stepper="sessions"]');
-    st.querySelector("input").value = q.dataset.hq; st.querySelector("output").textContent = nf(+q.dataset.hq);
-    st.querySelector("input").dispatchEvent(new Event("input", { bubbles:true }));
+  if (q && hqFor){
+    var st = hqFor, inp = st.querySelector("input");
+    inp.value = q.dataset.hq; st.querySelector("output").textContent = nf(+q.dataset.hq);
+    inp.dispatchEvent(new Event("input", { bubbles:true }));
     return hqClose();
   }
-  var b = e.target.closest('.hpick [data-step]');
-  if (b) return hqOpen(b.closest(".hpick"));
+  var b = e.target.closest("[data-stepper] [data-step]");
+  if (b){ var st2 = b.closest("[data-stepper]"); if (st2.querySelector("input")) return hqOpen(st2); }
   if (!e.target.closest(".hmenu")) hqClose();
 });
+window.addEventListener("scroll", function(e){ if (hqFor && !(e.target && e.target.closest && e.target.closest(".hmenu"))) hqPlace(); }, true);
 function t(k, v){
   var s = (STR[lang] && STR[lang][k] != null) ? STR[lang][k] : (STR.en[k] != null ? STR.en[k] : k);
   if (v) Object.keys(v).forEach(function(n){ s = s.split("{" + n + "}").join(typeof v[n] === "number" ? nf(v[n]) : v[n]); });
@@ -4089,19 +4158,24 @@ function planFor(w){
 }
 /* ---- attention lives on the Portfolio: the period's hours up top, plan controls on each card in Plan mode ---- */
 function pfPlanStrip(){
+  if (isTrial()) return trialStrip();
   var s = S(), w = perStart(new Date()), month = pmode() === "month", editing = ui.att.edit, ps = activeProjects();
   ui.att.week = w;
   var plan = editing ? planFor(w) : null;
   var cap = editing ? plan.capacity : PMM.capacityForPeriod(s, w, pmode());
   var committed = ps.reduce(function(n, p){ return n + (editing ? ((plan.rows[p.id] || {}).commitment || 0) : planOf(p)); }, 0);
   var used = PMM.capacityUsed(s, PMM.parse(w), perDays()), fit = committed <= cap;
-  var h = '<div class="plate ti section capstrip' + (editing ? " editing" : "") + '" id="capPlate"><div class="plate-top"><span class="lab">' + esc(t("capacity")) + tinfo("available") + "</span>" +
+  /* the planning period is chosen here, where the hours are */
+  var pby = editing ? "" : '<div class="planby"><span class="lab">' + esc(t("planByL")) + '</span><div class="seg ti" role="group" aria-label="' + esc(t("planByL")) + '">' + ["week","month"].map(function(v){
+      return '<button type="button" data-act="setplanby" data-v="' + v + '" aria-pressed="' + (pmode() === v) + '">' + esc(t("planBy_" + v)) + "</button>"; }).join("") + '</div><button class="tinfo" type="button" data-act="planbyinfo" aria-label="' + esc(t("planByL")) + '">' + IC.info + "</button></div>";
+  var h = '<div class="plate ti section capstrip' + (editing ? " editing" : "") + '" id="capPlate">' + pby + '<div class="plate-top"><span class="lab">' + esc(t("capacity")) + tinfo("available") + "</span>" +
     '<span class="muted capper">' + esc((month ? t("thisMonth") : t("thisWeek2")) + " · " + weekRange(w)) + "</span></div>" +
     '<div class="capline2">' + (editing ? '<div class="stepper ti" data-stepper="capacity" data-plan="cap"><button type="button" data-step="-1" aria-label="−">−</button><output>' + nf(cap) +
       '</output><button type="button" data-step="1" aria-label="+">+</button><input type="hidden" name="capacity" value="' + cap + '"></div>' : '<span class="capnum">' + nf(cap) + "</span>") +
     "<span>" + esc(month ? t("sessAvailM") : t("sessAvail")) + '</span><span class="chip sm ' + (fit ? "tk" : "cu") + '" id="fitChip">' + esc(fit ? t("fits") : t("overBy", { n:committed - cap })) + "</span></div>" +
     '<span id="capBar">' + capBar(cap, committed, used) + '</span><div class="capstats"><span><b id="commitN">' + nf(committed) + "</b> " + esc(t("committedL")) + "</span><span><b>" + nf(used) + "</b> " + esc(t("usedL")) + "</span>" +
     (editing ? "" : '<button class="btn sm ti planbtn" type="button" data-act="planedit">' + IC.plan + "<span>" + esc(t("changePlan")) + "</span></button>") + "</div>" +
+    (editing ? "" : '<button class="btn sm link trialbtn" type="button" data-act="trialon">' + esc(t("trialTry")) + "</button>") +
     (editing ? '<button class="switch" type="button" role="switch" aria-checked="' + !!plan.asDefault + '" data-sw="capdef" style="margin-top:10px"><i></i><span>' + esc(t("capDefault")) + "</span></button>" : "") + "</div>";
   var dr = getPlanDraft();
   if (!editing && dr && dr.week === w) h += '<button class="banner ti draftbar" type="button" data-act="planedit"><span>' + esc(t("draftPlan", { a:dr.total, b:dr.capacity })) + "</span><b>" + esc(t("openL")) + "</b></button>";
@@ -4254,6 +4328,9 @@ function logOne(pid){
   render(); toast(t("loggedFor", { p:S().projects[pid].data.name }));
 }
 function openLog(pid, day, kind){
+  /* one form, two triggers: a session (hours) or an event (no hours) */
+  var lm = ui.logMode === "event" ? "event" : "session"; ui.logMode = null;
+  if (lm === "event") kind = "sched";
   var w = ui.att.week || perStart(new Date()), cur = perStart(new Date()), def = day || (w === cur ? todayISO() : w > cur ? w : perEnd(w));
   if (!kind) kind = def > todayISO() ? "sched" : "done";
   if (kind === "sched" && def < todayISO()) def = todayISO();
@@ -4272,19 +4349,19 @@ function openLog(pid, day, kind){
     '<div id="finBox"></div>' +
     '<button class="switch" type="button" role="switch" aria-checked="false" data-sw="weekly"><i></i><span>' + esc(t("wkToggle")) + "</span></button>" +
     '<button class="switch" type="button" role="switch" aria-checked="false" data-sw="event"><i></i><span>' + esc(t("evToggle")) + "</span></button>" +
-    '<button class="switch" type="button" role="switch" aria-checked="false" data-sw="task"><i></i><span>' + esc(t("tkToggle")) + "</span></button>" +
     '<p class="note" id="evHint" hidden>' + esc(t("evHint")) + "</p></div>" +
     field("note", t("note"), area("note", "")) +
     '<p class="note" data-only="done">' + esc(t("atHint")) + "</p></form>";
   var lfoot = pre && pre.timer ? '<button class="btn sm link rmbtn" type="button" data-act="timerdrop">' + IC.x + "<span>" + esc(t("timerDrop")) + "</span></button>"
     : prefs.timer ? "" : '<button class="btn sm ti" type="button" data-act="timerstart" data-only="done">' + IC.play + "<span>" + esc(t("timerInstead")) + "</span></button>";
-  openSheet(t("logSession"), body, lfoot + '<button class="btn tk" type="button" data-act="savelog">' + esc(t("save")) + "</button>", function(sh){
+  openSheet(t(lm === "event" ? "newEvent" : "logSession"), body, lfoot + '<button class="btn tk" type="button" data-act="savelog">' + esc(t("save")) + "</button>", function(sh){
     wireSteppers(sh); wireSwitches(sh);
     var doneSw = sh.querySelector('[data-sw="done"]'), evSw = sh.querySelector('[data-sw="event"]'), wkSw = sh.querySelector('[data-sw="weekly"]'), sesF = sh.querySelector('[data-f="sessions"]');
     function on(x){ return !!x && x.getAttribute("aria-checked") === "true"; }
     function setSw(x, v){ if (x) x.setAttribute("aria-checked", v ? "true" : "false"); }
     function cur(){ return on(doneSw) ? "done" : "sched"; }
     function mode(k){
+      if (lm === "event") k = "sched";
       setSw(doneSw, k === "done");
       if (k === "done"){ setSw(wkSw, false); setSw(evSw, false); } else setSw(sh.querySelector('[data-sw="fin"]'), false);
       var d = sh.querySelector('input[name="date"]');
@@ -4294,6 +4371,8 @@ function openLog(pid, day, kind){
       document.getElementById("kindHint").textContent = t(k === "sched" ? "kindSchedHint" : "kindDoneHint");
       document.getElementById("evHint").hidden = !on(evSw);
       sesF.style.visibility = on(evSw) ? "hidden" : "";
+      if (lm === "event"){ setSw(evSw, true); sesF.hidden = true; doneSw.hidden = true; evSw.hidden = true; document.getElementById("kindHint").hidden = true; var tb = sh.querySelector('[data-act="timerstart"]'); if (tb) tb.hidden = true; }
+      else { setSw(evSw, false); evSw.hidden = true; document.getElementById("evHint").hidden = true; }
     }
     mode(kind);
     /* the toggles stay visible and keep each other consistent: a done session is not a repeat or an event, and a finished task means it was done */
@@ -4301,8 +4380,6 @@ function openLog(pid, day, kind){
       var x = e.target.closest(".switch"); if (!x) return;
       setTimeout(function(){
         var k = x.dataset.sw;
-        /* a task has no hours: it gets its own form, keeping the project and day chosen here */
-        if (k === "task"){ var pv = sh.querySelector('select[name="project"]').value, dv = sh.querySelector('input[name="date"]').value; openTask(null, { project:pv, date:dv }); return; }
         if (k === "done") mode(cur());
         else if (k === "fin") mode(on(x) ? "done" : cur());
         else mode(on(x) ? "sched" : cur());
@@ -4314,7 +4391,7 @@ function openLog(pid, day, kind){
       box.innerHTML = p && p.data.next ? '<button class="switch" type="button" role="switch" aria-checked="false" data-sw="fin"><i></i><span>' + esc(t("finished")) + "</span></button>" : "";
       wireSwitches(box);
     }
-    finFor(pid || (opts[0] && opts[0][0]));
+    if (lm === "session") finFor(pid || (opts[0] && opts[0][0]));
     sh.querySelector('select[name="project"]').addEventListener("change", function(e){ finFor(e.target.value); });
   });
 }
@@ -4645,7 +4722,7 @@ function rvCardHTML(x, i, list){
     '<div class="sub" data-st="closed">' + kField("closeOutcome", t("f_closeOutcome"), '<textarea data-k="closeOutcome" rows="2">' + esc(it.closeOutcome) + "</textarea>") + "</div>" +
     '<div class="nextrow"><span class="lab">' + esc(t("treatShort")) + tinfo("treatment") + "</span>" + kSel("prescription", it.prescription, tr) + "</div>" +
     '<p class="trh" data-trh>' + esc(t("trh_" + (it.prescription || ""))) + "</p>" +
-    '<div class="nextrow"><span class="lab">' + esc(t("committedShort")) + tinfo("planned") + '</span><span class="cwrap">' + (it.commitment !== planOf(p) ? '<span class="was">' + nf(planOf(p)) + " →</span>" : "") + kStep("commitment", it.commitment) + "</span></div>" +
+    '<div class="nextrow commitrow"><span class="lab">' + esc(t("committedShort")) + tinfo("planned") + '</span><span class="cwrap">' + (it.commitment !== planOf(p) ? '<span class="was">' + nf(planOf(p)) + " →</span>" : "") + kStep("commitment", it.commitment) + "</span></div>" +
     '<div class="nextrow">' + kSw("method", it.method, t("changeMethod")) + "</div>" +
     '<div class="sub" data-if="method">' + kField("next", t("rsNext"), '<input data-k="next" list="upl-' + esc(p.id) + '" autocomplete="off" value="' + esc(it.next) + '" placeholder="' + esc(d.next || "") + '"><datalist id="upl-' + esc(p.id) + '">' +
       p.up.map(function(u){ return '<option value="' + esc(u.text) + '">'; }).join("") + "</datalist>") + "</div>" +
@@ -4782,7 +4859,7 @@ function rvStartHTML(){
     '<span style="font-size:13px;opacity:.8">' + esc(last ? t("rvLast", { d:fmtD(localDay(last.at), true) }) : t("rvNever")) + " · " + esc(t("rvEvery", { d:reviewDayName() })) + "</span></div>";
   var n2 = rvProjects().length;
   h += '<div class="card glass pad howto"><span class="lab">' + esc(t("rvHow")) + '</span><ol><li><i>1</i><span><b>' + esc(t("rvPart1")) + "</b><small>" + esc(t("rvHow1", { n:nf(n2) })) + "</small></span></li>" +
-    "<li><i>2</i><span><b>" + esc(rvPart2Label()) + "</b><small>" + esc(t("rvHow2")) + "</small></span></li></ol></div>";
+    "<li><i>2</i><span><b>" + esc(rvPart2Label()) + "</b><small>" + esc(t(isTrial() ? "rvHow2T" : "rvHow2")) + "</small></span></li></ol></div>";
   h += '<div class="btns acts"><button class="btn tk wide" type="button" data-act="rvstart">' + esc(t("rvStart")) + "</button></div>";
   if (s.reviews.length){
     h += '<div class="section"><div class="sec-hd"><h2>' + esc(t("rvPast")) + '</h2></div><div class="rows glass">';
@@ -4819,7 +4896,7 @@ function viewReview(){
   return sw + rvStep3(list);
 }
 /* step 3: the matrix of what was judged, then next week's plan */
-function rvPart2Label(){ if (pmode() !== "month" || !ui.rv) return t("rvPart2"); var r = ui.rv; return t(r.week === comingWeek() ? "rvPart2Mnew" : "rvPart2Mchk"); }
+function rvPart2Label(){ if (isTrial()) return t("rvPart2T"); if (pmode() !== "month" || !ui.rv) return t("rvPart2"); var r = ui.rv; return t(r.week === comingWeek() ? "rvPart2Mnew" : "rvPart2Mchk"); }
 function rvPlanStart(){ var cw = comingWeek(); return pmode() === "month" ? PMM.monthStart(S(), PMM.parse(cw)) : cw; }
 function rvStep3(list){
   var r = ui.rv, s = S(), month = pmode() === "month";
@@ -4828,7 +4905,7 @@ function rvStep3(list){
   var newM = month && r.week === comingWeek(), cw = comingWeek(), weeksLeft = month ? Math.max(1, PMM.daysBetween(PMM.parse(cw), PMM.parse(addDays(r.week, 28))) / 7) : 1;
   var items = list.filter(function(x){ return plotted(x.p); }).map(function(x){ var it = rvItem(x.p); return { project:x.p.id, name:x.p.data.name, progress:it.progress || null, attention:{ sessions:x.f.sessions } }; });
   var h = '<div class="rvhead top"><small>' + esc(t("tab4")) + " · " + esc(fmtD(r.from) + " – " + fmtD(r.to)) + "</small></div>" + rvJourney(3, rvDoneCount(list), list.length);
-  h += '<p class="rvguide">' + esc(!month ? t("rvGuide2", { w:weekRange(r.week) }) : newM ? t("rvGuide2Mnew", { w:weekRange(r.week) }) : t("rvGuide2Mchk", { w:weekRange(r.week), n:nf(weeksLeft) })) + "</p>";
+  h += '<p class="rvguide">' + esc(isTrial() ? t("rvGuide2T") : !month ? t("rvGuide2", { w:weekRange(r.week) }) : newM ? t("rvGuide2Mnew", { w:weekRange(r.week) }) : t("rvGuide2Mchk", { w:weekRange(r.week), n:nf(weeksLeft) })) + "</p>";
   if (newM){   /* the 4 weeks that just ended, in one glance */
     var pm = addDays(r.week, -28);
     h += '<div class="card glass pad mended" style="margin-top:10px"><span class="lab">' + esc(t("mEnded", { w:fmtD(pm) + " – " + fmtD(addDays(r.week, -1)) })) + '</span><ul class="mlist">' + list.map(function(x){
@@ -4840,6 +4917,11 @@ function rvStep3(list){
   if (und) h += '<button class="banner cu draftbar" type="button" data-act="rvgo" data-s="2"><span>' + esc(t(und === 1 ? "rvUndec1" : "rvUndec", { n:nf(und) })) + "</span><b>" + esc(t("rvReview")) + "</b></button>";
   h += '<div class="glass pad mtx" style="margin-top:12px">' + matrixHTML(items, r.from, r.to, false) + "</div>";
   h += '<div id="rvPlan">';
+  /* trial: no hours to plan; the week just reviewed, as a report of where attention went */
+  if (isTrial()){
+    var tw = trWeek(wkISO(PMM.parse(r.to)));
+    h += '<div class="plate ti section trialstrip" style="margin-top:14px"><span class="lab">' + esc(t("trialL")) + '</span><p class="note" style="margin:4px 0 10px">' + esc(t("trialRvLead")) + "</p>" + trWeekHTML(tw, weekRange(tw.ws)) + "</div>";
+  } else {
   h += '<div class="plate ti section" style="margin-top:14px"><span class="lab">' + esc(t("capacity")) + tinfo("available") + '</span><div class="capline2">' + kStep("capacity", r.capacity) + "<span>" + esc(month ? t("sessAvailM") : t("sessAvail")) + '</span><span class="chip sm" id="fit3"></span></div></div>';
   h += '<div class="card glass pad" style="padding:4px 16px;margin-top:12px">' + list.map(function(x){
     var it = rvItem(x.p), d = x.p.data;
@@ -4849,6 +4931,7 @@ function rvStep3(list){
     return '<div class="plrow" data-pid="' + esc(x.p.id) + '"><div><b>' + esc(d.name) + "</b><small>" + esc(rvDecisionText(x.p, it)) + "</small>" + mh + '</div><span class="chg" data-chg></span>' + kStep("c-" + x.p.id, it.commitment) + "</div>";
   }).join("") + "</div>";
   h += '<p class="note planover" id="over3" hidden>' + esc(t("overHint")) + "</p>";
+  }
   h += '<div class="field" style="margin-top:14px"><label class="lab" for="rvNote3">' + esc(t("rvNoteL")) + '</label><textarea id="rvNote3" rows="2" placeholder="' + esc(t("rvNotePh")) + '">' + esc(r.note || "") + "</textarea></div>";
   h += '<div class="card glass pad" style="margin-top:12px;padding:12px 16px"><b>' + esc(t("rvWillRecord")) + '</b><p class="muted" id="rec3" style="margin:4px 0 0;font-size:14px"></p></div>';
   h += '<div class="btns acts"><button class="btn tk wide" type="button" data-act="rvcommit" id="commit3">' + esc(t("commitReview")) + "</button></div></div>";
@@ -4875,10 +4958,11 @@ function readPlan3(){
     if (Object.keys(rvEdits(p, it)).length) changed++;
     if (it.progress || it.explanation) judged++;
   });
-  var over = total > r.capacity, fit = document.getElementById("fit3");
-  fit.className = "chip sm " + (over ? "cu" : "tk"); fit.textContent = over ? t("overBy", { n:total - r.capacity }) : t("fits") + " · " + t("rvOfN", { a:nf(total), b:nf(r.capacity) });
-  document.getElementById("over3").hidden = !over; document.getElementById("commit3").disabled = over;
-  document.getElementById("rec3").textContent = t("rvRecLine", { a:nf(judged), b:nf(changed), c:nf(r.capacity) });
+  var over = !isTrial() && total > r.capacity, fit = document.getElementById("fit3");
+  if (fit){ fit.className = "chip sm " + (over ? "cu" : "tk"); fit.textContent = over ? t("overBy", { n:total - r.capacity }) : t("fits") + " · " + t("rvOfN", { a:nf(total), b:nf(r.capacity) }); }
+  var o3 = document.getElementById("over3"); if (o3) o3.hidden = !over; document.getElementById("commit3").disabled = over;
+  if (isTrial()){ var lp = rvOrder(); lp.forEach(function(x){ var it = rvItem(x.p); if (Object.keys(rvEdits(x.p, it)).length) changed++; if (it.progress || it.explanation) judged++; }); }
+  document.getElementById("rec3").textContent = isTrial() ? t("rvRecLineT", { a:nf(judged), b:nf(changed) }) : t("rvRecLine", { a:nf(judged), b:nf(changed), c:nf(r.capacity) });
   saveRv();
 }
 function rvEdits(p, it){
@@ -5221,20 +5305,25 @@ function viewPortfolio(){
     var presc = t("st_" + d.status) + (d.prescription && d.status !== "closed" ? " · " + t("tr_" + d.prescription) : "");
     var fresh = d.status === "active" && !d.prescription && !fx.c && !fx.a.sessions;   /* a new project: nothing to judge yet */
     var obs = d.status === "closed" ? t("st_closed") : fresh ? t("notSetUp") : t(fx.obs, { n:fx.short });
+    var tri = isTrial() && d.status !== "closed" ? trRowBits(p) : null;
+    if (tri){ fresh = false; obs = tri.chip; fx = Object.assign({}, fx, { cls:"ti" }); }
     var ar = PMM.areasOf(s, p.id);
-    var r = '<div class="prow2"><button class="prow" type="button" data-act="open" data-id="' + esc(p.id) + '"><h3>' + (p.pinned ? '<span class="pinmark" aria-label="' + esc(t("pinnedL")) + '">' + IC.pin + "</span>" : "") + esc(d.name) + "</h3>" +
-
-      '<span class="chip sm ' + (fresh ? "ti" : fx.cls) + '"><span>' + esc(obs) + "</span></span>" +
-      '<div class="pre"><span class="prestat" role="button" tabindex="0" data-act="pfstat" data-id="' + esc(p.id) + '" aria-label="' + esc(t("pfStatL", { p:d.name })) + '"><b>' + esc(presc) + "</b>" + IC.pen + "</span></div>" +
+    /* status and treatment: two equal chips outside the row's link, each opening its own picker */
+    var stc = '<div class="pfst"><button class="pfchip" type="button" data-act="pfstat" data-w="status" data-id="' + esc(p.id) + '" aria-label="' + esc(t("pfStatOf", { p:d.name, v:t("st_" + d.status) })) + '"><span>' + esc(t("st_" + d.status)) + "</span>" + IC.chev + "</button>" +
+      (d.status !== "closed" ? '<button class="pfchip" type="button" data-act="pfstat" data-w="tr" data-id="' + esc(p.id) + '" aria-label="' + esc(t("pfTrOf", { p:d.name, v:d.prescription ? t("tr_" + d.prescription) : t("tr_") })) + '"><span>' + esc(d.prescription ? t("tr_" + d.prescription) : t("trNone2")) + "</span>" + IC.chev + "</button>" : "") + "</div>";
+    var r = '<div class="prow2"><button class="prow top" type="button" data-act="open" data-id="' + esc(p.id) + '"><h3>' + (p.pinned ? '<span class="pinmark" aria-label="' + esc(t("pinnedL")) + '">' + IC.pin + "</span>" : "") + esc(d.name) + "</h3>" +
+      '<span class="chip sm ' + (fresh ? "ti" : fx.cls) + '"><span>' + esc(obs) + "</span></span></button>" + stc +
+      '<div class="prow rest" data-act="open" data-id="' + esc(p.id) + '">' +
       (ar.length ? '<div class="atags">' + ar.map(function(a){ return "<span>" + esc(a.name) + "</span>"; }).join("") + "</div>" : "");
-    if (fresh) r += '<div class="meta"><span class="muted">' + esc(t("setupLater")) + "</span></div>";
+    if (tri && (d.status === "active" || d.status === "waiting")) r += '<div class="meta"><span class="trdot" style="background:' + trColor(p.id) + '"></span><span>' + esc(tri.line) + "</span></div>";
+    else if (fresh) r += '<div class="meta"><span class="muted">' + esc(t("setupLater")) + "</span></div>";
     else if (d.status === "active" || d.status === "waiting") r += '<div class="meta">' + (fx.exp != null ? capsM(fx.a.sessions, fx.c, fx.exp) : caps(fx.a.sessions, fx.c || 0, false)) + "<span>" + esc(fx.c ? (fx.exp != null ? sesLineM(fx.a.sessions, fx.c, fx.exp) : t("ofSessions", { a:fx.a.sessions, b:fx.c })) : t("noCommit")) + "</span></div>";
     else if (statusDetail(d)) r += '<div class="meta">' + caps(0, 0, true) + "<span>" + statusDetail(d) + "</span></div>";
     if ((d.goal || d.expChange) && d.status !== "closed") r += '<div class="nx"><span>' + esc(t("goalShort")) + "</span> <span>" + esc(d.goal || d.expChange) + "</span></div>";
     if (d.next && d.status !== "closed") r += '<div class="nx"><span>' + esc(t("next")) + "</span> <span>" + esc(d.next) + "</span></div>";
     var fv = f.filter(function(x){ return x.per !== "m"; });   /* "behind this month" is already the row's own chip */
     if (fv.length) r += '<div class="pflags">' + fv.map(function(x){ return flagChip(x, p.id, false); }).join("") + "</div>";
-    r += '</button><button class="basis" type="button" data-act="basis" data-id="' + esc(p.id) + '" aria-label="' + esc(t("basisL", { p:d.name })) + '">' + IC.info + "</button>";
+    r += '</div><button class="basis" type="button" data-act="basis" data-id="' + esc(p.id) + '" aria-label="' + esc(t("basisL", { p:d.name })) + '">' + IC.info + "</button>";
     if (editing && d.status !== "closed") r += pfPlanRow(p); else if (!editing) r += pfSugLine(p);
     if (!editing && (d.status === "active" || d.status === "waiting")) r += '<div class="pfacts"><button class="btn sm ti" type="button" data-act="logfor" data-id="' + esc(p.id) + '" aria-label="' + esc(t("logTimeFor", { p:d.name })) + '">' + IC.plus + "<span>" + esc(t("logTime")) + "</span></button></div>";
     r += "</div>";
@@ -5289,29 +5378,45 @@ function openBasis(pid){
 }
 
 /* status and treatment, changed straight from the portfolio */
-function openPfStat(pid){
+function openPfStat(pid, which){
   var p = S().projects[pid]; if (!p) return;
-  var d = p.data, st = PMM.STATUSES.map(function(x){ return [x, t("st_" + x)]; }), tr = PMM.TREAT.map(function(x){ return [x, t("tr_" + x)]; });
-  var body = '<form data-form="pfstat" data-id="' + esc(pid) + '">' + field("status", t("f_status"), sel("status", d.status, st)) +
-    '<div data-when="waiting"><div class="row2">' + field("waitingOn", t("f_waitingOn"), inp("waitingOn", d.waitingOn)) + field("followUp", t("f_followUp"), inp("followUp", d.followUp, "date")) + "</div></div>" +
-    '<div data-when="paused">' + field("pauseUntil", t("f_pauseUntil"), inp("pauseUntil", d.pauseUntil, "date")) + "</div>" +
-    '<div data-when="inactive">' + field("reconsiderOn", t("f_reconsiderOn"), inp("reconsiderOn", d.reconsiderOn, "date")) + "</div>" +
-    '<div data-when="closed">' + field("closeOutcome", t("f_closeOutcome"), area("closeOutcome", d.closeOutcome)) + "</div>" +
-    '<div data-trbox>' + field("prescription", t("f_prescription"), sel("prescription", d.prescription, tr)).replace('<span class="err"', '<span class="hint" data-trh>' + esc(t("trh_" + (d.prescription || ""))) + '</span><span class="err"') + "</div>" +
-    '<p class="note">' + esc(t("pfStatNote")) + "</p></form>";
-  openSheet(d.name, body, '<button class="btn tk" type="button" data-act="savepfstat">' + esc(t("save")) + "</button>", function(sh){
+  var d = p.data, st = PMM.STATUSES.map(function(x){ return [x, t("st_" + x)]; });
+  var body;
+  if (which === "tr"){
+    /* treatment: the five choices with what each means, picked like the status */
+    body = '<form data-form="pfstat" data-w="tr" data-id="' + esc(pid) + '"><div class="trpick" role="radiogroup" aria-label="' + esc(t("f_prescription")) + '">' + PMM.TREAT.filter(Boolean).map(function(v){
+      return '<button type="button" role="radio" data-trv="' + v + '" aria-checked="' + (d.prescription === v) + '"><b>' + esc(t("tr_" + v)) + "</b><small>" + esc(t("trh_" + v)) + "</small></button>"; }).join("") +
+      '</div><input type="hidden" name="prescription" value="' + esc(d.prescription || "") + '"><p class="note">' + esc(t("pfStatNote")) + "</p></form>";
+  } else {
+    body = '<form data-form="pfstat" data-w="status" data-id="' + esc(pid) + '">' + field("status", t("f_status"), sel("status", d.status, st)) +
+      '<div data-when="waiting"><div class="row2">' + field("waitingOn", t("f_waitingOn"), inp("waitingOn", d.waitingOn)) + field("followUp", t("f_followUp"), inp("followUp", d.followUp, "date")) + "</div></div>" +
+      '<div data-when="paused">' + field("pauseUntil", t("f_pauseUntil"), inp("pauseUntil", d.pauseUntil, "date")) + "</div>" +
+      '<div data-when="inactive">' + field("reconsiderOn", t("f_reconsiderOn"), inp("reconsiderOn", d.reconsiderOn, "date")) + "</div>" +
+      '<div data-when="closed">' + field("closeOutcome", t("f_closeOutcome"), area("closeOutcome", d.closeOutcome)) + "</div>" +
+      '<p class="note">' + esc(t("pfStatNote")) + "</p></form>";
+  }
+  openSheet((which === "tr" ? t("f_prescription") : t("f_status")) + " · " + d.name, body, '<button class="btn tk" type="button" data-act="savepfstat">' + esc(t("save")) + "</button>", function(sh){
     var f = sh.querySelector("form");
-    function sync(){ syncWhen(f); sh.querySelector("[data-trbox]").hidden = f.elements.status.value === "closed"; }
-    sync(); f.addEventListener("change", function(e){ if (e.target.name === "status") sync(); });
+    if (which === "tr"){
+      sh.querySelector(".trpick").addEventListener("click", function(e){
+        var b = e.target.closest("[data-trv]"); if (!b) return;
+        [].forEach.call(sh.querySelectorAll("[data-trv]"), function(x){ x.setAttribute("aria-checked", x === b ? "true" : "false"); });
+        f.elements.prescription.value = b.dataset.trv;
+      });
+    } else { syncWhen(f); f.addEventListener("change", function(e){ if (e.target.name === "status") syncWhen(f); }); }
   });
 }
 function savePfStat(){
   var f = scrim.querySelector('form[data-form="pfstat"]'), p = S().projects[f.dataset.id]; if (!p) return;
-  var v = readForm(f), edits = { status:v.status };
-  if (v.status === "waiting"){ edits.waitingOn = v.waitingOn; edits.followUp = v.followUp; }
-  if (v.status === "paused") edits.pauseUntil = v.pauseUntil;
-  if (v.status === "inactive") edits.reconsiderOn = v.reconsiderOn;
-  if (v.status === "closed") edits.closeOutcome = v.closeOutcome; else edits.prescription = v.prescription;
+  var v = readForm(f), edits = {};
+  if (f.dataset.w === "tr") edits.prescription = v.prescription;
+  else {
+    edits.status = v.status;
+    if (v.status === "waiting"){ edits.waitingOn = v.waitingOn; edits.followUp = v.followUp; }
+    if (v.status === "paused") edits.pauseUntil = v.pauseUntil;
+    if (v.status === "inactive") edits.reconsiderOn = v.reconsiderOn;
+    if (v.status === "closed") edits.closeOutcome = v.closeOutcome;
+  }
   var r = attempt(function(s){ return PMM.saveProjectChange(s, { id:PMM.uid(), project:p.id, expectedRev:p.rev, edits:edits, kind:"edit" }); });
   if (!r.ok){ if (r.error.code === "invalid") return showErrors(f, r.error.detail); closeSheet(); return toast(t("errSave")); }
   closeSheet(); render();
@@ -5693,6 +5798,9 @@ function openBell(){
 /* ---------- Today: what's due, what to pick up next, and the day so far ---------- */
 function nextUp(){
   var s = S(), w = perStart(new Date());
+  /* trial: no hours to fill, so the projects that have had least of your week so far come first */
+  if (isTrial()) return activeProjects().filter(function(p){ return p.data.status === "active"; }).map(function(p){ var e = trRowBits(p).h; return { p:p, left:0, c:0, e:e, trial:true }; })
+    .sort(function(a, b){ return a.e - b.e; }).slice(0, 3);
   return activeProjects().filter(function(p){ return p.data.status === "active"; }).map(function(p){
     var c = planOf(p), e = PMM.engagedIn(s, p.id, w, perDays()); return { p:p, left:PMM.q4(c - e), c:c, e:e };
   }).filter(function(x){ return x.left > 0; }).sort(function(a, b){ return b.left - a.left || b.c - a.c; }).slice(0, 3);
@@ -5721,7 +5829,7 @@ function viewToday(){
   else h += '<div class="rows glass">' + nu.map(function(x){
     var p = x.p, mine = tm && tm.pid === p.id;
     return '<div class="nurow"><button class="nuname" type="button" data-act="open" data-id="' + esc(p.id) + '"><b>' + esc(p.data.name) + "</b>" + (p.data.next ? "<span>" + esc(p.data.next) + "</span>" : "") +
-      "<small>" + esc(t("tdLeft", { n:x.left, a:x.e, b:x.c })) + '</small></button><div class="nuacts">' +
+      "<small>" + esc(x.trial ? t("trialRowLine", { h:hrs(x.e) }) : t("tdLeft", { n:x.left, a:x.e, b:x.c })) + '</small></button><div class="nuacts">' +
       (mine ? '<button class="btn sm tk" type="button" data-act="timerstop">' + IC.stop + '<span data-tick>' + esc(tickText()) + "</span></button>"
         : '<button class="btn sm ti" type="button" data-act="timerstart" data-id="' + esc(p.id) + '"' + (tm ? " disabled" : "") + ' aria-label="' + esc(t("timerStart") + " · " + p.data.name) + '">' + IC.play + "<span>" + esc(t("timerShort")) + "</span></button>") +
       '<button class="btn sm ti" type="button" data-act="logfor" data-id="' + esc(p.id) + '" aria-label="' + esc(t("logTimeFor", { p:p.data.name })) + '">' + IC.plus + "<span>" + esc(t("logShort")) + "</span></button></div></div>";
@@ -5754,7 +5862,7 @@ function atLocal(iso, hm){ var d = PMM.parse(iso), p = (hm || "09:00").split(":"
 /* what the phone should announce: due items on their day, scheduled sessions at their time */
 function nPlan(){
   var s = S(), out = [], now = Date.now(), horizon = now + 21 * 864e5, c = nCfg();
-  function add(key, when, title, body, extra){ var ts = when.getTime(); if (ts > now + 30000 && ts < horizon) out.push({ id:nId(key), title:title, body:body, schedule:{ at:when, allowWhileIdle:true }, extra:extra || {} }); }
+  function add(key, when, title, body, extra){ var ts = when.getTime(); if (ts > now + 30000 && ts < horizon) out.push({ id:nId(key), title:title, body:body, channelId:"promove-reminders", schedule:{ at:when, allowWhileIdle:true }, extra:extra || {} }); }
   function pn(pid){ return s.projects[pid] ? s.projects[pid].data.name : ""; }
   if (c.sch) (s.scheduled || []).forEach(function(x){
     if (x.done || !s.projects[x.project]) return;
@@ -5853,7 +5961,7 @@ function nEventLine(from){
 function nOngoing(day, id, at){
   var tm = prefs.timer, p = tm && S().projects[tm.pid], ev = nEventLine(at || new Date()), body = ev;
   if (p) body = "⏱ " + p.data.name + " · " + ev;
-  return { id:id, title:nDates(day), body:body, largeBody:nDatesLong(day) + "\n" + body, ongoing:true, autoCancel:false, schedule:{ at:at, allowWhileIdle:true }, extra:{ tab:"today" } };
+  return { id:id, title:nDates(day), body:body, largeBody:nDatesLong(day) + "\n" + body, ongoing:true, autoCancel:false, channelId:"promove-today", schedule:{ at:at, allowWhileIdle:true }, extra:{ tab:"today" } };
 }
 function nAsk(){
   var LN = nPlug("LocalNotifications"); if (!LN) return;
@@ -5864,6 +5972,12 @@ if (NATIVE){
   var _nRender = render;
   render = function(){ var r = _nRender.apply(this, arguments); nResched(); return r; };
   var LN0 = nPlug("LocalNotifications");
+  /* the ongoing "today" notification goes through a quiet channel: it is refreshed every time the app opens,
+     and that must never make a sound; reminders keep the normal channel */
+  if (LN0 && LN0.createChannel) try {
+    LN0.createChannel({ id:"promove-today", name:"Today", description:"Today's dates, the next event and the timer", importance:2, visibility:1, vibration:false, lights:false }).catch(function(){});
+    LN0.createChannel({ id:"promove-reminders", name:"Reminders", description:"Sessions, events, tasks and due dates", importance:4, visibility:1, vibration:true }).catch(function(){});
+  } catch (e){}
   if (LN0) LN0.addListener("localNotificationActionPerformed", function(ev){
     var x = (ev && ev.notification && ev.notification.extra) || {};
     if (!scrim.hidden) closeSheet();
@@ -6343,6 +6457,95 @@ function tkSearch(q, hit){
   });
 }
 
+/* ---------- trial mode: everything works, but no available or committed hours are set yet ----------
+   Promove watches where attention actually goes, week by week, and when the trial ends it offers
+   those numbers as a starting plan. */
+function isTrial(){ return !!(S().settings && S().settings.trial); }
+var TR_COL = ["#2C8A55", "#C9774A", "#4F79A8", "#B0912F", "#8C5BA8", "#3E9A93", "#B5566B", "#6F7B82"];
+function trColor(pid){ var i = S().order.indexOf(pid); return TR_COL[(i < 0 ? 7 : i) % TR_COL.length]; }
+/* hours per project in one week (the week starting on the given day) */
+function trWeek(ws){
+  var s = S(), end = addDays(ws, 6), by = {}, total = 0;
+  s.engagements.forEach(function(e){ if (e.date >= ws && e.date <= end && s.projects[e.project]){ by[e.project] = (by[e.project] || 0) + e.sessions; total += e.sessions; } });
+  var rows = Object.keys(by).map(function(pid){ return { pid:pid, h:PMM.q4(by[pid]) }; }).sort(function(a, b){ return b.h - a.h; });
+  return { ws:ws, total:PMM.q4(total), rows:rows };
+}
+function trWeeks(n){ var w = wkISO(new Date()), out = []; for (var i = n - 1; i >= 0; i--) out.push(trWeek(addDays(w, -7 * i))); return out; }
+function trShare(h, total){ return total ? Math.round(h / total * 100) : 0; }
+/* one week, as a split bar and a list */
+function trWeekHTML(wk, label){
+  var h = '<div class="trwk"><div class="trwkhd"><span class="lab">' + esc(label) + "</span><b>" + esc(hrs(wk.total)) + "</b></div>";
+  if (!wk.total) return h + '<p class="note" style="margin:4px 0 0">' + esc(t("trialNone")) + "</p></div>";
+  h += '<div class="trsplit" role="img" aria-label="' + esc(wk.rows.map(function(r){ return S().projects[r.pid].data.name + " " + trShare(r.h, wk.total) + "%"; }).join(", ")) + '">' +
+    wk.rows.map(function(r){ return '<i style="width:' + (r.h / wk.total * 100).toFixed(2) + "%;background:" + trColor(r.pid) + '"></i>'; }).join("") + "</div>";
+  h += '<ul class="trsplitl">' + wk.rows.map(function(r){
+    return '<li><i style="background:' + trColor(r.pid) + '"></i><span>' + esc(S().projects[r.pid].data.name) + "</span><b>" + esc(hrs(r.h)) + "</b><small>" + nf(trShare(r.h, wk.total)) + "%</small></li>"; }).join("") + "</ul>";
+  return h + "</div>";
+}
+/* the starting plan the trial suggests: averages over the finished weeks that had any hours (up to four) */
+function trSuggest(){
+  var ws = trWeeks(5).slice(0, 4).filter(function(w){ return w.total > 0; });
+  if (!ws.length) return null;
+  var per = {}, tot = 0;
+  ws.forEach(function(w){ tot += w.total; w.rows.forEach(function(r){ per[r.pid] = (per[r.pid] || 0) + r.h; }); });
+  var out = { weeks:ws.length, total:Math.max(1, Math.round(tot / ws.length * 4) / 4), per:{} };
+  Object.keys(per).forEach(function(pid){ out.per[pid] = Math.round(per[pid] / ws.length * 4) / 4; });
+  return out;
+}
+/* the Portfolio's top card in trial mode */
+function trialStrip(){
+  var weeks = trWeeks(5), cur = weeks[weeks.length - 1], past = weeks.slice(0, 4).reverse(), sg = trSuggest();
+  var h = '<div class="plate ti section capstrip trialstrip"><div class="plate-top"><span class="lab">' + esc(t("trialL")) + '</span><span class="chip sm cu">' + esc(t("trialOn")) + "</span></div>" +
+    '<p class="note" style="margin:6px 0 10px">' + esc(t("trialLead")) + "</p>" + trWeekHTML(cur, t("thisWeek2") + " · " + weekRange(cur.ws));
+  h += '<details class="trpast"><summary>' + esc(t("trialReport")) + "</summary>" + past.map(function(w, i){ return trWeekHTML(w, (i === 0 ? t("lastWeek") : t("trWkAgo", { n:i + 1 })) + " · " + weekRange(w.ws)); }).join("") + "</details>";
+  if (sg) h += '<p class="note trsug">' + esc(t("trialSug", { n:nf(sg.weeks), h:hrs(sg.total) })) + "</p>";
+  h += '<div class="btns"><button class="btn sm tk" type="button" data-act="trialoff">' + esc(t("trialEnd")) + "</button></div></div>";
+  return h;
+}
+function openTrialOn(){
+  openSheet(t("trialL"), '<p style="margin:0 0 10px">' + esc(t("trialWhat")) + '</p><p class="note" style="margin:0">' + esc(t("trialKeep")) + "</p>",
+    '<button class="btn ti" type="button" data-act="closesheet">' + esc(t("cancel")) + '</button><button class="btn tk" type="button" data-act="trialgo">' + esc(t("trialStart")) + "</button>");
+}
+function trialStart(){
+  var r = attempt(function(s){ return PMM.setTrial(s, true); }); if (!r.ok) return toast(t("errSave"));
+  ui.att.edit = false; dropPlanDraft(); closeSheet(); render(); toast(t("trialStarted"));
+}
+function openTrialOff(){
+  var sg = trSuggest(), mo = pmode() === "month", k = mo ? 4 : 1, body;
+  if (sg){
+    body = '<p style="margin:0 0 10px">' + esc(t("trialOffLead", { n:nf(sg.weeks) })) + '</p><ul class="trsplitl">' +
+      '<li><span><b>' + esc(t(mo ? "sessAvailMonth" : "sessAvailWeek")) + "</b></span><b>" + esc(hrs(sg.total * k)) + "</b></li>" +
+      activeProjects().map(function(p){ return '<li><i style="background:' + trColor(p.id) + '"></i><span>' + esc(p.data.name) + "</span><b>" + esc(hrs((sg.per[p.id] || 0) * k)) + "</b></li>"; }).join("") + "</ul>" +
+      '<p class="note">' + esc(t("trialOffNote")) + "</p>";
+  } else body = '<p style="margin:0">' + esc(t("trialOffNone")) + "</p>";
+  openSheet(t("trialEnd"), body, '<button class="btn ti" type="button" data-act="trialself">' + esc(t("trialSelf")) + "</button>" + (sg ? '<button class="btn tk" type="button" data-act="trialuse">' + esc(t("trialUse")) + "</button>" : ""));
+}
+/* end the trial: either straight into Change plan, or with the observed hours as the plan */
+function trialEnd(useSuggested){
+  var sg = useSuggested ? trSuggest() : null, mo = pmode() === "month", k = mo ? 4 : 1;
+  var r = attempt(function(s0){
+    var s = PMM.setTrial(s0, false).S;
+    if (sg){
+      s = PMM.setCapacity(s, null, Math.min(mo ? 672 : 168, PMM.q4(sg.total * k)), true, mo ? "month" : "week").S;
+      activeProjects().forEach(function(p){
+        var v = PMM.q4((sg.per[p.id] || 0) * k), e = {}; e[mo ? "commitM" : "commitment"] = v; if (mo) e.commitment = PMM.q4(v / 4);
+        var x = PMM.saveProjectChange(s, { id:PMM.uid(), project:p.id, expectedRev:s.projects[p.id].rev, edits:e, kind:"edit" }); s = x.S;
+        x.S.movements.forEach(function(m){ if (x.result.movements && x.result.movements.indexOf(m.id) >= 0) m.plan = "trial"; });
+      });
+    }
+    return { S:s, result:{ kind:"trial_end" } };
+  });
+  if (!r.ok) return toast(t("errSave"));
+  closeSheet();
+  if (!sg){ ui.att.week = perStart(new Date()); ui.att.edit = true; }
+  render(); scrollTo(0, 0); toast(t(sg ? "trialEndedUse" : "trialEndedSelf"));
+}
+/* a project row in trial mode: its hours this week and its share of the week */
+function trRowBits(p){
+  var w = trWeek(wkISO(new Date())), r = w.rows.filter(function(x){ return x.pid === p.id; })[0], h = r ? r.h : 0;
+  return { h:h, pct:trShare(h, w.total), chip:h ? t("trialShareChip", { n:nf(trShare(h, w.total)) }) : t("trialNoHours"), line:t("trialRowLine", { h:hrs(h) }) };
+}
+
 /* ---------- floating buttons: the main way to start something on each tab ---------- */
 function fabHTML(){
   var tab = ui.tab, has = S().order.length > 0;
@@ -6359,16 +6562,33 @@ function fabHTML(){
   if (tab === "movements" && has)
     return '<button class="fab ext small start" type="button" data-act="mvframe">' + IC.upd + "<span>" + esc(t("mvFab")) + "</span></button>" +
       '<button class="fab today" type="button" data-act="mvtoday" aria-label="' + esc(t("goToday")) + '" title="' + esc(t("goToday")) + '">' + IC.today + "</button>" +
-      '<button class="fab ext small" type="button" data-act="mvlog">' + IC.plus + "<span>" + esc(t("sessionShort")) + "</span></button>";
+      '<button class="fab ext small" type="button" data-act="addmenu" aria-haspopup="menu" aria-expanded="false">' + IC.plus + "<span>" + esc(t("addAttn")) + "</span></button>";
   if (tab === "today" && has)
-    return '<button class="fab ext" type="button" data-act="logsheet">' + IC.plus + "<span>" + esc(t("sessionShort")) + "</span></button>";
+    return '<button class="fab ext" type="button" data-act="addmenu" aria-haspopup="menu" aria-expanded="false">' + IC.plus + "<span>" + esc(t("addAttn")) + "</span></button>";
   if (tab === "portfolio" && has && ui.att.edit) return "";
   if (tab === "portfolio" && has)
     return '<button class="fab ext green" type="button" data-act="new">' + IC.plus + "<span>" + esc(t("newProject")) + "</span></button>";
-  if (tab === "review" && has && !ui.rv)
+  if (tab === "review" && has && !ui.rv && !isTrial())
     return '<button class="fab ext" type="button" data-act="fabplan">' + IC.plan + "<span>" + esc(t("changePlan")) + "</span></button>";
   return "";
 }
+/* + Attention: one button, three things to add */
+function closeAddMenu(){ var m = document.getElementById("addMenu"); if (m) m.remove(); [].forEach.call(document.querySelectorAll('[data-act="addmenu"]'), function(x){ x.setAttribute("aria-expanded", "false"); }); }
+function openAddMenu(fab){
+  if (document.getElementById("addMenu")){ closeAddMenu(); return; }
+  var sc = ui.tab === "movements" ? mvScope() : null, pid = sc && !sc.all && sc.p ? sc.p.id : ui.tab === "project" && proj() ? proj().id : "";
+  var m = document.createElement("div"); m.id = "addMenu"; m.className = "addmenu glass"; m.setAttribute("role", "menu");
+  function it(act, ic, lab, sub){ return '<button type="button" role="menuitem" data-act="' + act + '" data-pid="' + esc(pid) + '"><i class="adi ' + act + '">' + ic + "</i><span><b>" + esc(t(lab)) + "</b><small>" + esc(t(sub)) + "</small></span></button>"; }
+  m.innerHTML = it("addses", IC.play, "sessionShort", "addSesSub") + it("addev", IC.today, "evShort", "addEvSub") + it("addtk", IC.check, "tkShort", "addTkSub");
+  document.body.appendChild(m);
+  var r = fab.getBoundingClientRect();
+  m.style.bottom = (innerHeight - r.top + 10) + "px";
+  if (r.left + r.width / 2 > innerWidth / 2) m.style.right = Math.max(10, innerWidth - r.right) + "px"; else m.style.left = Math.max(10, r.left) + "px";
+  fab.setAttribute("aria-expanded", "true");
+  var f = m.querySelector("button"); if (f) f.focus({ preventScroll:true });
+}
+document.addEventListener("click", function(e){ if (document.getElementById("addMenu") && !e.target.closest("#addMenu") && !e.target.closest('[data-act="addmenu"]')) closeAddMenu(); }, true);
+document.addEventListener("keydown", function(e){ if (e.key === "Escape" && document.getElementById("addMenu")) closeAddMenu(); });
 /* ---------- the vocabulary: each key term can explain itself ---------- */
 var TERMS = ["goal","status","treatment","planned","done","available","movement","progress"];
 function tinfo(k){ return '<button class="tinfo" type="button" data-act="term" data-k="' + k + '" aria-label="' + esc(t("whatIs", { t:t("tm_" + k) })) + '">' + IC.info + "</button>"; }
@@ -6401,6 +6621,7 @@ function render(){
   var fab = fabHTML();
   main.innerHTML = topbar() + timerPill() + (storageOK ? "" : '<div class="banner cu" role="status">' + esc(t("noStore")) + "</div>") + body + fab;
   document.body.classList.toggle("has-fab", !!fab);
+  document.documentElement.classList.toggle("trial", isTrial());
   paintTabs(); wireWeeks(); wireMovements(); wireAttention(); wireProgress(); wireReview(); wireInlineEdit();
 }
 
@@ -6916,8 +7137,6 @@ function openSettings(){
     '<div class="field"><span class="lab">' + esc(t("nTitle")) + '</span><button class="btn ti nsetbtn" type="button" data-act="nsettings">' + IC.bell + "<span>" + esc(t("nOpen")) + "</span></button></div>" +
     '<div class="field"><span class="lab">' + esc(t("logDefL")) + '</span><div class="seg ti">' + [0.5, 1, 1.5, 2].map(function(v){
       return '<button type="button" data-act="setlogdef" data-v="' + v + '" aria-pressed="' + (logDef() === v) + '">' + esc(hrs(v)) + "</button>"; }).join("") + '</div><span class="hint">' + esc(t("logDefHint")) + "</span></div>" +
-    '<div class="field"><span class="lab">' + esc(t("planByL")) + '</span><div class="seg ti">' + ["week","month"].map(function(v){
-      return '<button type="button" data-act="setplanby" data-v="' + v + '" aria-pressed="' + (pmode() === v) + '">' + esc(t("planBy_" + v)) + "</button>"; }).join("") + '</div><span class="hint">' + esc(t("planByHint")) + "</span></div>" +
     '<div class="field"><span class="lab">' + esc(t("rvDayL")) + '</span><div class="seg ti">' + [6,0,1,2,3,4,5].map(function(d){
       var nm; try { nm = new Intl.DateTimeFormat(loc(), { weekday:"short" }).format(new Date(2026, 9, 4 + d)); } catch (e){ nm = d; }
       return '<button type="button" data-act="setrday" data-v="' + d + '" aria-pressed="' + (S().settings.reviewDay === d) + '">' + esc(nm) + "</button>"; }).join("") + "</div></div>" +
@@ -7049,7 +7268,7 @@ document.addEventListener("click", function(e){
     case "wkprev": case "wknext": ui.att.week = addDays(ui.att.week, a === "wknext" ? perDays() : -perDays()); render(); break;
     case "capedit": openCapacity(); break;
     case "savecap": saveCapacity(); break;
-    case "fabplan": case "planedit": ui.tab = "portfolio"; ui.att.week = perStart(new Date()); ui.att.edit = true; remember(); render(); scrollTo(0, 0); break;
+    case "fabplan": case "planedit": if (isTrial()) break; ui.tab = "portfolio"; ui.att.week = perStart(new Date()); ui.att.edit = true; remember(); render(); scrollTo(0, 0); break;
     case "pfsug": applyPfSug(b.dataset.id); break;
     case "search": openSearch(); break;
     case "nsettings": openNotifSettings(); break;
@@ -7100,11 +7319,12 @@ document.addEventListener("click", function(e){
     case "schask": openEntry("scheduled", b.dataset.id); break;
     case "entry": openEntry(b.dataset.kind, b.dataset.id, b.dataset.project, b.dataset.day); break;
     case "saveentry": saveEntry(false); break;
-    case "pfstat": openPfStat(b.dataset.id); break;
+    case "pfstat": openPfStat(b.dataset.id, b.dataset.w); break;
     case "setlogdef": prefs.logDef = +b.dataset.v; savePrefs(); openSettings(); break;
     case "canvas": openCanvas(); break;
     case "cvclose": closeCanvas(); break;
-    case "setplanby": var rp = attempt(function(s0){ return PMM.setPlanBy(s0, b.dataset.v, new Date()); }); if (rp.ok){ ui.att.week = null; ui.att.edit = false; dropPlanDraft(); render(); openSettings(); } break;
+    case "planbyinfo": openSheet(t("planByL"), '<p style="margin:0">' + esc(t("planByHint")) + "</p>", '<button class="btn tk" type="button" data-act="closesheet">' + esc(t("ok")) + "</button>"); break;
+    case "setplanby": if (b.dataset.v === pmode()) break; var rp = attempt(function(s0){ return PMM.setPlanBy(s0, b.dataset.v, new Date()); }); if (rp.ok){ ui.att.week = null; ui.att.edit = false; dropPlanDraft(); render(); toast(t(b.dataset.v === "month" ? "planByM" : "planByW")); } break;
     case "savepfstat": savePfStat(); break;
     case "mvnote": var pq = proj(); if (pq) openMvNote(b.dataset.cur ? pq.data.next : (pq.up[i] || {}).text); break;
     case "savemvnote": saveMvNote(); break;
@@ -7133,7 +7353,16 @@ document.addEventListener("click", function(e){
     case "cstep": stepCommit(b.dataset.id, +b.dataset.d); break;
     case "estep": stepEngaged(b.dataset.id, +b.dataset.d); break;
     case "logsheet": openLog(); break;
-    case "mvlog": var sc = mvScope(); openLog(sc && !sc.all ? sc.p.id : null, todayISO()); break;
+    case "mvlog": var sc = mvScope(); openLog(sc && !sc.all && sc.p ? sc.p.id : null, todayISO()); break;
+    case "addmenu": openAddMenu(b); break;
+    case "trialon": openTrialOn(); break;
+    case "trialgo": trialStart(); break;
+    case "trialoff": openTrialOff(); break;
+    case "trialuse": trialEnd(true); break;
+    case "trialself": trialEnd(false); break;
+    case "addses": closeAddMenu(); ui.logMode = "session"; openLog(b.dataset.pid || null, b.dataset.day || null); break;
+    case "addev": closeAddMenu(); ui.logMode = "event"; openLog(b.dataset.pid || null, todayISO(), "sched"); break;
+    case "addtk": closeAddMenu(); openTask(null, { project:b.dataset.pid || PMM.LIFE }); break;
     case "savelog": saveLog(); break;
     case "zoomdown": stepZoom(-1); break;
     case "annotate": openAnnotate(b.dataset.id); break;
