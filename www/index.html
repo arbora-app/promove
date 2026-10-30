@@ -1399,6 +1399,37 @@ html.trial [data-f="commitment"],html.trial [data-f="commitM"],html.trial .commi
 .lmlink{margin-top:6px;padding:0;color:var(--cop)!important;font-weight:700}
 .lmplan{margin:0 0 6px;font-size:13px;color:var(--soft)}
 .mvacts{flex-wrap:wrap}
+/* ---- day plan ---- */
+.remdot.pl,.updot.pl{background:var(--leaf);box-shadow:none}
+.updot.pl{width:9px;height:9px;border-radius:50%}
+.dyseg{width:100%;margin:0 0 8px}
+.dyseg button{flex:1}
+.dydate{margin:0 0 6px}
+.dycarry{margin:0 0 6px;color:var(--cop)}
+.dygrp{display:flex;align-items:center;gap:6px;margin:16px 2px 6px}
+.dygrp svg{width:14px;height:14px;color:var(--leaf)}
+.dylist{list-style:none;margin:0;padding:0}
+.dyrow{border-top:1px solid var(--hair)}
+.dyrow:first-child{border-top:0}
+.dychk{display:flex;align-items:center;gap:12px;width:100%;padding:10px 2px;background:none;border:0;color:inherit;font:inherit;text-align:start;cursor:pointer}
+.dychk .tkbox{pointer-events:none}
+.dychk b{display:block;font-weight:500}
+.dychk small{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
+.dymore{padding:0 2px 12px 56px;display:grid;gap:8px}
+[dir=rtl] .dymore{padding:0 56px 12px 2px}
+.dymore[hidden]{display:none}
+.dymore input,.dymore select{width:100%}
+.dyht{display:flex;gap:10px}
+.dyht label{flex:1;display:grid;gap:4px;min-width:0}
+.dyht .lab{font-size:11px}
+.dyrows{margin-bottom:8px}
+.dynu.dn .nuname b{text-decoration:line-through;opacity:.6}
+.dyby{margin:10px 2px 6px}
+.tkpl{color:var(--leaf);font-weight:600}
+.evask{margin-top:10px}
+.tkcv{display:flex;align-items:center;gap:10px;margin:2px 0 14px}
+.tkcv[hidden]{display:none}
+.tkcv .hint{margin:0}
 
 /* Promove logo: the mark in the header, the full logo on the welcome screen and in "How Promove works" */
 .lmark{display:block;flex:none;width:60px;height:28px;background:url(data:image/webp;base64,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) center/contain no-repeat}
@@ -1440,7 +1471,7 @@ function PMMError(code, detail){ var e = new Error(code); e.code = code; e.detai
 
 function empty(){
   return { v:1, projects:{}, order:[], movements:[], annotations:{}, engagements:[], commands:{}, plans:[], capacity:{ def:6, weeks:{} },
-    assessments:[], reviews:[], settings:{ reviewDay:5 }, scheduled:[], cpNotes:{}, mvNotes:{}, areas:[] };
+    assessments:[], reviews:[], settings:{ reviewDay:5 }, scheduled:[], days:{}, cpNotes:{}, mvNotes:{}, areas:[] };
 }
 /* older saved data gains the newer collections without changing anything already recorded */
 function upgrade(S){
@@ -1455,6 +1486,7 @@ function upgrade(S){
   if (!S.areas) S.areas = [];
   if (!S.tasks) S.tasks = [];
   if (!S.tlog) S.tlog = [];
+  if (!S.days) S.days = {};
   return S;
 }
 /* run once on load: data saved by earlier versions takes today's shape */
@@ -1470,7 +1502,17 @@ function migrate(S){
     if (x.done) ev.done = x.done; if (x.sig) ev.sig = x.sig;
     S.tasks.push(ev);
   });
-  S.scheduled = keep;
+  /* planned sessions are gone: the ones still ahead become picks in the day plan, on their day */
+  var td0 = iso(new Date());
+  keep.forEach(function(x){
+    var q = S.projects[x.project]; if (!q || x.done || x.date < td0) return;
+    var text = x.task || q.data.next; if (!text) return;
+    var pk = { id:x.id, project:x.project, task:text };
+    if (x.note) pk.note = x.note; if (x.sessions > 0) pk.h = x.sessions; if (x.time) pk.time = x.time;
+    var day = S.days[x.date] || (S.days[x.date] = []);
+    if (!day.some(function(y){ return y.project === pk.project && y.task === pk.task; })) day.push(pk);
+  });
+  S.scheduled = [];
   /* a dated task in a project joins that project's own list of tasks */
   S.tasks = S.tasks.filter(function(x){
     if (!x.kind) x.kind = "task";
@@ -1733,6 +1775,7 @@ function deleteProject(S, cmd){
   Object.keys(gone).forEach(function(id){ delete N.annotations[id]; });
   N.engagements = N.engagements.filter(function(e){ return e.project !== pid; });
   N.scheduled = N.scheduled.filter(function(x){ return x.project !== pid; });
+  Object.keys(N.days || {}).forEach(function(d){ N.days[d] = N.days[d].filter(function(pk){ return pk.project !== pid; }); if (!N.days[d].length) delete N.days[d]; });
   N.tasks = (N.tasks || []).filter(function(x){ return x.project !== pid; }); N.tlog = (N.tlog || []).filter(function(x){ return x.project !== pid; });
   var ga = {}; N.assessments = N.assessments.filter(function(a){ if (a.project === pid){ ga[a.id] = 1; return false; } return true; });
   (N.plans || []).forEach(function(p){ if (p.movements) p.movements = p.movements.filter(function(z){ return !gone[z]; }); });
@@ -1818,6 +1861,46 @@ function settleScheduled(S, cmd, now){
 }
 /* due: any earlier day, or today once its time has come (no time set: all day) */
 function dueScheduled(S, todayIso, nowHM){ return (S.scheduled || []).filter(function(x){ return !x.done && S.projects[x.project] && (x.date < todayIso || (x.date === todayIso && (!x.time || !nowHM || x.time <= nowHM))); }); }
+
+/* ---------- the day plan: which tasks you mean to work on, on a day ----------
+   An intention, never a deadline: nothing is ever overdue or flagged because of it. */
+function setDay(S, cmd, now){
+  if (S.commands[cmd.id]) return { S:S, result:S.commands[cmd.id], replay:true };
+  if (!DATE_RE.test(cmd.date || "")) throw PMMError("invalid", [{ field:"date", code:"date" }]);
+  var N = upgrade(clone(S)), seen = {}, picks = [];
+  (cmd.picks || []).forEach(function(pk){
+    var o = { id:pk.id || uid() };
+    if (pk.tid){
+      var x = N.tasks.filter(function(y){ return y.id === pk.tid; })[0];
+      if (!x || x.kind !== "task") throw PMMError("missing");
+      o.tid = pk.tid; o.project = LIFE;
+    } else {
+      if (!N.projects[pk.project]) throw PMMError("missing");
+      var text = canonField("next", pk.task); if (!text) throw PMMError("invalid", [{ field:"task", code:"required" }]);
+      o.project = pk.project; o.task = text;
+    }
+    var k = o.tid ? "t|" + o.tid : "p|" + o.project + "|" + o.task; if (seen[k]) return; seen[k] = 1;
+    var note = canonField("note", pk.note || ""); if (note) o.note = note;
+    if (pk.h != null && pk.h !== "" && +pk.h !== 0){ var h = q4(pk.h); if (!(h > 0) || h > 24) throw PMMError("invalid", [{ field:"h", code:"range" }]); o.h = h; }
+    var tm = String(pk.time || "").trim(); if (tm){ if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(tm)) throw PMMError("invalid", [{ field:"time", code:"time" }]); o.time = tm; }
+    picks.push(o);
+  });
+  if (picks.length) N.days[cmd.date] = picks; else delete N.days[cmd.date];
+  N.commands[cmd.id] = { kind:"day", date:cmd.date, n:picks.length };
+  return { S:N, result:N.commands[cmd.id] };
+}
+function dayPicks(S, date){ return (S.days && S.days[date]) || []; }
+/* a project task renamed or moved: the plan follows it */
+function dayRetarget(N, pid, old, to, text){
+  Object.keys(N.days || {}).forEach(function(d){
+    N.days[d] = N.days[d].filter(function(pk){
+      if (pk.tid || pk.project !== pid || pk.task !== old) return true;
+      if (to === LIFE) return false;
+      pk.project = to; pk.task = text; return true;
+    });
+    if (!N.days[d].length) delete N.days[d];
+  });
+}
 
 /* ---------- tasks: things to get done by a day, in Life or in a project; no hours, no review ----------
    A repeating task carries over when missed (a chore) or lets it go and waits for its next day (a habit). */
@@ -1937,6 +2020,7 @@ function editProjTask(S, cmd, now){
   if (to !== cmd.from){
     if (isCur){ throw PMMError("invalid", [{ field:"project", code:"current" }]); }
     q.up = q.up.filter(function(it){ return it.text !== old; }); if (q.due) delete q.due[old];
+    dayRetarget(N, cmd.from, old, to, d.title);
     if (to === LIFE){ var r = addTask(N, { id:cmd.id, kind:"task", title:d.title, project:LIFE, date:d.date, time:d.time, rep:d.rep, miss:d.miss }, now); return { S:r.S, result:{ kind:"task_moved" } }; }
     var q2 = N.projects[to]; if (!q2.up.some(function(it){ return it.text === d.title; })) q2.up = cleanUp(q2.up.concat([{ text:d.title }]));
     projTaskSet(N, to, d.title, d.date, d.time);
@@ -1949,6 +2033,7 @@ function editProjTask(S, cmd, now){
       var r2 = saveProjectChange(N, { id:cmd.id || uid(), project:cmd.from, expectedRev:q.rev, edits:{ next:d.title }, correction:true }, now); N = r2.S; q = N.projects[cmd.from];
     } else q.up = q.up.map(function(it){ return it.text === old ? Object.assign({}, it, { text:d.title }) : it; });
     (N.engagements || []).forEach(function(e){ if (e.project === cmd.from && e.task === old) e.task = d.title; });
+    dayRetarget(N, cmd.from, old, cmd.from, d.title);
   }
   projTaskSet(N, cmd.from, d.title, d.date, d.time);
   return { S:N, result:{ kind:"task_edited" } };
@@ -2321,7 +2406,7 @@ function makeStore(initial, write){
   return store;
 }
 
-return { addItem:addItem, editProjTask:editProjTask, finishProjTask:finishProjTask, migrate:migrate, setTrial:setTrial, LIFE:LIFE, addTask:addTask, editTask:editTask, tickTask:tickTask, taskDue:taskDue, taskHits:taskHits, repNext:repNext, canonRep:canonRep, deleteProject:deleteProject, setPinned:setPinned, moveProject:moveProject, duplicateProject:duplicateProject, removeEntry:removeEntry, q4:q4, floorQ:floorQ, planMode:planMode, planKey:planKey, plannedOf:plannedOf, monthStart:monthStart, setPlanBy:setPlanBy, capacityForPeriod:capacityForPeriod, engagedIn:engagedIn, committedAtM:committedAtM, setWeekStart:setWeekStart, flags:flags, PROGRESS:PROGRESS, assessProgress:assessProgress, latestAssessment:latestAssessment, commitReview:commitReview, nextReviewDate:nextReviewDate, setReviewDay:setReviewDay, upgrade:upgrade, capacityFor:capacityFor, setCapacity:setCapacity, plannedTotal:plannedTotal, commitPlan:commitPlan, capacityUsed:capacityUsed, committedAt:committedAt, makeStore:makeStore, MAG:MAG, DIR:DIR, FIELDS:FIELDS, STATUSES:STATUSES, ASSESS:ASSESS, TREAT:TREAT, empty:empty, uid:uid, canon:canon,
+return { setDay:setDay, dayPicks:dayPicks, addItem:addItem, editProjTask:editProjTask, finishProjTask:finishProjTask, migrate:migrate, setTrial:setTrial, LIFE:LIFE, addTask:addTask, editTask:editTask, tickTask:tickTask, taskDue:taskDue, taskHits:taskHits, repNext:repNext, canonRep:canonRep, deleteProject:deleteProject, setPinned:setPinned, moveProject:moveProject, duplicateProject:duplicateProject, removeEntry:removeEntry, q4:q4, floorQ:floorQ, planMode:planMode, planKey:planKey, plannedOf:plannedOf, monthStart:monthStart, setPlanBy:setPlanBy, capacityForPeriod:capacityForPeriod, engagedIn:engagedIn, committedAtM:committedAtM, setWeekStart:setWeekStart, flags:flags, PROGRESS:PROGRESS, assessProgress:assessProgress, latestAssessment:latestAssessment, commitReview:commitReview, nextReviewDate:nextReviewDate, setReviewDay:setReviewDay, upgrade:upgrade, capacityFor:capacityFor, setCapacity:setCapacity, plannedTotal:plannedTotal, commitPlan:commitPlan, capacityUsed:capacityUsed, committedAt:committedAt, makeStore:makeStore, MAG:MAG, DIR:DIR, FIELDS:FIELDS, STATUSES:STATUSES, ASSESS:ASSESS, TREAT:TREAT, empty:empty, uid:uid, canon:canon,
   validate:validate, createProject:createProject, saveProjectChange:saveProjectChange, setUpNext:setUpNext,
   recordAttempt:recordAttempt, removeSession:removeSession, scheduleSession:scheduleSession, settleScheduled:settleScheduled, dueScheduled:dueScheduled, annotate:annotate, noteEntry:noteEntry, addArea:addArea, renameArea:renameArea, removeArea:removeArea, setProjectAreas:setProjectAreas, areasOf:areasOf, cpNote:cpNote, noteMovement:noteMovement, renameMvNote:renameMvNote, mvNote:mvNote, engagedInWeek:engagedInWeek, movementsOf:movementsOf,
   checkpointMoves:checkpointMoves, iso:iso, parse:parse, weekStart:weekStart, daysBetween:daysBetween };
@@ -2752,7 +2837,7 @@ en:{
  pfSub2:"Which projects need you, and why.", prescribed:"Treatment", dueL:"Needs inspection", allClear:"Nothing is due. Every project is on plan.",
  fl_review_due:"Review due", fl_capacity:"Plan exceeds available hours by {n} h", fl_checkpoint_due:"Goal check due", fl_followup_due:"Follow-up due",
  fl_reconsider_due:"Time to reconsider", fl_pause_ended:"Pause has ended", fl_engagement_shortfall:"Last week {a} of {b} h engaged", fl_engagement_unassessed:"Hours not judged yet",
- pgNeed:"Needs you", pgOk:"On plan", pgIdle:"Paused", pgIdleS:"Paused", evTitleL:"Event", evDateL:"Day", evTimeL:"Starts at", tkDueOpt:"Due (optional)", tkNoDateHint:"Leave the day empty for a task with no date.", evAdd:"Add event", evNewTitle:"New event", evHappened:"Happened", evSkip:"Skip this one", evDoneOn:"happened {d}", evMissedOn:"didn't happen {d}", evMissedT:"Marked: didn't happen", evHappenedT:"Marked: happened", evTickL:"Mark “{x}” as happened", evAskShort:"did it happen?", evDidnt:"Didn't happen", evAdded:"Event added", tkCurrent:"current task", tkSpent:"{h} spent on it so far.", tkSpent0:"No time logged on it yet.", tkBlock:"Plan time", tkRepLifeOnly:"A project's tasks don't repeat; repeats are for Life tasks and events.", tkCurMove:"The current task can't move to another project. Finish or replace it first.", tkDoneProjNext:"Task finished · saved as progress · next: {n}", tkAnytime:"Anytime", tkDayL:"Day and time for the current task", tkDayS:"Day", tkEditFull:"Edit, set a day or move", tkFinishOut:"Mark finished", lmStart:"Start now", lmLog:"Log time", lmPlanT:"Plan for later.", lmPlanHint:"A session you plan to work. On the day, the app asks whether it happened; it counts as engaged once you confirm it.", lmPlan:"Plan for later", lmBack:"← Start or log instead", lmTask:"Task", lmNoTask:"No particular task", lmFin:"“{x}” is finished", pfStatOf:"Status of {p}: {v}. Change it", pfTrOf:"Treatment of {p}: {v}. Change it", trNone2:"No treatment", planByW:"Planning by week", planByM:"Planning by month", addAttn:"Attention", addSesSub:"Time you worked or will work, with hours", addEvSub:"A meeting, call or deadline, no hours", addTkSub:"Something to get done by a day, no hours", newEvent:"New event", trialL:"Trial mode", trialOn:"On", trialTry:"Trial mode", trialLead:"No hours are set. Log your time as usual and Promove shows where your attention actually goes, week by week.", trialNone:"Nothing logged this week yet.", trialReport:"Weekly report · the last 4 weeks", trialSug:"Over {n} weeks you gave about {h} a week. End the trial to use it as your plan.", trialEnd:"End trial", trialWhat:"Everything keeps working, but available and committed hours are switched off: nothing is measured against them and nothing is flagged for hours. Promove reports each week how much attention you gave and how it was divided among projects.", trialKeep:"Your current hours are kept and come back when the trial ends.", trialStart:"Start trial", trialStarted:"Trial mode on", trialOffLead:"From your last {n} weeks, Promove suggests this plan:", trialOffNote:"You can change any of it later with Change plan.", trialOffNone:"There aren't any logged hours yet to suggest a plan from. Set your hours yourself.", trialSelf:"Set them myself", trialUse:"Use these hours", trialEndedUse:"Trial ended · plan set from your weeks", trialEndedSelf:"Trial ended · set your plan", trialShareChip:"{n}% of this week", trialNoHours:"No hours this week", trialRowLine:"{h} this week", trialRvLead:"Where your attention went in the week you're reviewing. There are no hours to plan in trial mode.", rvRecLineT:"{a} judged · {b} changed", rvPart2T:"The week's report", rvGuide2T:"Last step: see where your attention went, then save the review.", rvHow2T:"See the week's report of where your attention went, then save.", lifeL:"Life", lifeHint:"Show only Life: everyday tasks, chores and habits, without anything that belongs to a project.", lifeEmpty:"Nothing in Life yet", lifeEmptyBody:"Add a task, a chore or a habit with + Task. Ticked ones are kept here as a history.", tkTitle:"Tasks", tkNew:"Task", tkNone:"Nothing to do today. Add a task, a chore or a habit.", tkShort:"Task", tkTickL:"Mark “{x}” done", tkDoneOn:"done {d}", tkSkippedOn:"skipped {d}", tkLate:"{n} d overdue", tkHits:"{a}/{b} this week", tkHitsL:"Days kept in the last 7", tkHitsLong:"Kept on {a} of its {b} days in the last week.", tkTitleL:"Task", tkBelongs:"Belongs to", tkDueL:"Due", tkNextDue:"Next due", tkHistory:"Recently", tkSkip:"Skip this one", tkDone:"Done", tkAdd:"Add task", tkNewTitle:"New task", tkRepeat:"Repeat", rpNone:"Never", rpDay:"Daily", rpN:"Every few days", rpW:"Weekdays", rpM:"Monthly", rpEveryL:"Every", rpDaysL:"days", rpMHint:"On the same day of the month as its due date.", tkMissL:"If it's missed", tkMiss_carry:"Carry over", tkMiss_let:"Let it go", tkMissH_carry:"A chore: it stays due until it's done.", tkMissH_let:"A habit: a missed day passes and it waits for its next day. Its record shows how often you kept it.", tkSaved:"Task saved", tkAdded:"Task added", tkSkipped:"Skipped · the next one is set", tkDoneNext:"Done · next on {d}", tkDoneT:"Done", rpDaily:"every day", rpEveryN:"every {n} days", rpMonthly:"monthly on the {d}", tkToggle:"Task (no hours)", srTodo:"Tasks", f_startWk:"Start week", f_endWk:"Suggested end week", wkOf:"week of {d}", pfViewL:"Show projects as", pfList:"List", pfWeeks:"Weeks", wkNow:"now", wkThis:"this week", wkIn1:"next week", wkIn:"in {n} weeks", wkAgo1:"last week", wkAgoN:"{n} weeks ago", wkLen1:"1 week", wkLen:"{n} weeks", wkPlace:"No weeks yet · tap its row to place it", wkOver:"past its suggested end", wkHint:"Weeks from this week. Drag a bar's ends to change its start or suggested end, or drag the bar to move both. Tap an empty row to place a project.", wkDragCap:"{s} → {e} · {n}", wkStartOf:"Start of {p}: {w}. Arrow keys move it by a week.", wkEndOf:"Suggested end of {p}: {w}. Arrow keys move it by a week.", wkSaved:"Weeks saved · recorded on the timeline", wkCard:"Weeks", wkSet:"Set weeks", wkChange:"Change", wkNone:"No start or suggested end yet.", wkStartL:"Start", wkEndL:"Suggested end", wkClear:"Clear", wkEarlier:"{x}: a week earlier", wkLater:"{x}: a week later", wkSheetHint:"Each change is recorded on the timeline.", pfTabsL:"Projects by state", pfNone:"No projects here right now.", pgClosed:"Closed", basisL:"Why {p} is labelled this way",
+ pgNeed:"Needs you", pgOk:"On plan", pgIdle:"Paused", pgIdleS:"Paused", evTitleL:"Event", evDateL:"Day", evTimeL:"Starts at", tkDueOpt:"Due (optional)", tkNoDateHint:"Leave the day empty for a task with no date.", evAdd:"Add event", evNewTitle:"New event", evHappened:"Happened", evSkip:"Skip this one", evDoneOn:"happened {d}", evMissedOn:"didn't happen {d}", evMissedT:"Marked: didn't happen", evHappenedT:"Marked: happened", evTickL:"Mark “{x}” as happened", evAskShort:"did it happen?", evDidnt:"Didn't happen", evAdded:"Event added", tkCurrent:"current task", tkSpent:"{h} spent on it so far.", tkSpent0:"No time logged on it yet.", tkBlock:"Add to a day plan", dpTitle:"Plan your day", dpToday:"Today", dpTomorrow:"Tomorrow", dpLead:"Pick what you'll work on. A plan isn't a deadline: nothing turns overdue.", dpNote:"Which part? (optional)", dpHours:"Hours", dpTime:"Time", dpCarried:"Still open from {d}, so they're kept selected.", dpNone:"No open tasks yet. Add a task first.", dpSave:"Save plan", dpClear:"Clear plan", dpSaved:"Plan saved", dpCleared:"Plan cleared", dpShort:"Planned", dpByHours:"By hours left this week", dpAsk:"Plan tomorrow?", dpNudgeBody:"Pick what you'll work on tomorrow.", dpDone:"done", dpSpent:"{h} so far", dpFab:"Plan today", dpFabEdit:"Today's plan", dpFabTm:"Plan tomorrow", dpFabTmEdit:"Tomorrow's plan", tdEvents:"Events", tdEvNone:"No events today.", tdTmNone:"Nothing for tomorrow yet.", tkCvHint:"Arrange this project's tasks", tkRepLifeOnly:"A project's tasks don't repeat; repeats are for Life tasks and events.", tkCurMove:"The current task can't move to another project. Finish or replace it first.", tkDoneProjNext:"Task finished · saved as progress · next: {n}", tkAnytime:"Anytime", tkDayL:"Day and time for the current task", tkDayS:"Day", tkEditFull:"Edit, set a day or move", tkFinishOut:"Mark finished", lmStart:"Start now", lmLog:"Log time", lmPlanT:"Plan for later.", lmPlanHint:"A session you plan to work. On the day, the app asks whether it happened; it counts as engaged once you confirm it.", lmPlan:"Plan for later", lmBack:"← Start or log instead", lmTask:"Task", lmNoTask:"No particular task", lmFin:"“{x}” is finished", pfStatOf:"Status of {p}: {v}. Change it", pfTrOf:"Treatment of {p}: {v}. Change it", trNone2:"No treatment", planByW:"Planning by week", planByM:"Planning by month", addAttn:"Attention", addSesSub:"Start one now, or log time you worked", addEvSub:"A meeting, call or deadline, no hours", addTkSub:"Something to get done by a day, no hours", newEvent:"New event", trialL:"Trial mode", trialOn:"On", trialTry:"Trial mode", trialLead:"No hours are set. Log your time as usual and Promove shows where your attention actually goes, week by week.", trialNone:"Nothing logged this week yet.", trialReport:"Weekly report · the last 4 weeks", trialSug:"Over {n} weeks you gave about {h} a week. End the trial to use it as your plan.", trialEnd:"End trial", trialWhat:"Everything keeps working, but available and committed hours are switched off: nothing is measured against them and nothing is flagged for hours. Promove reports each week how much attention you gave and how it was divided among projects.", trialKeep:"Your current hours are kept and come back when the trial ends.", trialStart:"Start trial", trialStarted:"Trial mode on", trialOffLead:"From your last {n} weeks, Promove suggests this plan:", trialOffNote:"You can change any of it later with Change plan.", trialOffNone:"There aren't any logged hours yet to suggest a plan from. Set your hours yourself.", trialSelf:"Set them myself", trialUse:"Use these hours", trialEndedUse:"Trial ended · plan set from your weeks", trialEndedSelf:"Trial ended · set your plan", trialShareChip:"{n}% of this week", trialNoHours:"No hours this week", trialRowLine:"{h} this week", trialRvLead:"Where your attention went in the week you're reviewing. There are no hours to plan in trial mode.", rvRecLineT:"{a} judged · {b} changed", rvPart2T:"The week's report", rvGuide2T:"Last step: see where your attention went, then save the review.", rvHow2T:"See the week's report of where your attention went, then save.", lifeL:"Life", lifeHint:"Show only Life: everyday tasks, chores and habits, without anything that belongs to a project.", lifeEmpty:"Nothing in Life yet", lifeEmptyBody:"Add a task, a chore or a habit with + Task. Ticked ones are kept here as a history.", tkTitle:"Tasks", tkNew:"Task", tkNone:"Nothing to do today. Add a task, a chore or a habit.", tkShort:"Task", tkTickL:"Mark “{x}” done", tkDoneOn:"done {d}", tkSkippedOn:"skipped {d}", tkLate:"{n} d overdue", tkHits:"{a}/{b} this week", tkHitsL:"Days kept in the last 7", tkHitsLong:"Kept on {a} of its {b} days in the last week.", tkTitleL:"Task", tkBelongs:"Belongs to", tkDueL:"Due", tkNextDue:"Next due", tkHistory:"Recently", tkSkip:"Skip this one", tkDone:"Done", tkAdd:"Add task", tkNewTitle:"New task", tkRepeat:"Repeat", rpNone:"Never", rpDay:"Daily", rpN:"Every few days", rpW:"Weekdays", rpM:"Monthly", rpEveryL:"Every", rpDaysL:"days", rpMHint:"On the same day of the month as its due date.", tkMissL:"If it's missed", tkMiss_carry:"Carry over", tkMiss_let:"Let it go", tkMissH_carry:"A chore: it stays due until it's done.", tkMissH_let:"A habit: a missed day passes and it waits for its next day. Its record shows how often you kept it.", tkSaved:"Task saved", tkAdded:"Task added", tkSkipped:"Skipped · the next one is set", tkDoneNext:"Done · next on {d}", tkDoneT:"Done", rpDaily:"every day", rpEveryN:"every {n} days", rpMonthly:"monthly on the {d}", tkToggle:"Task (no hours)", srTodo:"Tasks", f_startWk:"Start week", f_endWk:"Suggested end week", wkOf:"week of {d}", pfViewL:"Show projects as", pfList:"List", pfWeeks:"Weeks", wkNow:"now", wkThis:"this week", wkIn1:"next week", wkIn:"in {n} weeks", wkAgo1:"last week", wkAgoN:"{n} weeks ago", wkLen1:"1 week", wkLen:"{n} weeks", wkPlace:"No weeks yet · tap its row to place it", wkOver:"past its suggested end", wkHint:"Weeks from this week. Drag a bar's ends to change its start or suggested end, or drag the bar to move both. Tap an empty row to place a project.", wkDragCap:"{s} → {e} · {n}", wkStartOf:"Start of {p}: {w}. Arrow keys move it by a week.", wkEndOf:"Suggested end of {p}: {w}. Arrow keys move it by a week.", wkSaved:"Weeks saved · recorded on the timeline", wkCard:"Weeks", wkSet:"Set weeks", wkChange:"Change", wkNone:"No start or suggested end yet.", wkStartL:"Start", wkEndL:"Suggested end", wkClear:"Clear", wkEarlier:"{x}: a week earlier", wkLater:"{x}: a week later", wkSheetHint:"Each change is recorded on the timeline.", pfTabsL:"Projects by state", pfNone:"No projects here right now.", pgClosed:"Closed", basisL:"Why {p} is labelled this way",
  basisHint:"Labels compare the hours engaged in a named week with the hours committed. They are prompts to look, not verdicts.", openProject:"Open project",
  rvSub:"Judge what happened, then decide what each project gets next week.", rvNext:"Next review", rvDueToday:"due today", rvLast:"Last review {d}", rvNever:"No review yet",
  rvEvery:"every {d}", rvStart:"Start review", rvPast:"Past reviews", rvNmov:"{n} progress entries", rvNass:"{n} judged", rvOn:"Review of {d}",
@@ -2888,7 +2973,7 @@ fa:{
  pfSub2:"کدام پروژه‌ها به شما نیاز دارند و چرا.", prescribed:"درمان", dueL:"نیاز به بررسی", allClear:"موعدی نیست. همهٔ پروژه‌ها طبق برنامه‌اند.",
  fl_review_due:"موعد بازبینی", fl_capacity:"برنامه {n} ساعت بیش از ساعت‌های در دسترس است", fl_checkpoint_due:"موعد بررسی هدف", fl_followup_due:"موعد پیگیری",
  fl_reconsider_due:"زمان بازنگری", fl_pause_ended:"توقف تمام شده", fl_engagement_shortfall:"هفتهٔ گذشته {a} از {b} انجام شد", fl_engagement_unassessed:"ساعت‌ها هنوز داوری نشده",
- pgNeed:"نیاز به شما", pgOk:"طبق برنامه", pgIdle:"متوقف", pgIdleS:"متوقف", evTitleL:"رویداد", evDateL:"روز", evTimeL:"ساعت شروع", tkDueOpt:"سررسید (اختیاری)", tkNoDateHint:"برای تسک بدون تاریخ، روز را خالی بگذارید.", evAdd:"افزودن رویداد", evNewTitle:"رویداد تازه", evHappened:"انجام شد", evSkip:"این یکی را رد کن", evDoneOn:"برگزار شد {d}", evMissedOn:"برگزار نشد {d}", evMissedT:"ثبت شد: برگزار نشد", evHappenedT:"ثبت شد: برگزار شد", evTickL:"علامت برگزاری «{x}»", evAskShort:"برگزار شد؟", evDidnt:"برگزار نشد", evAdded:"رویداد اضافه شد", tkCurrent:"تسک کنونی", tkSpent:"تا حالا {h} روی آن گذاشته‌اید.", tkSpent0:"هنوز زمانی برایش ثبت نشده.", tkBlock:"برنامه‌ریزی زمان", tkRepLifeOnly:"تسک‌های یک پروژه تکرار نمی‌شوند؛ تکرار برای تسک‌های زندگی و رویدادهاست.", tkCurMove:"تسک کنونی را نمی‌توان به پروژهٔ دیگری برد. اول آن را تمام یا جایگزین کنید.", tkDoneProjNext:"تسک تمام شد · به‌عنوان پیشرفت ثبت شد · بعدی: {n}", tkAnytime:"هر وقت", tkDayL:"روز و ساعت تسک کنونی", tkDayS:"روز", tkEditFull:"ویرایش، تعیین روز یا جابه‌جایی", tkFinishOut:"علامت پایان", lmStart:"شروع کن", lmLog:"ثبت زمان", lmPlanT:"برنامه برای بعد.", lmPlanHint:"جلسه‌ای که قصد دارید کار کنید. در آن روز برنامه می‌پرسد انجام شد یا نه؛ پس از تأیید شما درگیرشده حساب می‌شود.", lmPlan:"برنامه برای بعد", lmBack:"← به‌جایش شروع یا ثبت", lmTask:"تسک", lmNoTask:"تسک خاصی نیست", lmFin:"«{x}» تمام شد", pfStatOf:"وضعیت {p}: {v}. تغییر", pfTrOf:"رویکرد {p}: {v}. تغییر", trNone2:"بدون رویکرد", planByW:"برنامه‌ریزی هفتگی", planByM:"برنامه‌ریزی ماهانه", addAttn:"توجه", addSesSub:"زمانی که کار کردید یا خواهید کرد، با ساعت", addEvSub:"جلسه، تماس یا مهلت، بدون ساعت", addTkSub:"کاری برای انجام تا یک روز، بدون ساعت", newEvent:"رویداد تازه", trialL:"حالت آزمایشی", trialOn:"روشن", trialTry:"حالت آزمایشی", trialLead:"هیچ ساعتی تعیین نشده. زمان‌تان را مثل همیشه ثبت کنید و Promove هفته به هفته نشان می‌دهد توجه‌تان واقعاً کجا می‌رود.", trialNone:"این هفته هنوز چیزی ثبت نشده.", trialReport:"گزارش هفتگی · ۴ هفتهٔ گذشته", trialSug:"در {n} هفته حدود {h} در هفته توجه دادید. با پایان آزمایش می‌توانید همین را برنامه‌تان کنید.", trialEnd:"پایان آزمایش", trialWhat:"همه چیز کار می‌کند، اما ساعت‌های در دسترس و متعهد خاموش‌اند: چیزی با آن‌ها سنجیده نمی‌شود و هشداری برای ساعت داده نمی‌شود. Promove هر هفته گزارش می‌دهد چقدر توجه دادید و میان پروژه‌ها چطور تقسیم شد.", trialKeep:"ساعت‌های فعلی‌تان نگه داشته می‌شوند و با پایان آزمایش برمی‌گردند.", trialStart:"شروع آزمایش", trialStarted:"حالت آزمایشی روشن شد", trialOffLead:"بر اساس {n} هفتهٔ اخیر، Promove این برنامه را پیشنهاد می‌کند:", trialOffNote:"هر بخشش را بعداً با «تغییر برنامه» می‌توانید عوض کنید.", trialOffNone:"هنوز ساعتی ثبت نشده که از آن برنامه پیشنهاد شود. ساعت‌ها را خودتان تعیین کنید.", trialSelf:"خودم تعیین می‌کنم", trialUse:"همین ساعت‌ها", trialEndedUse:"آزمایش تمام شد · برنامه از هفته‌هایتان تنظیم شد", trialEndedSelf:"آزمایش تمام شد · برنامه‌تان را تنظیم کنید", trialShareChip:"{n}٪ از این هفته", trialNoHours:"این هفته بدون ساعت", trialRowLine:"{h} این هفته", trialRvLead:"توجه‌تان در هفته‌ای که بازبینی می‌کنید کجا رفت. در حالت آزمایشی ساعتی برای برنامه‌ریزی نیست.", rvRecLineT:"{a} داوری‌شده · {b} تغییر", rvPart2T:"گزارش هفته", rvGuide2T:"گام آخر: ببینید توجه‌تان کجا رفت، سپس بازبینی را ذخیره کنید.", rvHow2T:"گزارش هفته را ببینید که توجه‌تان کجا رفت، سپس ذخیره کنید.", lifeL:"زندگی", lifeHint:"فقط زندگی: تسک‌ها، کارهای خانه و عادت‌های روزمره، بدون هر چیزی که به پروژه‌ای تعلق دارد.", lifeEmpty:"هنوز چیزی در زندگی نیست", lifeEmptyBody:"با + تسک، تسک، کار تکراری یا عادتی اضافه کنید. انجام‌شده‌ها اینجا به‌عنوان تاریخچه می‌مانند.", tkTitle:"تسک‌ها", tkNew:"تسک", tkNone:"امروز کاری نمانده. تسک، کار تکراری یا عادتی اضافه کنید.", tkShort:"تسک", tkTickL:"علامت انجام «{x}»", tkDoneOn:"انجام شد {d}", tkSkippedOn:"رد شد {d}", tkLate:"{n} روز عقب", tkHits:"{a}/{b} این هفته", tkHitsL:"روزهای انجام‌شده در ۷ روز گذشته", tkHitsLong:"در هفتهٔ گذشته {a} روز از {b} روزش انجام شد.", tkTitleL:"تسک", tkBelongs:"متعلق به", tkDueL:"سررسید", tkNextDue:"سررسید بعدی", tkHistory:"اخیراً", tkSkip:"این یکی را رد کن", tkDone:"انجام شد", tkAdd:"افزودن تسک", tkNewTitle:"تسک تازه", tkRepeat:"تکرار", rpNone:"هرگز", rpDay:"روزانه", rpN:"هر چند روز", rpW:"روزهای هفته", rpM:"ماهانه", rpEveryL:"هر", rpDaysL:"روز", rpMHint:"در همان روزِ ماه که سررسیدش است.", tkMissL:"اگر جا ماند", tkMiss_carry:"بماند تا انجام شود", tkMiss_let:"بگذر", tkMissH_carry:"کار تکراری: تا انجام نشود سررسیدش باقی می‌ماند.", tkMissH_let:"عادت: روزِ جامانده می‌گذرد و منتظر روز بعدی‌اش می‌ماند. سابقه‌اش نشان می‌دهد چند بار انجامش داده‌اید.", tkSaved:"تسک ذخیره شد", tkAdded:"تسک اضافه شد", tkSkipped:"رد شد · نوبت بعدی تنظیم شد", tkDoneNext:"انجام شد · نوبت بعد {d}", tkDoneT:"انجام شد", rpDaily:"هر روز", rpEveryN:"هر {n} روز", rpMonthly:"ماهانه، روز {d}", tkToggle:"تسک (بدون ساعت)", srTodo:"تسک‌ها", f_startWk:"هفتهٔ شروع", f_endWk:"هفتهٔ پایان پیشنهادی", wkOf:"هفتهٔ {d}", pfViewL:"نمایش پروژه‌ها به‌صورت", pfList:"فهرست", pfWeeks:"هفته‌ها", wkNow:"اکنون", wkThis:"این هفته", wkIn1:"هفتهٔ بعد", wkIn:"{n} هفته بعد", wkAgo1:"هفتهٔ پیش", wkAgoN:"{n} هفته پیش", wkLen1:"۱ هفته", wkLen:"{n} هفته", wkPlace:"هنوز هفته‌ای ندارد · ردیفش را بزنید تا جایش بدهید", wkOver:"از پایان پیشنهادی گذشته", wkHint:"هفته‌ها نسبت به این هفته. دو سر هر نوار را بکشید تا شروع یا پایان پیشنهادی عوض شود، یا خود نوار را بکشید تا هر دو جابه‌جا شوند. ردیف خالی را بزنید تا پروژه را جای دهید.", wkDragCap:"{s} ← {e} · {n}", wkStartOf:"شروع {p}: {w}. با کلیدهای جهت یک هفته جابه‌جا می‌شود.", wkEndOf:"پایان پیشنهادی {p}: {w}. با کلیدهای جهت یک هفته جابه‌جا می‌شود.", wkSaved:"هفته‌ها ذخیره شد · در خط زمانی ثبت شد", wkCard:"هفته‌ها", wkSet:"تعیین هفته‌ها", wkChange:"تغییر", wkNone:"هنوز شروع یا پایان پیشنهادی ندارد.", wkStartL:"شروع", wkEndL:"پایان پیشنهادی", wkClear:"پاک کردن", wkEarlier:"{x}: یک هفته زودتر", wkLater:"{x}: یک هفته دیرتر", wkSheetHint:"هر تغییر در خط زمانی ثبت می‌شود.", pfTabsL:"پروژه‌ها بر اساس وضعیت", pfNone:"فعلاً پروژه‌ای اینجا نیست.", pgClosed:"بسته", basisL:"چرا {p} این برچسب را دارد",
+ pgNeed:"نیاز به شما", pgOk:"طبق برنامه", pgIdle:"متوقف", pgIdleS:"متوقف", evTitleL:"رویداد", evDateL:"روز", evTimeL:"ساعت شروع", tkDueOpt:"سررسید (اختیاری)", tkNoDateHint:"برای تسک بدون تاریخ، روز را خالی بگذارید.", evAdd:"افزودن رویداد", evNewTitle:"رویداد تازه", evHappened:"انجام شد", evSkip:"این یکی را رد کن", evDoneOn:"برگزار شد {d}", evMissedOn:"برگزار نشد {d}", evMissedT:"ثبت شد: برگزار نشد", evHappenedT:"ثبت شد: برگزار شد", evTickL:"علامت برگزاری «{x}»", evAskShort:"برگزار شد؟", evDidnt:"برگزار نشد", evAdded:"رویداد اضافه شد", tkCurrent:"تسک کنونی", tkSpent:"تا حالا {h} روی آن گذاشته‌اید.", tkSpent0:"هنوز زمانی برایش ثبت نشده.", tkBlock:"افزودن به برنامه روز", dpTitle:"برنامه‌ریزی روز", dpToday:"امروز", dpTomorrow:"فردا", dpLead:"انتخاب کنید روی چه کاری کار می‌کنید. برنامه ضرب‌الاجل نیست و چیزی عقب نمی‌افتد.", dpNote:"کدام بخش؟ (اختیاری)", dpHours:"ساعت", dpTime:"زمان", dpCarried:"از {d} باز مانده‌اند، پس انتخاب‌شده می‌مانند.", dpNone:"هنوز تسک بازی نیست. اول یک تسک اضافه کنید.", dpSave:"ذخیره برنامه", dpClear:"پاک کردن برنامه", dpSaved:"برنامه ذخیره شد", dpCleared:"برنامه پاک شد", dpShort:"برنامه", dpByHours:"بر اساس ساعت باقی‌مانده این هفته", dpAsk:"برنامه فردا را بچینید؟", dpNudgeBody:"انتخاب کنید فردا روی چه کاری کار می‌کنید.", dpDone:"انجام شد", dpSpent:"تا حالا {h}", dpFab:"برنامه امروز", dpFabEdit:"برنامه امروز", dpFabTm:"برنامه فردا", dpFabTmEdit:"برنامه فردا", tdEvents:"رویدادها", tdEvNone:"امروز رویدادی نیست.", tdTmNone:"هنوز برای فردا چیزی نیست.", tkCvHint:"چیدن تسک‌های این پروژه", tkRepLifeOnly:"تسک‌های یک پروژه تکرار نمی‌شوند؛ تکرار برای تسک‌های زندگی و رویدادهاست.", tkCurMove:"تسک کنونی را نمی‌توان به پروژهٔ دیگری برد. اول آن را تمام یا جایگزین کنید.", tkDoneProjNext:"تسک تمام شد · به‌عنوان پیشرفت ثبت شد · بعدی: {n}", tkAnytime:"هر وقت", tkDayL:"روز و ساعت تسک کنونی", tkDayS:"روز", tkEditFull:"ویرایش، تعیین روز یا جابه‌جایی", tkFinishOut:"علامت پایان", lmStart:"شروع کن", lmLog:"ثبت زمان", lmPlanT:"برنامه برای بعد.", lmPlanHint:"جلسه‌ای که قصد دارید کار کنید. در آن روز برنامه می‌پرسد انجام شد یا نه؛ پس از تأیید شما درگیرشده حساب می‌شود.", lmPlan:"برنامه برای بعد", lmBack:"← به‌جایش شروع یا ثبت", lmTask:"تسک", lmNoTask:"تسک خاصی نیست", lmFin:"«{x}» تمام شد", pfStatOf:"وضعیت {p}: {v}. تغییر", pfTrOf:"رویکرد {p}: {v}. تغییر", trNone2:"بدون رویکرد", planByW:"برنامه‌ریزی هفتگی", planByM:"برنامه‌ریزی ماهانه", addAttn:"توجه", addSesSub:"همین حالا شروع کنید یا زمانی را که کار کردید ثبت کنید", addEvSub:"جلسه، تماس یا مهلت، بدون ساعت", addTkSub:"کاری برای انجام تا یک روز، بدون ساعت", newEvent:"رویداد تازه", trialL:"حالت آزمایشی", trialOn:"روشن", trialTry:"حالت آزمایشی", trialLead:"هیچ ساعتی تعیین نشده. زمان‌تان را مثل همیشه ثبت کنید و Promove هفته به هفته نشان می‌دهد توجه‌تان واقعاً کجا می‌رود.", trialNone:"این هفته هنوز چیزی ثبت نشده.", trialReport:"گزارش هفتگی · ۴ هفتهٔ گذشته", trialSug:"در {n} هفته حدود {h} در هفته توجه دادید. با پایان آزمایش می‌توانید همین را برنامه‌تان کنید.", trialEnd:"پایان آزمایش", trialWhat:"همه چیز کار می‌کند، اما ساعت‌های در دسترس و متعهد خاموش‌اند: چیزی با آن‌ها سنجیده نمی‌شود و هشداری برای ساعت داده نمی‌شود. Promove هر هفته گزارش می‌دهد چقدر توجه دادید و میان پروژه‌ها چطور تقسیم شد.", trialKeep:"ساعت‌های فعلی‌تان نگه داشته می‌شوند و با پایان آزمایش برمی‌گردند.", trialStart:"شروع آزمایش", trialStarted:"حالت آزمایشی روشن شد", trialOffLead:"بر اساس {n} هفتهٔ اخیر، Promove این برنامه را پیشنهاد می‌کند:", trialOffNote:"هر بخشش را بعداً با «تغییر برنامه» می‌توانید عوض کنید.", trialOffNone:"هنوز ساعتی ثبت نشده که از آن برنامه پیشنهاد شود. ساعت‌ها را خودتان تعیین کنید.", trialSelf:"خودم تعیین می‌کنم", trialUse:"همین ساعت‌ها", trialEndedUse:"آزمایش تمام شد · برنامه از هفته‌هایتان تنظیم شد", trialEndedSelf:"آزمایش تمام شد · برنامه‌تان را تنظیم کنید", trialShareChip:"{n}٪ از این هفته", trialNoHours:"این هفته بدون ساعت", trialRowLine:"{h} این هفته", trialRvLead:"توجه‌تان در هفته‌ای که بازبینی می‌کنید کجا رفت. در حالت آزمایشی ساعتی برای برنامه‌ریزی نیست.", rvRecLineT:"{a} داوری‌شده · {b} تغییر", rvPart2T:"گزارش هفته", rvGuide2T:"گام آخر: ببینید توجه‌تان کجا رفت، سپس بازبینی را ذخیره کنید.", rvHow2T:"گزارش هفته را ببینید که توجه‌تان کجا رفت، سپس ذخیره کنید.", lifeL:"زندگی", lifeHint:"فقط زندگی: تسک‌ها، کارهای خانه و عادت‌های روزمره، بدون هر چیزی که به پروژه‌ای تعلق دارد.", lifeEmpty:"هنوز چیزی در زندگی نیست", lifeEmptyBody:"با + تسک، تسک، کار تکراری یا عادتی اضافه کنید. انجام‌شده‌ها اینجا به‌عنوان تاریخچه می‌مانند.", tkTitle:"تسک‌ها", tkNew:"تسک", tkNone:"امروز کاری نمانده. تسک، کار تکراری یا عادتی اضافه کنید.", tkShort:"تسک", tkTickL:"علامت انجام «{x}»", tkDoneOn:"انجام شد {d}", tkSkippedOn:"رد شد {d}", tkLate:"{n} روز عقب", tkHits:"{a}/{b} این هفته", tkHitsL:"روزهای انجام‌شده در ۷ روز گذشته", tkHitsLong:"در هفتهٔ گذشته {a} روز از {b} روزش انجام شد.", tkTitleL:"تسک", tkBelongs:"متعلق به", tkDueL:"سررسید", tkNextDue:"سررسید بعدی", tkHistory:"اخیراً", tkSkip:"این یکی را رد کن", tkDone:"انجام شد", tkAdd:"افزودن تسک", tkNewTitle:"تسک تازه", tkRepeat:"تکرار", rpNone:"هرگز", rpDay:"روزانه", rpN:"هر چند روز", rpW:"روزهای هفته", rpM:"ماهانه", rpEveryL:"هر", rpDaysL:"روز", rpMHint:"در همان روزِ ماه که سررسیدش است.", tkMissL:"اگر جا ماند", tkMiss_carry:"بماند تا انجام شود", tkMiss_let:"بگذر", tkMissH_carry:"کار تکراری: تا انجام نشود سررسیدش باقی می‌ماند.", tkMissH_let:"عادت: روزِ جامانده می‌گذرد و منتظر روز بعدی‌اش می‌ماند. سابقه‌اش نشان می‌دهد چند بار انجامش داده‌اید.", tkSaved:"تسک ذخیره شد", tkAdded:"تسک اضافه شد", tkSkipped:"رد شد · نوبت بعدی تنظیم شد", tkDoneNext:"انجام شد · نوبت بعد {d}", tkDoneT:"انجام شد", rpDaily:"هر روز", rpEveryN:"هر {n} روز", rpMonthly:"ماهانه، روز {d}", tkToggle:"تسک (بدون ساعت)", srTodo:"تسک‌ها", f_startWk:"هفتهٔ شروع", f_endWk:"هفتهٔ پایان پیشنهادی", wkOf:"هفتهٔ {d}", pfViewL:"نمایش پروژه‌ها به‌صورت", pfList:"فهرست", pfWeeks:"هفته‌ها", wkNow:"اکنون", wkThis:"این هفته", wkIn1:"هفتهٔ بعد", wkIn:"{n} هفته بعد", wkAgo1:"هفتهٔ پیش", wkAgoN:"{n} هفته پیش", wkLen1:"۱ هفته", wkLen:"{n} هفته", wkPlace:"هنوز هفته‌ای ندارد · ردیفش را بزنید تا جایش بدهید", wkOver:"از پایان پیشنهادی گذشته", wkHint:"هفته‌ها نسبت به این هفته. دو سر هر نوار را بکشید تا شروع یا پایان پیشنهادی عوض شود، یا خود نوار را بکشید تا هر دو جابه‌جا شوند. ردیف خالی را بزنید تا پروژه را جای دهید.", wkDragCap:"{s} ← {e} · {n}", wkStartOf:"شروع {p}: {w}. با کلیدهای جهت یک هفته جابه‌جا می‌شود.", wkEndOf:"پایان پیشنهادی {p}: {w}. با کلیدهای جهت یک هفته جابه‌جا می‌شود.", wkSaved:"هفته‌ها ذخیره شد · در خط زمانی ثبت شد", wkCard:"هفته‌ها", wkSet:"تعیین هفته‌ها", wkChange:"تغییر", wkNone:"هنوز شروع یا پایان پیشنهادی ندارد.", wkStartL:"شروع", wkEndL:"پایان پیشنهادی", wkClear:"پاک کردن", wkEarlier:"{x}: یک هفته زودتر", wkLater:"{x}: یک هفته دیرتر", wkSheetHint:"هر تغییر در خط زمانی ثبت می‌شود.", pfTabsL:"پروژه‌ها بر اساس وضعیت", pfNone:"فعلاً پروژه‌ای اینجا نیست.", pgClosed:"بسته", basisL:"چرا {p} این برچسب را دارد",
  basisHint:"برچسب‌ها ساعت‌های انجام‌شده در یک هفتهٔ مشخص را با ساعت‌های تعهد‌شده‌ریزی‌شده مقایسه می‌کنند. دعوت به نگاه‌اند، نه حکم.", openProject:"باز کردن پروژه",
  rvSub:"قضاوت کنید چه رخ داد، سپس تصمیم بگیرید هر پروژه هفتهٔ بعد چه بگیرد.", rvNext:"بازبینی بعدی", rvDueToday:"امروز موعد است", rvLast:"آخرین بازبینی {d}", rvNever:"هنوز بازبینی نشده",
  rvEvery:"هر {d}", rvStart:"شروع بازبینی", rvPast:"بازبینی‌های گذشته", rvNmov:"{n} پیشرفت", rvNass:"{n} قضاوت", rvOn:"بازبینی {d}",
@@ -3688,7 +3773,7 @@ ui.mv = { life:!!prefs.mvLife, fresh:true, sel:null, active:null, open:{}, split
 if (ui.mv.types.scheduled == null) ui.mv.types.scheduled = true;
 if (ui.mv.types.event == null) ui.mv.types.event = true;
 /* the four kinds of entry, the same four the calendar legend names; the legend is the filter */
-var TYPES = ["event","scheduled","movement","checkpoint"];
+var TYPES = ["event","movement","checkpoint"];
 function typeOn(k){ return k === "session" || !!ui.mv.types[k]; }   /* sessions always show; events filter apart from scheduled sessions */
 function schType(x){ return x.event ? "event" : "scheduled"; }
 function engType(e){ return "session"; }
@@ -4461,12 +4546,12 @@ function logOne(pid){
   if (!r.ok) return toast(t("errSave"));
   render(); toast(t("loggedFor", { p:S().projects[pid].data.name }));
 }
-/* the Session form: start one now, log one that happened, or (less often) plan one for later */
+/* the Session form: start one now, or log one that happened */
 function openLog(pid, day, kind){
-  var lm0 = /^(start|log|plan)$/.test(ui.logMode || "") ? ui.logMode : null;
-  var pre = ui.logPreset, mode = lm0 || (kind === "sched" ? "plan" : kind === "done" ? "log" : null), td = todayISO(); ui.logMode = null;
+  var lm0 = /^(start|log)$/.test(ui.logMode || "") ? ui.logMode : null;
+  var pre = ui.logPreset, mode = lm0 || (kind === "done" ? "log" : null), td = todayISO(); ui.logMode = null;
   var taskPre = pre && pre.task != null ? pre.task : ui.logTask; ui.logTask = null;
-  if (!mode) mode = pre ? "log" : day && day > td ? "plan" : prefs.timer ? "log" : "start";
+  if (!mode) mode = pre ? "log" : prefs.timer ? "log" : "start";
   if (mode === "start" && prefs.timer) mode = "log";
   var w = ui.att.week || perStart(new Date()), cur = perStart(new Date());
   var def = day || (w === cur ? td : w > cur ? w : perEnd(w));
@@ -4478,17 +4563,13 @@ function openLog(pid, day, kind){
   var body = '<form data-form="log" data-mode="' + mode + '">' +
     '<div class="seg ti logmode" role="group" aria-label="' + esc(t("sessionShort")) + '"><button type="button" data-lm="start" aria-pressed="' + (mode === "start") + '"' + (tmr && !pre ? " disabled" : "") + ">" + IC.play + "<span>" + esc(t("lmStart")) + '</span></button><button type="button" data-lm="log" aria-pressed="' + (mode === "log") + '">' + IC.plus + "<span>" + esc(t("lmLog")) + "</span></button></div>" +
     (tmr && !pre ? '<p class="note">' + esc(t("timerBusy", { p:tmr.data.name })) + "</p>" : "") +
-    '<p class="lmplan" data-only="plan"><b>' + esc(t("lmPlanT")) + "</b> " + esc(t("lmPlanHint")) + "</p>" +
     field("project", t("projectL"), sel("project", pid0, opts)) +
     '<div id="taskBox"></div>' +
-    '<div class="row2" data-only="log plan">' + field("date", t("date"), inp("date", def, "date")) +
+    '<div class="row2" data-only="log">' + field("date", t("date"), inp("date", def, "date")) +
     '<div class="field" data-f="sessions"><span class="lab">' + esc(t("hoursL")) + '</span>' + hoursPicker(pre && pre.hours) + "</div></div>" +
     (pre && pre.timer ? '<p class="note timernote">' + esc(t("timerNote")) + "</p>" : "") +
-    '<div data-only="plan">' + field("time", t("timeOpt"), inp("time", "", "time")) +
-    '<button class="switch" type="button" role="switch" aria-checked="false" data-sw="weekly"><i></i><span>' + esc(t("wkToggle")) + "</span></button></div>" +
     '<div id="finBox" data-only="log"></div>' +
-    field("note", t("note"), area("note", pre && pre.note || "")) +
-    '<button class="btn link lmlink" type="button" data-lm="plan" data-only="start log">' + esc(t("lmPlan")) + '</button><button class="btn link lmlink" type="button" data-lm="back" data-only="plan">' + esc(t("lmBack")) + "</button></form>";
+    field("note", t("note"), area("note", pre && pre.note || "")) + "</form>";
   var lfoot = pre && pre.timer ? '<button class="btn sm link rmbtn" type="button" data-act="timerdrop">' + IC.x + "<span>" + esc(t("timerDrop")) + "</span></button>" : "";
   openSheet(t("logSession"), body, lfoot + '<button class="btn tk" type="button" data-act="savelog" id="logGo">' + esc(t(mode === "start" ? "timerStart" : "save")) + "</button>", function(sh){
     wireSteppers(sh); wireSwitches(sh);
@@ -5952,26 +6033,33 @@ function nextUp(){
 function viewToday(){
   var s = S(), td = todayISO();
   var h = '<p class="tddate">' + esc(fmtD(td, true)) + "</p>";
-  if (!s.order.length) return h + tkToday() + '<div class="glass emptybox section"><h2>' + esc(t("emptyTitle")) + "</h2><p>" + esc(t("emptyBody")) +
+  if (!s.order.length) return h + tkEvToday() + tkToday() + '<div class="glass emptybox section"><h2>' + esc(t("emptyTitle")) + "</h2><p>" + esc(t("emptyBody")) +
     '</p><div class="btns"><button class="btn tk" type="button" data-act="new">' + esc(t("newProject")) + '</button><button class="btn ti" type="button" data-act="samples">' + esc(t("loadSamples")) + "</button></div></div>";
   var due = PMM.dueScheduled(s, td, nowHM()).sort(function(a, b){ return a.date < b.date ? -1 : 1; }), rem = dueReminders(true);
-  var ses = due.filter(function(x){ return !x.event; }), evs = due.filter(function(x){ return x.event; }), evd = tkEventsDue();
-  var nNow = due.length + rem.length + evd.length;
+  var ses = due.filter(function(x){ return !x.event; }), evs = due.filter(function(x){ return x.event; });
+  /* events from earlier days still waiting for an answer; today's are asked in Events */
+  var evd = tkEventsDue().filter(function(x){ return tkDue(x) < td; });
+  var tmd = addDays(td, 1), askPlan = new Date().getHours() >= 18 && !dyPicks(tmd).length && s.order.some(function(pid){ return s.projects[pid].data.status === "active"; });
+  var nNow = due.length + rem.length + evd.length + (askPlan ? 1 : 0);
   /* 1 · needs you now */
   h += '<div class="section"><div class="sec-hd"><h2>' + esc(t("tdNow")) + "</h2>" + (nNow ? "<span>" + nf(nNow) + "</span>" : "") + '</div><div class="card glass pad tdcard">';
   if (!nNow) h += '<p class="allclear" style="margin:0">' + esc(t("bellNone")) + "</p>";
   if (ses.length) h += '<span class="lab">' + esc(t("schDueTitle")) + '</span><ul class="schlist">' + ses.map(bellRow).join("") + "</ul>";
   if (evs.length || evd.length) h += '<span class="lab">' + esc(t("evDueTitle")) + '</span><ul class="schlist">' + evs.map(bellRow).join("") + evd.map(evDueRow).join("") + "</ul>";
-  if (rem.length) h += '<ul class="picklist">' + rem.map(function(r){ return '<li><button type="button" ' + r.act + '><span class="remdot" aria-hidden="true"></span><span>' + esc(r.text) + "</span></button></li>"; }).join("") + "</ul>";
+  if (rem.length || askPlan) h += '<ul class="picklist">' + (askPlan ? '<li><button type="button" data-act="dyopen" data-which="tomorrow"><span class="remdot pl" aria-hidden="true"></span><span>' + esc(t("dpAsk")) + "</span></button></li>" : "") +
+    rem.map(function(r){ return '<li><button type="button" ' + r.act + '><span class="remdot" aria-hidden="true"></span><span>' + esc(r.text) + "</span></button></li>"; }).join("") + "</ul>";
   h += "</div></div>";
   ui.remShown = rem.map(function(r){ return r.key; }); markReminded();
-  /* tasks: overdue first, then today's, then what's been ticked off */
-  h += tkToday();
-  /* 2 · next up: most hours still to give this week */
-  var nu = nextUp(), tm = prefs.timer;
+  /* 2 · events, then tasks */
+  h += tkEvToday() + tkToday();
+  /* 3 · next up: what you planned for today, then the projects with most hours still to give */
+  var pr = dyNextRows(), picked = {}; dyPicks(td).forEach(function(pk){ if (!pk.tid) picked[pk.project] = 1; });
+  var nu = nextUp().filter(function(x){ return !picked[x.p.id]; }), tm = prefs.timer;
   h += '<div class="section"><div class="sec-hd"><h2>' + esc(t("tdNext")) + "</h2></div>";
-  if (!nu.length) h += '<p class="note" style="margin:0 2px">' + esc(t("tdNextNone")) + "</p>";
-  else h += '<div class="rows glass">' + nu.map(function(x){
+  if (pr.length) h += '<div class="rows glass dyrows">' + pr.join("") + "</div>";
+  if (pr.length && nu.length) h += '<p class="lab dyby">' + esc(t("dpByHours")) + "</p>";
+  if (!pr.length && !nu.length) h += '<p class="note" style="margin:0 2px">' + esc(t("tdNextNone")) + "</p>";
+  else if (nu.length) h += '<div class="rows glass">' + nu.map(function(x){
     var p = x.p, mine = tm && tm.pid === p.id;
     return '<div class="nurow"><button class="nuname" type="button" data-act="open" data-id="' + esc(p.id) + '"><b>' + esc(p.data.name) + "</b>" + (p.data.next ? "<span>" + esc(p.data.next) + "</span>" : "") +
       "<small>" + esc(x.trial ? t("trialRowLine", { h:hrs(x.e) }) : t("tdLeft", { n:x.left, a:x.e, b:x.c })) + '</small></button><div class="nuacts">' +
@@ -5980,18 +6068,20 @@ function viewToday(){
       '<button class="btn sm ti" type="button" data-act="logfor" data-id="' + esc(p.id) + '" aria-label="' + esc(t("logTimeFor", { p:p.data.name })) + '">' + IC.plus + "<span>" + esc(t("logShort")) + "</span></button></div></div>";
   }).join("") + "</div>";
   h += "</div>";
-  /* 3 · the day so far */
+  /* 4 · the day so far */
   var today = s.engagements.filter(function(e){ return e.date === td && s.projects[e.project]; }), tot = today.reduce(function(n, e){ return n + e.sessions; }, 0);
-  h += '<div class="section"><div class="sec-hd"><h2>' + esc(t("tdSoFar")) + "</h2><span>" + esc(hrs(tot)) + "</span></div>";
+  h += '<div class="section"><div class="sec-hd"><h2>' + esc(t("tdSoFar")) + "</h2><span>" + esc(hrs(tot)) + '</span><button class="btn sm ti tkadd" type="button" data-act="addses">' + IC.plus + "<span>" + esc(t("sessionShort")) + "</span></button></div>";
   if (!today.length) h += '<p class="note" style="margin:0 2px">' + esc(t("tdNothing")) + "</p>";
   else h += '<ul class="picklist glass tdlog">' + today.map(function(e){
-    return '<li><button type="button" data-act="entry" data-kind="session" data-id="' + esc(e.id) + '"><span class="caps" aria-hidden="true"><i class="on"></i></span><span><b>' + esc(s.projects[e.project].data.name) + "</b> · " + esc(hrs(e.sessions)) + (e.note ? ' <small class="muted">· ' + esc(e.note) + "</small>" : "") + "</span></button></li>"; }).join("") + "</ul>";
+    return '<li><button type="button" data-act="entry" data-kind="session" data-id="' + esc(e.id) + '"><span class="caps" aria-hidden="true"><i class="on"></i></span><span><b>' + esc(s.projects[e.project].data.name) + "</b>" + (e.task ? " · " + esc(e.task) : "") + " · " + esc(hrs(e.sessions)) + (e.note ? ' <small class="muted">· ' + esc(e.note) + "</small>" : "") + "</span></button></li>"; }).join("") + "</ul>";
   h += "</div>";
-  /* 4 · tomorrow */
-  var up = upcoming();
-  if (up.length) h += '<div class="section"><div class="sec-hd"><h2>' + esc(t("bellUp")) + '</h2></div><ul class="picklist glass upl">' + up.map(function(r){
-    return '<li><button type="button" ' + r.act + '><span class="updot ' + r.cls + '" aria-hidden="true"></span><span>' + esc(r.text) + "</span></button></li>"; }).join("") + "</ul></div>";
-  return h;
+  /* 5 · tomorrow: always here, so there's a place to see what's planned */
+  var up = dyTomorrowRows().concat(upcoming());
+  h += '<div class="section"><div class="sec-hd"><h2>' + esc(t("bellUp")) + "</h2></div>";
+  if (!up.length) h += '<p class="note" style="margin:0 2px">' + esc(t("tdTmNone")) + "</p>";
+  else h += '<ul class="picklist glass upl">' + up.map(function(r){
+    return '<li><button type="button" ' + r.act + '><span class="updot ' + r.cls + '" aria-hidden="true"></span><span>' + esc(r.text) + "</span></button></li>"; }).join("") + "</ul>";
+  return h + "</div>";
 }
 
 /* ---------- the Android app (Capacitor): phone notifications, back button, backups as files ----------
@@ -6021,6 +6111,14 @@ function nPlan(){
     var w = x.time ? new Date(atLocal(due, x.time).getTime() - (c.before || 0) * 60000) : atLocal(due, c.morning);
     add("tk:" + x.key + ":" + due, w, t(x.kind === "event" ? "evShort" : "tkShort") + " · " + x.title, (x.time ? x.time + " · " : "") + tkOwner(x) + (x.rep ? " · " + tkRepText(x) : ""), { tab:"today" });
   });
+  /* the day plan: a pick with a time is announced at that time (minus the lead) */
+  if (c.sch) Object.keys(s.days || {}).forEach(function(day){
+    (s.days[day] || []).forEach(function(pk){
+      if (!pk.time || dyState(pk, day) !== "open") return;
+      add("dy:" + day + ":" + dyKey(pk), new Date(atLocal(day, pk.time).getTime() - (c.before || 0) * 60000), t("dpShort") + " · " + dyTitle(pk),
+        pk.time + " · " + (pk.tid ? t("lifeL") : s.projects[pk.project].data.name) + (pk.note ? " · " + pk.note : ""), { tab:"today" });
+    });
+  });
   s.order.forEach(function(pid){
     var d = s.projects[pid].data, owes = d.status === "active" || d.status === "waiting";
     if (!c.due) return;
@@ -6036,6 +6134,12 @@ function nPlan(){
       var day = PMM.iso(new Date(now + i * 864e5));
       if (s.engagements.some(function(e){ return e.date === day; })) continue;
       add("nolog:" + day, atLocal(day, c.evening), t("tab0"), t("noLogToday"), { tab:"today", log:true });
+    }
+    /* and half an hour later, if the next day isn't planned yet */
+    for (var j = 0; j < 7; j++){
+      var dj = PMM.iso(new Date(now + j * 864e5));
+      if (PMM.dayPicks(s, PMM.iso(new Date(PMM.parse(dj).getTime() + 864e5 * 1.5))).length) continue;
+      add("dyask:" + dj, new Date(atLocal(dj, c.evening).getTime() + 30 * 60000), t("dpAsk"), t("dpNudgeBody"), { tab:"today", plan:true });
     }
   }
   return out.slice(0, 60);
@@ -6130,6 +6234,7 @@ if (NATIVE){
     else if (x.tab) ui.tab = x.tab;
     remember(); render(); scrollTo(0, 0);
     if (x.log) setTimeout(function(){ openLog(); }, 300);
+    if (x.plan) setTimeout(function(){ openPlan("tomorrow"); }, 300);
   });
   var AP = nPlug("App");
   if (AP){
@@ -6515,6 +6620,7 @@ function tkRow(x, opts){
   else if (opts.withDate && due) meta.push(esc(fmtD(due, true)));
   if (!opts.done && !ev && x.time) meta.push(esc(nf(x.time)));
   if (x.src === "p"){ var hh = tkHours(x.project, x.title); if (hh) meta.push(esc(hrs(hh))); if (x.cur) meta.push(esc(t("tkCurrent"))); }
+  if (opts.planned) meta.unshift('<b class="tkpl">' + esc(t("dpShort")) + "</b>" + (opts.planned.note ? " " + esc(opts.planned.note) : "") + (opts.planned.time ? " · " + esc(nf(opts.planned.time)) : ""));
   if (x.rep) meta.push('<span class="tkrep">' + RP_IC + esc(tkRepText(x)) + "</span>");
   if (hits) meta.push('<span class="tkhit" title="' + esc(t("tkHitsL")) + '">' + esc(t("tkHits", { a:nf(hits.done), b:nf(hits.of) })) + "</span>");
   var box = opts.done ? '<span class="tkbox on" aria-hidden="true">' + TK_IC + "</span>"
@@ -6539,22 +6645,47 @@ function tkEventsDue(){
   var td = todayISO(), hm = nowHM();
   return tkItems().filter(function(x){ var d = tkDue(x); return x.kind === "event" && !x.rep && d && (d < td || (d === td && x.time && x.time <= hm)); });
 }
-/* Today: events, then what's overdue, due today and undated in Life, then what's been ticked off */
-function tkToday(){
-  var td = todayISO(), all = tkItems(true);
+/* what was ticked off on a day, as rows: Life tasks and events from the log, project tasks from progress */
+function tkDoneOn(day){
+  return (S().tlog || []).filter(function(l){ return l.date === day && l.kind === "done"; }).concat(tkFinishedOn(day)).map(function(l){
+    var x = l.mov ? { key:"", kind:"task", title:l.title, project:l.project, src:"p" } : (tkGet(l.task) ? tkFromT(tkGet(l.task)) : { key:"", kind:l.kindOf === "event" ? "event" : "task", title:l.title, project:l.project, src:"t" });
+    return { x:x, l:l };
+  });
+}
+function tkDoneRow(o){
+  var x = o.x, l = o.l;
+  return l.mov ? tkRow(x, { done:{ id:"", date:l.date, title:l.title } }).replace('data-act="tlopen" data-key=""', 'data-act="mov" data-id="' + esc(l.id) + '"') : tkRow(x, { done:l });
+}
+/* Today's events: what's still ahead, then the ones that have started (did they happen?), then the ones settled */
+function tkEvToday(){
+  var td = todayISO(), hm = nowHM(), all = tkItems(true);
   var evs = all.filter(function(x){ return x.kind === "event" && tkDue(x) === td; }).sort(function(a, b){ return (a.time || "") < (b.time || "") ? -1 : 1; });
+  var ask = evs.filter(function(x){ return !x.rep && x.time && x.time <= hm; }), ahead = evs.filter(function(x){ return ask.indexOf(x) < 0; });
+  var done = tkDoneOn(td).filter(function(o){ return o.x.kind === "event"; });
+  var h = '<div class="section tksec evsec"><div class="sec-hd"><h2>' + esc(t("tdEvents")) + "</h2>" + (evs.length ? "<span>" + nf(evs.length) + "</span>" : "") +
+    '<button class="btn sm ti tkadd" type="button" data-act="evnew">' + IC.plus + "<span>" + esc(t("evShort")) + "</span></button></div>";
+  if (!evs.length && !done.length) return h + '<p class="note" style="margin:0 2px">' + esc(t("tdEvNone")) + "</p></div>";
+  if (ahead.length || done.length) h += '<ul class="tklist glass">' + ahead.map(function(x){ return tkRow(x); }).join("") + done.map(tkDoneRow).join("") + "</ul>";
+  if (ask.length) h += '<div class="card glass pad tdcard evask"><span class="lab">' + esc(t("evDueTitle")) + '</span><ul class="schlist">' + ask.map(evDueRow).join("") + "</ul></div>";
+  return h + "</div>";
+}
+/* Today's tasks: what's planned, overdue first, then due today, then anytime, then what's been ticked off */
+function tkToday(){
+  var td = todayISO(), all = tkItems(true), plan = dyLifeToday();
   var list = all.filter(function(x){ var d = tkDue(x); return x.kind === "task" && d && d <= td; });
   list.sort(function(a, b){ var da = tkDue(a), db = tkDue(b); return da < db ? -1 : da > db ? 1 : (a.time || "99") < (b.time || "99") ? -1 : 1; });
-  var any = all.filter(function(x){ return x.kind === "task" && x.src === "t" && !x.date && !x.done; });
-  var done = (S().tlog || []).filter(function(l){ return l.date === td && l.kind === "done"; }).concat(tkFinishedOn(td));
-  var n = evs.length + list.length;
+  var inList = {}; list.forEach(function(x){ if (x.src === "t") inList[x.id] = 1; });
+  var planned = Object.keys(plan).filter(function(id){ var x = tkGet(id); return x && !inList[id] && dyState(plan[id], td) === "open"; }).map(function(id){ return tkFromT(tkGet(id)); });
+  var any = all.filter(function(x){ return x.kind === "task" && x.src === "t" && !x.date && !x.done && !plan[x.id]; });
+  var done = tkDoneOn(td).filter(function(o){ return o.x.kind !== "event"; });
+  var n = list.length + planned.length;
+  function row(x){ var pk = x.src === "t" && plan[x.id]; return tkRow(x, pk ? { planned:pk } : null); }
   var h = '<div class="section tksec"><div class="sec-hd"><h2>' + esc(t("tkTitle")) + "</h2>" + (n ? "<span>" + nf(n) + "</span>" : "") +
     '<button class="btn sm ti tkadd" type="button" data-act="tknew">' + IC.plus + "<span>" + esc(t("tkNew")) + "</span></button></div>";
   if (!n && !any.length && !done.length) return h + '<p class="note" style="margin:0 2px">' + esc(t("tkNone")) + "</p></div>";
-  h += '<ul class="tklist glass">' + evs.concat(list).map(function(x){ return tkRow(x); }).join("") +
+  h += '<ul class="tklist glass">' + planned.map(row).join("") + list.map(row).join("") +
     (any.length ? '<li class="tkgrp">' + esc(t("tkAnytime")) + "</li>" + any.map(function(x){ return tkRow(x); }).join("") : "") +
-    done.map(function(l){ var x = l.mov ? { key:"", kind:"task", title:l.title, project:l.project, src:"p" } : (tkGet(l.task) ? tkFromT(tkGet(l.task)) : { key:"", kind:l.kindOf === "event" ? "event" : "task", title:l.title, project:l.project, src:"t" });
-      return l.mov ? tkRow(x, { done:{ id:"", date:l.date, title:l.title } }).replace('data-act="tlopen" data-key=""', 'data-act="mov" data-id="' + esc(l.id) + '"') : tkRow(x, { done:l }); }).join("") + "</ul>";
+    done.map(tkDoneRow).join("") + "</ul>";
   return h + "</div>";
 }
 function tkTomorrow(){
@@ -6578,6 +6709,7 @@ function openTask(key, preset){
   if (!x && preset.date && preset.date < todayISO()) due = todayISO();
   var body = '<form data-form="task">' + field("title", t(ev ? "evTitleL" : "tkTitleL"), inp("title", x ? x.title : preset.title || "", "text")) +
     field("project", t("tkBelongs"), sel("project", proj0, opts)) +
+    (ev ? "" : '<div class="tkcv" id="tkCv"' + (proj0 === PMM.LIFE ? " hidden" : "") + '><button class="btn sm ti cvbtn" type="button" data-act="tkcanvas">' + IC.canvas + "<span>" + esc(t("cvOpen")) + '</span></button><span class="hint">' + esc(t("tkCvHint")) + "</span></div>") +
     '<div class="row2">' + field("date", t(ev ? "evDateL" : x && x.rep ? "tkNextDue" : "tkDueOpt"), inp("date", due, "date")) + field("time", t(ev ? "evTimeL" : "timeOpt"), inp("time", x ? x.time || "" : preset.time || "", "time")) + "</div>" +
     (ev ? "" : '<p class="hint tknodate">' + esc(t("tkNoDateHint")) + "</p>") +
     '<div id="tkRep">' + tkRepHTML(proj0) + "</div></form>";
@@ -6623,7 +6755,7 @@ function tkRepHTML(project){
   }
   return h;
 }
-function tkRepaint(){ var f = scrim.querySelector('form[data-form="task"]'), n = f && f.querySelector('input[name="repn"]'); if (n) tkEd.rep.n = +n.value || 2; var b = document.getElementById("tkRep"); if (b) b.innerHTML = tkRepHTML(); }
+function tkRepaint(){ var f = scrim.querySelector('form[data-form="task"]'), n = f && f.querySelector('input[name="repn"]'); if (n) tkEd.rep.n = +n.value || 2; var b = document.getElementById("tkRep"); if (b) b.innerHTML = tkRepHTML(); var cv = document.getElementById("tkCv"), ps = f && f.querySelector('select[name="project"]'); if (cv && ps) cv.hidden = ps.value === PMM.LIFE; }
 function tkSave(){
   var f = scrim.querySelector('form[data-form="task"]'); if (!f || !tkEd) return;
   var v = readForm(f), r = tkEd.rep, rep = null, toProj = v.project && v.project !== PMM.LIFE;
@@ -6786,6 +6918,156 @@ function trRowBits(p){
   return { h:h, pct:trShare(h, w.total), chip:h ? t("trialShareChip", { n:nf(trShare(h, w.total)) }) : t("trialNoHours"), line:t("trialRowLine", { h:hrs(h) }) };
 }
 
+/* ---------- the day plan: pick the tasks you mean to work on today or tomorrow ----------
+   A plan is an intention, not a deadline: project picks lead Next up, Life picks join Tasks, and a pick
+   with a time gets a reminder. What's left open is offered again the next time you plan. */
+function dyDate(which){ return which === "tomorrow" ? addDays(todayISO(), 1) : todayISO(); }
+function dyDefault(){ return new Date().getHours() >= 18 ? "tomorrow" : "today"; }
+function dyPicks(date){ return PMM.dayPicks(S(), date); }
+function dyKey(pk){ return pk.tid ? "t|" + pk.tid : pKey(pk.project, pk.task); }
+function dyTitle(pk){ if (pk.tid){ var x = tkGet(pk.tid); return x ? x.title : ""; } return pk.task; }
+/* where a pick stands: still open, finished (on that day or before), or gone */
+function dyState(pk, date){
+  if (pk.tid){
+    var x = tkGet(pk.tid); if (!x) return "gone";
+    if (x.rep) return (S().tlog || []).some(function(l){ return l.task === x.id && l.kind === "done" && l.date === date; }) ? "done" : "open";
+    return x.done ? "done" : "open";
+  }
+  var p = S().projects[pk.project]; if (!p) return "gone";
+  if (p.data.next === pk.task || p.up.some(function(it){ return it.text === pk.task; })) return "open";
+  return S().movements.some(function(m){ var d = m.diff && m.diff[0]; return m.project === pk.project && d && ((d.f === "done" && d["new"] === pk.task) || (d.f === "next" && m.prev === "done" && d.old === pk.task)); }) ? "done" : "gone";
+}
+/* what can be picked: every active project's tasks (current first), then open Life tasks */
+function dyCands(date){
+  var out = [];
+  activeProjects().forEach(function(p){
+    if (p.data.status !== "active" && !dyPicks(date).some(function(pk){ return pk.project === p.id; })) return;
+    var list = (p.data.next ? [p.data.next] : []).concat(p.up.map(function(it){ return it.text; }));
+    list.forEach(function(text, i){ out.push({ key:pKey(p.id, text), project:p.id, task:text, group:p.data.name, gid:p.id, cur:i === 0 && !!p.data.next }); });
+  });
+  tkAll().filter(function(x){ return x.kind === "task" && x.project === PMM.LIFE && !x.done; }).forEach(function(x){
+    var due = PMM.taskDue(x, todayISO());
+    out.push({ key:"t|" + x.id, tid:x.id, project:PMM.LIFE, task:x.title, group:t("lifeL"), gid:PMM.LIFE, sub:due ? fmtD(due, true) : "" });
+  });
+  return out;
+}
+var dyEd = null;
+function dyLoad(which){
+  var date = dyDate(which), sel = {}, carried = "";
+  var cur = dyPicks(date);
+  cur.forEach(function(pk){ if (dyState(pk, date) !== "gone") sel[dyKey(pk)] = { id:pk.id, note:pk.note || "", h:pk.h || "", time:pk.time || "" }; });
+  if (!cur.length){
+    /* nothing planned for this day yet: what's still open from the last plan comes along */
+    var prev = Object.keys(S().days || {}).filter(function(d){ return d < date && d >= addDays(date, -7); }).sort().pop();
+    if (prev) dyPicks(prev).forEach(function(pk){ if (dyState(pk, prev) === "open"){ sel[dyKey(pk)] = { note:pk.note || "", h:pk.h || "", time:"" }; carried = prev; } });
+  }
+  return { which:which, date:date, sel:sel, carried:carried, had:cur.length > 0 };
+}
+function openPlan(which, addKey){
+  which = which === "today" || which === "tomorrow" ? which : dyDefault();
+  dyEd = { cmd:PMM.uid(), drafts:{} };
+  dyEd.drafts[which] = dyLoad(which); dyEd.which = which;
+  if (addKey && !dyEd.drafts[which].sel[addKey]) dyEd.drafts[which].sel[addKey] = { note:"", h:"", time:"" };
+  dyPaint();
+}
+function dyBody(){
+  var d = dyEd.drafts[dyEd.which], cands = dyCands(d.date), h = "";
+  h += '<div class="seg ti dyseg" role="group" aria-label="' + esc(t("dpTitle")) + '">' + ["today", "tomorrow"].map(function(w){
+    return '<button type="button" data-dy="' + w + '" aria-pressed="' + (dyEd.which === w) + '">' + esc(t(w === "today" ? "dpToday" : "dpTomorrow")) + "</button>"; }).join("") + "</div>";
+  h += '<p class="note dydate">' + esc(fmtD(d.date, true)) + " · " + esc(t("dpLead")) + "</p>";
+  if (d.carried) h += '<p class="note dycarry">' + esc(t("dpCarried", { d:fmtD(d.carried, true) })) + "</p>";
+  if (!cands.length) return h + '<p class="muted" style="margin:6px 0 0">' + esc(t("dpNone")) + "</p>";
+  var hOpts = [["", "—"]].concat([0.25, 0.5, 0.75, 1, 1.5, 2, 2.5, 3, 4, 5, 6, 8].map(function(v){ return [String(v), hrs(v)]; }));
+  var last = null;
+  cands.forEach(function(c, i){
+    if (c.gid !== last){ if (last !== null) h += "</ul>"; h += '<h3 class="lab dygrp">' + (c.gid === PMM.LIFE ? LIFE_IC : "") + esc(c.group) + '</h3><ul class="dylist">'; last = c.gid; }
+    var s = d.sel[c.key], on = !!s; s = s || { note:"", h:"", time:"" };
+    h += '<li class="dyrow' + (on ? " on" : "") + '" data-key="' + esc(c.key) + '"><button class="dychk" type="button" aria-pressed="' + on + '"><span class="tkbox' + (on ? " on" : "") + '" aria-hidden="true">' + TK_IC + "</span><span><b>" + esc(c.task) + "</b>" +
+      (c.cur || c.sub ? "<small>" + esc(c.cur ? t("tkCurrent") : c.sub) + "</small>" : "") + "</span></button>" +
+      '<div class="dymore"' + (on ? "" : " hidden") + '><input class="dynote inp" type="text" autocomplete="off" placeholder="' + esc(t("dpNote")) + '" aria-label="' + esc(t("dpNote")) + '" value="' + esc(s.note) + '">' +
+      '<div class="dyht">' + (c.tid ? "" : '<label><span class="lab">' + esc(t("dpHours")) + '</span><select class="dyh inp" aria-label="' + esc(t("dpHours")) + '">' + hOpts.map(function(o){ return '<option value="' + o[0] + '"' + (String(s.h) === o[0] ? " selected" : "") + ">" + esc(o[1]) + "</option>"; }).join("") + "</select></label>") +
+      '<label><span class="lab">' + esc(t("dpTime")) + '</span><input class="dytime inp" type="time" value="' + esc(s.time) + '" aria-label="' + esc(t("dpTime")) + '"></label></div></div></li>';
+  });
+  return h + "</ul>";
+}
+function dyPaint(){
+  var d = dyEd.drafts[dyEd.which], bd = scrim.querySelector(".sheet-bd"), top = bd && scrim.querySelector(".dyseg") ? bd.scrollTop : 0;
+  var foot = (d.had ? '<button class="btn sm link rmbtn" type="button" data-act="dyclear">' + IC.x + "<span>" + esc(t("dpClear")) + "</span></button>" : "") +
+    '<button class="btn ti" type="button" data-act="closesheet">' + esc(t("cancel")) + '</button><button class="btn tk" type="button" data-act="dysave">' + esc(t("dpSave")) + "</button>";
+  openSheet(t("dpTitle"), dyBody(), foot, function(sh){ sh.classList.add("dysheet"); var b = sh.querySelector(".sheet-bd"); if (b && top) b.scrollTop = top; });
+}
+/* read what's typed back into the draft before anything repaints */
+function dyRead(){
+  if (!dyEd) return;
+  var d = dyEd.drafts[dyEd.which];
+  [].forEach.call(scrim.querySelectorAll(".dyrow"), function(li){
+    var k = li.dataset.key; if (!d.sel[k]) return;
+    var n = li.querySelector(".dynote"), hh = li.querySelector(".dyh"), tm = li.querySelector(".dytime");
+    d.sel[k].note = n ? n.value : ""; d.sel[k].h = hh ? hh.value : ""; d.sel[k].time = tm ? tm.value : "";
+  });
+}
+function dySave(clear){
+  dyRead();
+  var d = dyEd.drafts[dyEd.which], cands = dyCands(d.date), picks = [];
+  if (!clear) cands.forEach(function(c){
+    var s = d.sel[c.key]; if (!s) return;
+    var pk = c.tid ? { tid:c.tid } : { project:c.project, task:c.task };
+    if (s.id) pk.id = s.id; if (s.note) pk.note = s.note; if (s.h) pk.h = parseFloat(s.h); if (s.time) pk.time = s.time;
+    picks.push(pk);
+  });
+  var r = attempt(function(st){ return PMM.setDay(st, { id:dyEd.cmd + ":" + d.date + ":" + Date.now(), date:d.date, picks:picks }); });
+  if (!r.ok) return toast(t("errSave"));
+  dyEd = null; closeSheet(); render(); toast(t(clear || !picks.length ? "dyCleared" : "dySaved"));
+}
+document.addEventListener("click", function(e){
+  if (!dyEd || scrim.hidden || !scrim.querySelector(".dysheet")) return;
+  var sw = e.target.closest("[data-dy]");
+  if (sw){ dyRead(); var w = sw.dataset.dy; if (!dyEd.drafts[w]) dyEd.drafts[w] = dyLoad(w); dyEd.which = w; dyPaint(); return; }
+  var ck = e.target.closest(".dychk");
+  if (ck){
+    dyRead();
+    var li = ck.closest(".dyrow"), k = li.dataset.key, d = dyEd.drafts[dyEd.which], on = !d.sel[k];
+    if (on) d.sel[k] = { note:"", h:"", time:"" }; else delete d.sel[k];
+    li.classList.toggle("on", on); ck.setAttribute("aria-pressed", on); ck.querySelector(".tkbox").classList.toggle("on", on);
+    li.querySelector(".dymore").hidden = !on;
+    if (on){ var n = li.querySelector(".dynote"); if (n) setTimeout(function(){ n.focus({ preventScroll:true }); }, 30); }
+  }
+});
+/* Today: the planned project tasks, at the top of Next up */
+function dyNextRows(){
+  var td = todayISO(), tm = prefs.timer;
+  return dyPicks(td).filter(function(pk){ return !pk.tid && S().projects[pk.project]; }).map(function(pk){
+    var st = dyState(pk, td), p = S().projects[pk.project], mine = tm && tm.pid === p.id && tm.task === pk.task, meta = [esc(p.data.name)];
+    if (pk.time) meta.push(esc(nf(pk.time))); if (pk.h) meta.push(esc(hrs(pk.h)));
+    var hh = tkHours(pk.project, pk.task); if (hh) meta.push(esc(t("dpSpent", { h:hrs(hh) })));
+    if (st === "done") meta.push("<b>" + esc(t("dpDone")) + "</b>");
+    var acts = st !== "open" ? "" : mine ? '<button class="btn sm tk" type="button" data-act="timerstop">' + IC.stop + '<span data-tick>' + esc(tickText()) + "</span></button>"
+      : '<button class="btn sm ti" type="button" data-act="dystart" data-id="' + esc(pk.id) + '"' + (tm ? " disabled" : "") + ' aria-label="' + esc(t("timerStart") + " · " + pk.task) + '">' + IC.play + "<span>" + esc(t("timerShort")) + "</span></button>" +
+        '<button class="btn sm ti" type="button" data-act="dylog" data-id="' + esc(pk.id) + '" aria-label="' + esc(t("logTimeFor", { p:pk.task })) + '">' + IC.plus + "<span>" + esc(t("logShort")) + "</span></button>";
+    return '<div class="nurow dynu' + (st !== "open" ? " dn" : "") + '"><button class="nuname" type="button" data-act="dyopen" data-which="today"><b>' + esc(pk.task) + "</b>" +
+      (pk.note ? "<span>" + esc(pk.note) + "</span>" : "") + "<small>" + meta.join(" · ") + '</small></button><div class="nuacts">' + acts + "</div></div>";
+  });
+}
+function dyFind(id){ return dyPicks(todayISO()).filter(function(pk){ return pk.id === id; })[0]; }
+/* Today: the planned Life tasks, for the Tasks list */
+function dyLifeToday(){
+  var td = todayISO(), out = {};
+  dyPicks(td).forEach(function(pk){ if (pk.tid) out[pk.tid] = pk; });
+  return out;
+}
+/* tomorrow's picks, for the Tomorrow list */
+function dyTomorrowRows(){
+  var tm = addDays(todayISO(), 1);
+  return dyPicks(tm).filter(function(pk){ return dyState(pk, tm) !== "gone"; }).map(function(pk){
+    var own = pk.tid ? t("lifeL") : S().projects[pk.project].data.name;
+    return { text:t("dpShort") + " · " + dyTitle(pk) + " · " + own + (pk.time ? " · " + pk.time : "") + (pk.note ? " · " + pk.note : ""), act:'data-act="dyopen" data-which="tomorrow"', cls:"pl" };
+  });
+}
+function dyFabLabel(){
+  if (dyDefault() === "tomorrow") return t(dyPicks(dyDate("tomorrow")).length ? "dpFabTmEdit" : "dpFabTm");
+  return t(dyPicks(todayISO()).length ? "dpFabEdit" : "dpFab");
+}
+
 /* ---------- floating buttons: the main way to start something on each tab ---------- */
 function fabHTML(){
   var tab = ui.tab, has = S().order.length > 0;
@@ -6800,11 +7082,10 @@ function fabHTML(){
     return '<button class="fab today" type="button" data-act="mvtoday" aria-label="' + esc(t("goToday")) + '" title="' + esc(t("goToday")) + '">' + IC.today + "</button>" +
       '<button class="fab ext small" type="button" data-act="tknew">' + IC.plus + "<span>" + esc(t("tkShort")) + "</span></button>";
   if (tab === "movements" && has)
-    return '<button class="fab ext small start" type="button" data-act="mvframe">' + IC.upd + "<span>" + esc(t("mvFab")) + "</span></button>" +
-      '<button class="fab today" type="button" data-act="mvtoday" aria-label="' + esc(t("goToday")) + '" title="' + esc(t("goToday")) + '">' + IC.today + "</button>" +
+    return '<button class="fab today" type="button" data-act="mvtoday" aria-label="' + esc(t("goToday")) + '" title="' + esc(t("goToday")) + '">' + IC.today + "</button>" +
       '<button class="fab ext small" type="button" data-act="addmenu" aria-haspopup="menu" aria-expanded="false">' + IC.plus + "<span>" + esc(t("addAttn")) + "</span></button>";
-  if (tab === "today" && has)
-    return '<button class="fab ext" type="button" data-act="addmenu" aria-haspopup="menu" aria-expanded="false">' + IC.plus + "<span>" + esc(t("addAttn")) + "</span></button>";
+  if (tab === "today" && (has || tkAll().length))
+    return '<button class="fab ext" type="button" data-act="dyopen">' + IC.plan + "<span>" + esc(dyFabLabel()) + "</span></button>";
   if (tab === "portfolio" && has && ui.att.edit) return "";
   if (tab === "portfolio" && has)
     return '<button class="fab ext green" type="button" data-act="new">' + IC.plus + "<span>" + esc(t("newProject")) + "</span></button>";
@@ -7348,7 +7629,6 @@ function loadSamples(){
     x = PMM.saveProjectChange(s, { id:PMM.uid(), project:p1, expectedRev:1, edits:{ state:L.p1s, next:L.h1n }, prev:"done" }, at(-9, 18, 10)); s = x.S;
     s = PMM.annotate(s, x.result.movement, { explanation:L.h1e, magnitude:"moderate", direction:"forward" }, at(-9, 18, 12)).S;
     s = PMM.recordAttempt(s, { id:PMM.uid(), project:p1, date:plus(-8), sessions:1 }, at(-7, 9, 0)).S;
-    s = PMM.scheduleSession(s, { id:PMM.uid(), project:p1, date:plus(1), time:"09:30", sessions:1 }).S;
     x = PMM.saveProjectChange(s, { id:PMM.uid(), project:p1, expectedRev:s.projects[p1].rev, edits:{ checkpoint:plus(7) } }, at(-6, 11, 20)); s = x.S;
     s = PMM.annotate(s, x.result.movement, { explanation:L.h2e, magnitude:"minor", direction:"neutral" }, at(-6, 11, 25)).S;
     x = PMM.saveProjectChange(s, { id:PMM.uid(), project:p1, expectedRev:s.projects[p1].rev, edits:{ next:L.p1n }, correction:true }, at(-5, 8, 40)); s = x.S;
@@ -7359,6 +7639,7 @@ function loadSamples(){
     s = PMM.recordAttempt(s, { id:PMM.uid(), project:p3, date:ws, sessions:2 }).S;
     s = PMM.setCapacity(s, null, 7, true).S;
     ui.pid = p1;
+    s = PMM.setDay(s, { id:PMM.uid(), date:plus(1), picks:[{ project:p1, task:s.projects[p1].data.next, h:1, time:"09:30" }] }).S;
     return { S:s, result:{ kind:"samples" } };
   });
   if (!r.ok) toast(t("errSave"));
@@ -7437,7 +7718,13 @@ document.addEventListener("click", function(e){
     case "tkmiss1": tkTick(b.dataset.key, "skip"); break;
     case "tkdelp": tkDeleteProj(b.dataset.key); break;
     case "tkstart": var sx = tkItem(b.dataset.key); if (sx){ closeSheet(); startTimer(sx.project, sx.title); } break;
-    case "tkblock": var bx = tkItem(b.dataset.key); if (bx){ closeSheet(); ui.logMode = "plan"; ui.logTask = bx.title; openLog(bx.project, bx.date && bx.date >= todayISO() ? bx.date : todayISO()); } break;
+    case "tkblock": var bx = tkItem(b.dataset.key); if (bx){ closeSheet(); openPlan(null, bx.key); } break;
+    case "tkcanvas": var cvp = (scrim.querySelector('select[name="project"]') || {}).value; if (cvp && S().projects[cvp]){ closeSheet(); ui.cvBack = ui.pid || ""; ui.pid = cvp; openCanvas(); } break;
+    case "dyopen": openPlan(b.dataset.which || null); break;
+    case "dysave": dySave(false); break;
+    case "dyclear": dySave(true); break;
+    case "dystart": var dys = dyFind(b.dataset.id); if (dys) startTimer(dys.project, dys.task, dys.note || ""); break;
+    case "dylog": var dyl = dyFind(b.dataset.id); if (dyl){ ui.logPreset = { task:dyl.task, note:dyl.note || "", hours:dyl.h || 0 }; openLog(dyl.project); } break;
     case "evnew": openTask(null, { kind:"event", project:ui.tab === "project" && proj() ? proj().id : PMM.LIFE }); break;
     case "tksave": tkSave(); break;
     case "tkrep": if (tkEd){ tkEd.rep.k = b.dataset.v; if (b.dataset.v === "w" && !tkEd.rep.days.length){ var tf = scrim.querySelector('form[data-form="task"] input[name="date"]'); tkEd.rep.days = [PMM.parse(tf && tf.value || todayISO()).getDay()]; } tkRepaint(); } break;
@@ -7825,7 +8112,7 @@ function openCanvas(){
   if (!scrim.hidden) closeSheet();
   cvEl.hidden = false; document.body.classList.add("locked", "cvopen"); paintCanvas();
 }
-function closeCanvas(){ if (cvEl) cvEl.hidden = true; document.body.classList.remove("locked", "cvopen"); cvG = null; render(); }
+function closeCanvas(){ if (cvEl) cvEl.hidden = true; document.body.classList.remove("locked", "cvopen"); cvG = null; if (ui.cvBack != null){ ui.pid = ui.cvBack || null; ui.cvBack = null; } render(); }
 function cvRecalc(){
   var by = {}; cvG.forEach(function(x){ by[x.id] = x; }); var memo = {};
   function depth(id, seen){ if (id === "cur") return 0; if (memo[id] != null) return memo[id]; var x = by[id]; if (!x || seen[id]) return 0; seen[id] = 1;
